@@ -1,23 +1,15 @@
 <template>
-    <div
-        class="relative flex items-top justify-center min-h-screen bg-customDark sm:items-center sm:pt-0 overflow-y-none"
-    >
-        <jet-validation-errors class="mb-4" />
+    <div class="relative flex items-top justify-center min-h-screen bg-customDark sm:items-center sm:pt-0 overflow-y-none">
         <div class="flex flex-col max-w-2xl mx-auto">
-            <h1 class="font-thread text-5xl text-customOrange w-full mb-8">
-                Register for ThreadWatch
-            </h1>
+            <h1 class="font-thread text-5xl text-customOrange w-full mb-8">Register for ThreadWatch</h1>
+            <jet-validation-errors class="my-4 w-full" />
             <form @submit.prevent="submit">
                 <div>
-                    <jet-label
-                        class="font-victor text-customLightGray text-xl font-medium"
-                        for="name"
-                        value="Name"
-                    />
+                    <jet-label class="font-victor text-customLightGray text-xl font-medium" for="name" value="Name" />
                     <jet-input
                         id="name"
                         type="text"
-                        class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor"
+                        class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                         v-model="form.name"
                         required
                         autofocus
@@ -26,26 +18,12 @@
                 </div>
 
                 <div class="mt-4">
-                    <jet-label
-                        class="font-victor text-customLightGray text-xl font-medium"
-                        for="email"
-                        value="Email"
-                    />
-                    <jet-input
-                        id="email"
-                        type="email"
-                        class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor"
-                        v-model="form.email"
-                        required
-                    />
+                    <jet-label class="font-victor text-customLightGray text-xl font-medium" for="email" value="Email" />
+                    <jet-input id="email" type="email" class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor" v-model="form.email" required />
                 </div>
 
                 <div class="mt-4">
-                    <jet-label
-                        class="font-victor text-customLightGray text-xl font-medium"
-                        for="password"
-                        value="Password"
-                    />
+                    <jet-label class="font-victor text-customLightGray text-xl font-medium" for="password" value="Password" />
                     <jet-input
                         id="password"
                         type="password"
@@ -57,11 +35,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <jet-label
-                        class="font-victor text-customLightGray text-xl font-medium"
-                        for="password_confirmation"
-                        value="Confirm Password"
-                    />
+                    <jet-label class="font-victor text-customLightGray text-xl font-medium" for="password_confirmation" value="Confirm Password" />
                     <jet-input
                         id="password_confirmation"
                         type="password"
@@ -72,48 +46,11 @@
                     />
                 </div>
 
-                <div
-                    class="mt-4"
-                    v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature"
-                >
-                    <jet-label for="terms">
-                        <div class="flex items-center">
-                            <jet-checkbox
-                                name="terms"
-                                id="terms"
-                                v-model:checked="form.terms"
-                            />
-
-                            <div class="ml-2">
-                                I agree to the
-                                <a
-                                    target="_blank"
-                                    :href="route('terms.show')"
-                                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    >Terms of Service</a
-                                >
-                                and
-                                <a
-                                    target="_blank"
-                                    :href="route('policy.show')"
-                                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    >Privacy Policy</a
-                                >
-                            </div>
-                        </div>
-                    </jet-label>
-                </div>
-
-                <div class="flex items-center justify-end mt-4">
-                    <inertia-link
-                        :href="route('login')"
-                        class="underline text-sm text-gray-600 hover:text-gray-900"
-                    >
-                        Already registered?
-                    </inertia-link>
+                <div class="flex items-center justify-end mt-4 space-x-4">
+                    <inertia-link :href="route('login')" class="underline text-sm text-customLightGray font-victor"> Already registered? </inertia-link>
 
                     <jet-button
-                        class="ml-4"
+                        class="border-2 border-customOrange hover:text-white tranform transition-colors hover:bg-customOrange text-customOrange font-victor text-md rounded-md py-2 px-6"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
                     >
@@ -126,18 +63,14 @@
 </template>
 
 <script>
-import JetAuthenticationCard from "@/Jetstream/AuthenticationCard";
-import JetAuthenticationCardLogo from "@/Jetstream/AuthenticationCardLogo";
-import JetButton from "@/Jetstream/Button";
-import JetInput from "@/Jetstream/Input";
-import JetCheckbox from "@/Jetstream/Checkbox";
-import JetLabel from "@/Jetstream/Label";
-import JetValidationErrors from "@/Jetstream/ValidationErrors";
+import JetButton from "@/Jetstream/Button"
+import JetInput from "@/Jetstream/Input"
+import JetCheckbox from "@/Jetstream/Checkbox"
+import JetLabel from "@/Jetstream/Label"
+import JetValidationErrors from "@/Jetstream/ValidationErrors"
 
 export default {
     components: {
-        JetAuthenticationCard,
-        JetAuthenticationCardLogo,
         JetButton,
         JetInput,
         JetCheckbox,
@@ -154,16 +87,15 @@ export default {
                 password_confirmation: "",
                 terms: false,
             }),
-        };
+        }
     },
 
     methods: {
         submit() {
             this.form.post(this.route("register"), {
-                onFinish: () =>
-                    this.form.reset("password", "password_confirmation"),
-            });
+                onFinish: () => this.form.reset("password", "password_confirmation"),
+            })
         },
     },
-};
+}
 </script>

@@ -31,7 +31,10 @@ class ThreadsController extends Controller
         Thread::create([
            'brand'=>$request->brand,
            'size'=>$request->size,
-           'year'=>$request->year,
+           'purchased'=>$request->purchased,
+           'style'=>$request->style,
+           'worn'=>$request->worn,
+           'washed'=>$request->washed,
        ]);
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was succesfully added');
@@ -54,7 +57,10 @@ class ThreadsController extends Controller
         $thread->update([
         'brand' => $request->brand,
         'size' => $request->size,
-        'year' => $request->year,
+        'purchased' => $request->purchased,
+        'style'=>$request->style,
+        'worn'=>$request->worn,
+        'washed'=>$request->washed,
     ]);
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was successfully updated!');

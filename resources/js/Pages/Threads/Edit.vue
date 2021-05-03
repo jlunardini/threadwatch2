@@ -1,24 +1,88 @@
 <template>
     <app-layout>
-        <div>
-            <form action="#" method="PATCH" class="container mx-auto bg-yellow-600 mt-8" @submit.prevent="updateThread">
-                <div class="form-group">
-                    <label for="brand">Brand</label>
-                    <input type="text" id="brand" placeholder="brand" v-model="form.brand" />
+        <div class="flex flex-col max-w-5xl mx-auto justify-center">
+            <h1 class="font-victor text-4xl text-customLightGray mt-16 underline">Add New Threads</h1>
+            <form action="/users" method="POST" class="mt-4" @submit.prevent="createThread">
+                <div class="flex flex-row flex-wrap">
+                    <div class="form-group flex flex-col w-5/12 mr-2">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="brand">Brand</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="brand"
+                            v-model="form.brand"
+                            name="brand"
+                        />
+                    </div>
+                    <div class="form-group flex flex-col w-5/12">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="style">Style</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="style"
+                            v-model="form.style"
+                            name="style"
+                        />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="size">Size</label>
-                    <input type="text" id="size" v-model="form.size" />
+                <div class="flex flex-row flex-wrap mt-2">
+                    <div class="form-group flex flex-col w-5/12 mr-2">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="size">Size</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="size"
+                            v-model="form.size"
+                            name="size"
+                        />
+                    </div>
+                    <div class="form-group flex flex-col w-5/12">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="purchased">Purchased (year)</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="purchased"
+                            v-model="form.purchased"
+                            name="purchased"
+                        />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="year">Year</label>
-                    <input type="text" id="year" v-model="form.year" />
+                <div class="flex flex-row flex-wrap my-4">
+                    <div class="w-10/12 bg-customOrange p-4 rounded-md text-center">
+                        <p class="text-black font-thread text-lg">Don’t worry if you don’t know these next two, we can start counting from here on out</p>
+                    </div>
                 </div>
-                <button type="submit">Update info</button>
+                <div class="flex flex-row flex-wrap mt-2">
+                    <div class="form-group flex flex-col w-5/12 mr-2">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="worn">Days Worn So Far</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="worn"
+                            v-model="form.worn"
+                            name="worn"
+                        />
+                    </div>
+                    <div class="form-group flex flex-col w-5/12">
+                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="washed">Times Washed So Far</label>
+                        <input
+                            class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                            type="text"
+                            id="washed"
+                            v-model="form.washed"
+                            name="washed"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-row mt-8 justify-start">
+                    <button
+                        class="text-sm text-gray-200 border-2 border-customOrange hover:text-white tranform transition-colors hover:bg-customOrange text-customOrange font-victor text-xl rounded-md py-2 px-6"
+                        @click="updateThread"
+                    >
+                        Update Thread
+                    </button>
+                </div>
             </form>
-        </div>
-        <div className="flex flex-row text-white justify-between bg-yellow-600 container mx-auto m-4 p-8">
-            <button class="btn btn-danger" @click="deleteThread">Delete Thread</button>
         </div>
     </app-layout>
 </template>
@@ -36,7 +100,10 @@ export default {
             form: {
                 brand: this.threads.brand,
                 size: this.threads.size,
-                year: this.threads.year,
+                purchased: this.threads.purchased,
+                style: this.threads.style,
+                worn: this.threads.worn,
+                washed: this.threads.washed,
             },
         }
     },

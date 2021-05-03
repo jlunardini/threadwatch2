@@ -16,9 +16,12 @@ class CreateThreadsTable extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('year');
+            $table->integer('purchased');
             $table->string('brand');
+            $table->string('style');
             $table->string('size');
+            $table->integer('worn');
+            $table->integer('washed');
         });
     }
 

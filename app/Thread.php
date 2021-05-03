@@ -16,6 +16,6 @@ class Thread extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'brand', 'size', 'year'
+        'brand', 'size', 'purchased', 'style', 'washed', 'worn'
     ];
 }
