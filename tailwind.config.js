@@ -14,6 +14,13 @@ module.exports = {
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
                 thread: ["Pacifico"],
+                victor: ["Victor Mono"],
+            },
+            colors: {
+                customDark: "#1D1D1D",
+                customBlack:"#151515",
+                customOrange: "#D98E39",
+                customLightGray: "#888888",
             },
         },
     },
