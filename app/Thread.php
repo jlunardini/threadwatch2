@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Thread extends Model
+class Thread extends Authenticatable
 {
     use HasFactory;
 
@@ -15,6 +16,6 @@ class Thread extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body', 'brand', 'size', 'year'
+        'brand', 'size', 'year'
     ];
 }

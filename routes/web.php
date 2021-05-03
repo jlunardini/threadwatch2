@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Models\Thread;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,28 +29,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('/test-create', function () {
-    Thread::create([
-        'year' => '2021',
-        'brand' => 'Levis',
-        'size' => '30'
-    ]);
-});
-
-Route::get('/threads', function () {
-    $threads = Thread::all();
-    return Inertia::render('Threads', [
-        'threads' => $threads
-    ]);
-})->name('threads');
-
-Route::get('/threads/{id}', function ($id) {
-    $thread = Thread::where('id', $id)->first();
-    return Inertia::render('Thread', [
-        'thread' => $thread
-    ]);
-})->name('threads.single');
-
-Route::post('/threads', function () {
-    return 'creating a thread';
-});
+Route::get('/threads', 'App\Http\Controllers\ThreadsController@index')->name('threads.index');
+Route::get('/threads/create', 'App\Http\Controllers\ThreadsController@create')->name('threads.create');
+Route::post('/threads', 'App\Http\Controllers\ThreadsController@store')->name('threads.store');
+Route::get('/threads/{thread}/edit', 'App\Http\Controllers\ThreadsController@edit')->name('threads.edit');
+Route::patch('/threads/{thread}', 'App\Http\Controllers\ThreadsController@update')->name('threads.update');
+Route::delete('/threads/{thread}', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
