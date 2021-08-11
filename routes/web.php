@@ -34,4 +34,6 @@ Route::get('/threads/create', 'App\Http\Controllers\ThreadsController@create')->
 Route::post('/threads', 'App\Http\Controllers\ThreadsController@store')->name('threads.store');
 Route::get('/threads/{thread}/edit', 'App\Http\Controllers\ThreadsController@edit')->name('threads.edit');
 Route::patch('/threads/{thread}', 'App\Http\Controllers\ThreadsController@update')->name('threads.update');
+Route::patch('/threads/{thread}/woreToday', 'App\Http\Controllers\ThreadsController@woreToday')->name('threads.wore');
+Route::patch('/threads/{thread}/washedToday', 'App\Http\Controllers\ThreadsController@washedToday')->name('threads.washed');
 Route::delete('/threads/{thread}', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');

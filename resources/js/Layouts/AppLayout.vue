@@ -3,38 +3,24 @@
         <jet-banner />
 
         <div class="min-h-screen bg-customDark">
-            <nav class="bg-customOrange w-auto max-w-lg rounded-full sticky top-2 mx-auto flex flex-row justify-center h-12 space-x-8">
+            <nav class="bg-customOrange w-auto max-w-sm rounded-full sticky top-2 mx-auto flex items-center flex-row justify-center h-12 gap-8 z-30">
                 <!-- Navigation Links -->
 
                 <jet-nav-link class="font-thread text-white text-xl" :href="route('dashboard')" :active="route().current('dashboard')">Dashboard</jet-nav-link>
                 <jet-nav-link class="font-thread text-white text-xl" :href="route('threads.index')" :active="route().current('threads.index')"> All Threads </jet-nav-link>
-
-                <div class="hidden sm:flex sm:items-center">
                     <!-- Settings Dropdown -->
-                    <div class="ml-3 relative">
+                    <div class="absolute right-4">
                         <jet-dropdown align="right" width="48">
                             <template #trigger>
-                                <button
-                                    v-if="$page.props.jetstream.managesProfilePhotos"
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition"
-                                >
-                                    <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
-                                </button>
-
-                                <span v-else class="inline-flex rounded-md">
+                                <span  class="inline-flex rounded-md pt-2">
                                     <button
                                         type="button"
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition"
+                                        class="inline-flex items-center text-gray-500 transition"
                                     >
-                                        {{ $page.props.user.name }}
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                           </svg>
 
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
                                     </button>
                                 </span>
                             </template>
@@ -56,7 +42,6 @@
                             </template>
                         </jet-dropdown>
                     </div>
-                </div>
 
                 <!-- Hamburger -->
                 <div class="-mr-2 flex items-center sm:hidden">

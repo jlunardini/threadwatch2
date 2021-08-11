@@ -1,11 +1,19 @@
 <template>
     <app-layout>
         <div class="flex flex-col max-w-5xl mx-auto justify-center">
-            <h1 class="font-victor text-4xl text-customLightGray mt-16 underline">Add New Threads</h1>
-            <form action="/users" method="POST" class="mt-4" @submit.prevent="createThread">
+            <h1
+                class="font-victor text-4xl text-customLightGray mt-16 underline"
+            >
+                Add New Threads
+            </h1>
+            <form method="POST" class="mt-4" @submit.prevent="createThread">
                 <div class="flex flex-row flex-wrap">
                     <div class="form-group flex flex-col w-5/12 mr-2">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="brand">Brand</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="brand"
+                            >Brand</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -15,7 +23,11 @@
                         />
                     </div>
                     <div class="form-group flex flex-col w-5/12">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="style">Style</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="style"
+                            >Style</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -27,7 +39,11 @@
                 </div>
                 <div class="flex flex-row flex-wrap mt-2">
                     <div class="form-group flex flex-col w-5/12 mr-2">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="size">Size</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="size"
+                            >Size</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -37,7 +53,11 @@
                         />
                     </div>
                     <div class="form-group flex flex-col w-5/12">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="purchased">Purchased (year)</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="purchased"
+                            >Purchased (year)</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -48,13 +68,22 @@
                     </div>
                 </div>
                 <div class="flex flex-row flex-wrap my-4">
-                    <div class="w-10/12 bg-customOrange p-4 rounded-md text-center">
-                        <p class="text-black font-thread text-lg">Don’t worry if you don’t know these next two, we can start counting from here on out</p>
+                    <div
+                        class="w-10/12 bg-customOrange p-4 rounded-md text-center"
+                    >
+                        <p class="text-black font-thread text-lg">
+                            Don’t worry if you don’t know these next two, we can
+                            start counting from here on out
+                        </p>
                     </div>
                 </div>
                 <div class="flex flex-row flex-wrap mt-2">
                     <div class="form-group flex flex-col w-5/12 mr-2">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="worn">Days Worn So Far</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="worn"
+                            >Days Worn So Far</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -64,7 +93,11 @@
                         />
                     </div>
                     <div class="form-group flex flex-col w-5/12">
-                        <label class="font-victor text-customLightGray text-xl font-medium w-full" for="washed">Times Washed So Far</label>
+                        <label
+                            class="font-victor text-customLightGray text-xl font-medium w-full"
+                            for="washed"
+                            >Times Washed So Far</label
+                        >
                         <input
                             class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
                             type="text"
@@ -73,6 +106,13 @@
                             name="washed"
                         />
                     </div>
+                    <file-input
+                        v-model="form.photo"
+                        class="pr-6 pb-8 w-full lg:w-1/2"
+                        type="file"
+                        accept="image/*"
+                        label="Photo"
+                    />
                 </div>
                 <div class="flex flex-row mt-8 justify-start">
                     <button
@@ -88,11 +128,13 @@
 </template>
 
 <script>
-import AppLayout from "./../../Layouts/AppLayout"
-import Welcome from "./../../Jetstream/Welcome"
+import AppLayout from "./../../Layouts/AppLayout";
+import Welcome from "./../../Jetstream/Welcome";
+import FileInput from "../Components/FileInput";
 export default {
     components: {
         AppLayout,
+        FileInput,
     },
     props: ["threads", "errors"],
     data() {
@@ -104,14 +146,15 @@ export default {
                 style: "",
                 worn: "",
                 washed: "",
+                photo: "",
             },
-        }
+        };
     },
     methods: {
         createThread() {
-            this.$inertia.post("/threads", this.form)
+            this.$inertia.post("/threads", this.form);
         },
     },
-}
+};
 </script>
 <style scoped></style>
