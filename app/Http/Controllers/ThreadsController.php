@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Thread;
+use App\Models\Thread;
+use App\Models\User;
 use Inertia\Inertia;
 use DB;
 
 class ThreadsController extends Controller
 {
-
     // view all threads
-    public function index()
+    public function index(Request $request)
     {
-        $threads = Thread::all();
+        $threads = User::has('thread')->with('thread')->get();
 
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -72,17 +72,19 @@ class ThreadsController extends Controller
     }
 
     // add to Wore column
-    public function woreToday(Thread $thread) {
+    public function woreToday(Thread $thread)
+    {
         $thread->update([
-           'worn' => DB::raw('worn + 1'),
+            'worn' => DB::raw('worn + 1'),
         ]);
         return redirect()->route('threads.index')->with('successMessage', 'Look at you, wearing pants today');
     }
 
     // add to Washed column
-    public function washedToday(Thread $thread) {
+    public function washedToday(Thread $thread)
+    {
         $thread->update([
-           'washed' => DB::raw('washed + 1'),
+            'washed' => DB::raw('washed + 1'),
         ]);
         return redirect()->route('threads.index')->with('successMessage', 'Clean bb');
     }
