@@ -7,19 +7,25 @@
             <h1 class="font-victor text-4xl text-customLightGray mt-16 underline">Your Tracked Threads</h1>
         </div>
         <div class="grid grid-cols-12 mx-8 max-w-5xl gap-4 mt-4 justify-center lg:mx-auto overflow-x-auto">
-            <div className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md border-customOrange border py-4 pl-4 w-auto relative" v-for="thread in threads" :key="thread.id">
+            <div
+                className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md border-customOrange border py-4 pl-4 w-auto relative"
+                v-for="thread in threads"
+                :key="thread.id"
+            >
                 <div class="flex flex-row gap-2 mb-4">
                     <inertia-link
                         :href="`/threads/${thread.id}/woreToday`"
                         method="PATCH"
                         class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
-                        >Wore Today</inertia-link>
-                        <inertia-link
+                        >Wore Today</inertia-link
+                    >
+                    <inertia-link
                         :href="`/threads/${thread.id}/washedToday`"
                         method="PATCH"
                         class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
-                        >Washed Today</inertia-link>
-                        <inertia-link class="p-2" :href="`/threads/${thread.id}/edit`"
+                        >Washed Today</inertia-link
+                    >
+                    <inertia-link class="p-2" :href="`/threads/${thread.id}/edit`"
                         ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 hover:text-customOrange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path
                                 stroke-linecap="round"
@@ -38,10 +44,14 @@
                 </p>
                 <div class="flex flex-col mt-4">
                     <div class="text-customLightGray">
-                        <p class="font-victor text-sm">Worn for: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.worn }}</span> Days</p>
+                        <p class="font-victor text-sm">
+                            Worn for: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.worn }}</span> Days
+                        </p>
                     </div>
                     <div class="text-customLightGray">
-                        <p class="font-victor text-sm">Washed: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.washed }}</span> Times</p>
+                        <p class="font-victor text-sm">
+                            Washed: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.washed }}</span> Times
+                        </p>
                     </div>
                 </div>
             </div>
@@ -60,6 +70,7 @@
 <script>
 import AppLayout from "./../../Layouts/AppLayout";
 import Welcome from "./../../Jetstream/Welcome";
+
 export default {
     components: {
         AppLayout,
