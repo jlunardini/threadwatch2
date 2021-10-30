@@ -11,11 +11,22 @@ use DB;
 class ThreadsController extends Controller
 {
     // view all threads
-    public function index()
+//     public function index()
+//     {
+//         $user_id = auth()->user()->id;
+//         $user = User::find($user_id);
+//         dd($user);
+    // //
+    // //         return Inertia::render('Threads/Index', [
+    // //             'threads' => $user,
+    // //         ]);
+//     }
+
+    public function index(User $user)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        $threads = Thread::find($user)->threads;
+        $user = auth()->user()->id;
+
+        $threads = Thread::where('user_id', '=', $user)->get();
 
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -28,11 +39,14 @@ class ThreadsController extends Controller
         return Inertia::render('Threads/Create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         $request->validate([
             'brand' => 'required',
         ]);
+
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
 
         Thread::create([
             'brand' => $request->brand,
@@ -41,6 +55,7 @@ class ThreadsController extends Controller
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
+            'user_id' => $user_id,
         ]);
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was succesfully added');

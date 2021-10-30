@@ -16,11 +16,13 @@ class Thread extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'brand', 'size', 'purchased', 'style', 'washed', 'worn'
+        'brand', 'size', 'purchased', 'style', 'washed', 'worn', 'user_id'
     ];
+
+
 
     public function user()
     {
-        return  $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

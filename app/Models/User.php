@@ -59,6 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
     public function threads()
     {
         return $this->hasMany('App\Models\Thread');
