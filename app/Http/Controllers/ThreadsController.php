@@ -7,6 +7,7 @@ use App\Models\Thread;
 use App\Models\User;
 use Inertia\Inertia;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class ThreadsController extends Controller
 {
@@ -27,6 +28,16 @@ class ThreadsController extends Controller
         $user = auth()->user()->id;
 
         $threads = Thread::where('user_id', '=', $user)->get();
+
+        return Inertia::render('Threads/Index', [
+            'threads' => $threads,
+        ]);
+    }
+
+    public function category(User $user, Request $request, $category)
+    {
+        $user = auth()->user()->id;
+        $threads = Thread::where('category', '=', $category)->get();
 
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -112,5 +123,16 @@ class ThreadsController extends Controller
         $thread->delete();
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was successfully deleted!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('successMessage', "You're outta here!");
     }
 }

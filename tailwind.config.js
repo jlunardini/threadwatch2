@@ -18,9 +18,11 @@ module.exports = {
             },
             colors: {
                 customDark: "#1D1D1D",
-                customBlack:"#151515",
+                customBlack: "#151515",
                 customOrange: "#D98E39",
                 customLightGray: "#888888",
+                customBlue: "#4F5D75",
+                customCamel: "#BD9971",
             },
         },
     },
@@ -31,8 +33,5 @@ module.exports = {
         },
     },
 
-    plugins: [
-        require("@tailwindcss/forms"),
-        require("@tailwindcss/typography"),
-    ],
+    plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

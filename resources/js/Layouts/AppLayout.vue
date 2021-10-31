@@ -7,7 +7,7 @@
                 <!-- Navigation Links -->
 
                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">Dashboard</jet-nav-link>
-                <jet-nav-link :href="route('threads.index')" :active="route().current('threads.index')"> All Threads </jet-nav-link>
+                <jet-nav-link :href="route('threads.index')" :active="route().current('threads.index')">Threads</jet-nav-link>
                 <!-- Settings Dropdown -->
                 <div class="absolute right-4">
                     <jet-dropdown align="right" width="48">
@@ -32,7 +32,7 @@
                             <div class="border-t border-gray-100 mx-4"></div>
                             <!-- Authentication -->
                             <form @submit.prevent="logout">
-                                <jet-dropdown-link as="button"> Log Out </jet-dropdown-link>
+                                <jet-dropdown-link href="/logout"> Log Out </jet-dropdown-link>
                             </form>
                         </template>
                     </jet-dropdown>
@@ -73,10 +73,6 @@ export default {
         };
     },
 
-    methods: {
-        logout() {
-            this.$inertia.post(route("logout"));
-        },
-    },
+    methods: {},
 };
 </script>

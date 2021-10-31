@@ -4,15 +4,48 @@
             {{ successMessage }}
         </div>
         <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-8">
-            <h1 class="font-victor text-4xl text-customLightGray mt-16 underline">Your Tracked Threads</h1>
+            <div class="flex flex-row items-center gap-8 mt-16">
+                <div className="flex flex-row gap-8">
+                    <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads">
+                        All
+                    </inertia-link>
+                    <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads/categories/jeans">
+                        Jeans
+                    </inertia-link>
+                    <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads/categories/tops">
+                        Tops
+                    </inertia-link>
+                    <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads/categories/kicks">
+                        Kicks
+                    </inertia-link>
+                </div>
+            </div>
         </div>
-        <div class="grid grid-cols-12 mx-8 max-w-5xl gap-4 mt-4 justify-center lg:mx-auto overflow-x-auto">
+        <div class="grid grid-cols-12 mx-8 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto">
             <div
-                className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md border-customOrange border py-4 pl-4 w-auto relative"
+                className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative"
                 v-for="thread in threads"
                 :key="thread.id"
             >
-                <div class="flex flex-row gap-2 mb-4">
+                <!-- <span class="h-16 w-16 rounded-full bg-gray-800"></span> -->
+                <p class="text-2xl text-customLightGray mt-4">{{ thread.brand }}</p>
+                <p class="text-lg text-customLightGray">{{ thread.style }}</p>
+                <p class="text-lg text-customLightGray">
+                    Purchased In: <span class="font-bold">{{ thread.purchased }}</span>
+                </p>
+                <div class="flex flex-col mt-2">
+                    <div class="text-customLightGray">
+                        <p class="font-victor text-sm">
+                            Worn for: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.worn }}</span> Days
+                        </p>
+                    </div>
+                    <div class="text-customLightGray">
+                        <p class="font-victor text-sm">
+                            Washed: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.washed }}</span> Times
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2 mb-4 mt-8">
                     <inertia-link
                         :href="`/threads/${thread.id}/woreToday`"
                         method="PATCH"
@@ -36,27 +69,9 @@
                         </svg>
                     </inertia-link>
                 </div>
-                <span class="h-16 w-16 rounded-full bg-gray-800"></span>
-                <p class="text-2xl text-customLightGray mt-4">{{ thread.brand }}</p>
-                <p class="text-lg text-customLightGray">{{ thread.style }}</p>
-                <p class="text-lg text-customLightGray">
-                    Purchased In: <span class="font-bold">{{ thread.purchased }}</span>
-                </p>
-                <div class="flex flex-col mt-4">
-                    <div class="text-customLightGray">
-                        <p class="font-victor text-sm">
-                            Worn for: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.worn }}</span> Days
-                        </p>
-                    </div>
-                    <div class="text-customLightGray">
-                        <p class="font-victor text-sm">
-                            Washed: <span class="font-bold text-customOrange text-xl font-thread">{{ thread.washed }}</span> Times
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="flex flex-row mt-8 justify-center max-w-5xl mx-auto">
+        <div class="flex flex-row mt-12 justify-center max-w-5xl mx-auto pb-16">
             <inertia-link
                 class="text-sm text-gray-200 border-2 border-customOrange hover:text-white tranform transition-colors hover:bg-customOrange text-customOrange font-victor text-xl rounded-md py-2 px-6"
                 href="/threads/create"
@@ -64,20 +79,25 @@
                 Add new thread
             </inertia-link>
         </div>
+        <dropdown></dropdown>
     </app-layout>
 </template>
 
 <script>
 import AppLayout from "./../../Layouts/AppLayout";
 import Welcome from "./../../Jetstream/Welcome";
+import ThreadNav from "../Components/ThreadNav";
 
 export default {
     components: {
         AppLayout,
+        ThreadNav,
     },
     props: ["threads", "successMessage"],
     data() {
-        return {};
+        return {
+            showingNavigationDropdown: false,
+        };
     },
     methods: {
         woreToday() {

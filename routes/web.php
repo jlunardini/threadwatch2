@@ -28,7 +28,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::get('/logout', 'App\Http\Controllers\ThreadsController@logout')->name('logout');
 
+// CRUD For Threads
 Route::get('/threads', 'App\Http\Controllers\ThreadsController@index')->name('threads.index');
 Route::get('/threads/create', 'App\Http\Controllers\ThreadsController@create')->name('threads.create');
 Route::post('/threads', 'App\Http\Controllers\ThreadsController@store')->name('threads.store');
@@ -37,3 +39,6 @@ Route::patch('/threads/{thread}', 'App\Http\Controllers\ThreadsController@update
 Route::patch('/threads/{thread}/woreToday', 'App\Http\Controllers\ThreadsController@woreToday')->name('threads.wore');
 Route::patch('/threads/{thread}/washedToday', 'App\Http\Controllers\ThreadsController@washedToday')->name('threads.washed');
 Route::delete('/threads/{thread}', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
+
+//
+Route::get('/threads/categories/{category}', 'App\Http\Controllers\ThreadsController@category')->name('threads.category');
