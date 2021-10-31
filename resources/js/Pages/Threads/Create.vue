@@ -57,7 +57,7 @@
                             name="category"
                         >
                             <option value="jeans">Jeans</option>
-                            <option value="top">Top</option>
+                            <option value="tops">Top</option>
                             <option value="kicks">Kicks</option>
                         </select>
                     </div>
