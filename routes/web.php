@@ -38,7 +38,7 @@ Route::get('/threads/{thread}/edit', 'App\Http\Controllers\ThreadsController@edi
 Route::patch('/threads/{thread}', 'App\Http\Controllers\ThreadsController@update')->name('threads.update');
 Route::patch('/threads/{thread}/woreToday', 'App\Http\Controllers\ThreadsController@woreToday')->name('threads.wore');
 Route::patch('/threads/{thread}/washedToday', 'App\Http\Controllers\ThreadsController@washedToday')->name('threads.washed');
-Route::delete('/threads/{thread}', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
+Route::delete('/threads/{thread}/delete', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
 
 //
 Route::get('/threads/categories/{category}', 'App\Http\Controllers\ThreadsController@category')->name('threads.category');

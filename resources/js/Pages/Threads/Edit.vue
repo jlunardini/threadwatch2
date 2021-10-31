@@ -96,7 +96,7 @@
                        label="Photo"
                    /> -->
                 </div>
-                <div class="flex flex-row mt-8 justify-start">
+                <div class="flex flex-row mt-8 justify-start gap-4 items-end">
                     <button
                         class="
                             text-sm text-gray-200
@@ -116,6 +116,7 @@
                     >
                         Update Thread
                     </button>
+                    <inertia-link @click="deleteThread" class="block text-red-400">Delete</inertia-link>
                 </div>
             </form>
         </div>
@@ -150,8 +151,8 @@ export default {
             });
         },
         deleteThread() {
-            if (confirm("Are you sure you want to delete this contact?")) {
-                this.$inertia.delete(`/threads/${this.threads.id}`).then(() => {});
+            if (confirm("Are you sure you want to delete this thread?")) {
+                this.$inertia.delete(`/threads/${this.threads.id}/delete`).then(() => {});
             }
         },
 

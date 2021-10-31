@@ -20966,8 +20966,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteThread: function deleteThread() {
-      if (confirm("Are you sure you want to delete this contact?")) {
-        this.$inertia["delete"]("/threads/".concat(this.threads.id)).then(function () {});
+      if (confirm("Are you sure you want to delete this thread?")) {
+        this.$inertia["delete"]("/threads/".concat(this.threads.id, "/delete")).then(function () {});
       }
     },
     capitalize: function capitalize() {
@@ -25052,7 +25052,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "top"
+  value: "tops"
 }, "Top", -1
 /* HOISTED */
 );
@@ -25289,7 +25289,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "top"
+  value: "tops"
 }, "Top", -1
 /* HOISTED */
 );
@@ -25338,9 +25338,14 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_25 = {
-  "class": "flex flex-row mt-8 justify-start"
+  "class": "flex flex-row mt-8 justify-start gap-4 items-end"
 };
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
+
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
@@ -25429,7 +25434,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[7] || (_cache[7] = function () {
           return $options.updateThread && $options.updateThread.apply($options, arguments);
         })
-      }, " Update Thread ")])], 32
+      }, " Update Thread "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+        onClick: $options.deleteThread,
+        "class": "block text-red-400"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_26];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["onClick"])])], 32
       /* HYDRATE_EVENTS */
       )])];
     }),
