@@ -26,7 +26,6 @@ class ThreadsController extends Controller
     public function index(User $user)
     {
         $user = auth()->user()->id;
-
         $threads = Thread::where('user_id', '=', $user)->get();
 
         return Inertia::render('Threads/Index', [
