@@ -1,10 +1,10 @@
 <template>
     <login-layout>
-        <div class="flex flex-col">
+        <div class="flex flex-col justify-center relative">
             <h1 class="font-thread text-center text-4xl md:text-5xl lg:text-6xl text-customOrange">Welcome to ThreadWatch!</h1>
             <h2 class="text-center font-victor text-lg lg:text-3xl md:text-2xl text-customLightGray mt-4">Quantify your threads</h2>
         </div>
-        <div class="flex flex-row flex-wrap md:flex-nowrap items-center mt-12 gap-4 justify-center">
+        <div class="flex flex-row flex-wrap md:flex-nowrap items-center mt-12 gap-4 justify-center relative">
             <inertia-link
                 :href="route('login')"
                 class="

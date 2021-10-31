@@ -66,6 +66,7 @@ class ThreadsController extends Controller
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
+            'category' => $request->category,
             'user_id' => $user_id,
         ]);
 
@@ -94,6 +95,7 @@ class ThreadsController extends Controller
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
+            'category' => $request->category,
         ]);
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was successfully updated!');

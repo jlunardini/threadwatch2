@@ -3,8 +3,8 @@
         <div v-if="successMessage" class="bg-red-100">
             {{ successMessage }}
         </div>
-        <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-8">
-            <div class="flex flex-row items-center gap-8 mt-16">
+        <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-2">
+            <div class="flex flex-row items-center gap-8 mt-8 lg:mt-16 justify-center lg:justify-start">
                 <div className="flex flex-row gap-8">
                     <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads">
                         All
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-12 mx-8 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto">
+        <div class="grid grid-cols-12 mx-2 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto">
             <div
                 className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative"
                 v-for="thread in threads"

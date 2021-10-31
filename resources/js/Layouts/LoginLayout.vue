@@ -6,6 +6,7 @@
                 <slot></slot>
             </main>
         </div>
+        <p class="bg-customBlack w-auto flex-flex-grow-0 self-center font-victor text-md text-customLightGray rounded-full py-2 px-4 absolute bottom-16 left-1/2 transform -translate-x-1/2">Beta</p>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <login-layout>
         <div class="flex flex-col">
-            <h1 class="font-thread text-center text-4xl md:text-5xl lg:text-6xl text-customOrange mb-8">Log In</h1>
+            <h1 class="font-thread text-center text-4xl md:text-5xl lg:text-6xl text-customOrange mb-12">Log In</h1>
         </div>
         <jet-validation-errors class="mb-4" />
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -13,7 +13,7 @@
                 <jet-input
                     id="email"
                     type="email"
-                    class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                    class="mt-1 block w-full bg-customBlack border-none text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange"
                     v-model="form.email"
                     required
                     autofocus
@@ -25,7 +25,7 @@
                 <jet-input
                     id="password"
                     type="password"
-                    class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor outline-none focus:outline-none focus:ring-transparent"
+                    class="mt-1 block w-full bg-customBlack border-none text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -39,7 +39,7 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4 space-x-4">
+            <div class="flex items-center justify-end mt-8 space-x-4">
                 <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-customLightGray font-victor"> Forgot your password? </inertia-link>
 
                 <jet-button
