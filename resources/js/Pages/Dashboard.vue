@@ -5,7 +5,10 @@
                 <h1 class="text-customLightGray text-4xl mb-8">Most Worn</h1>
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-row text-white justify-between items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative" v-for="thread in threads" :key="thread.id">
-                        <p class="text-2xl text-customLightGray">{{ thread.brand }} {{ thread.style }}</p>
+                        <div>
+                            <p class="text-2xl text-customLightGray">{{ thread.brand }}</p>
+                            <p class="text-2xl text-customLightGray">{{ thread.style }}</p>
+                        </div>
                         <div class="flex flex-row items-center justify-center mr-6 gap-2">
                             <div class="bg-customOrange h-8 w-8 rounded-full flex items-center justify-center leading-none">
                                 <p class="font-bold text-customDark text-xl rounded-full">{{ thread.worn }}</p>

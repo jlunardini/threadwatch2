@@ -23952,16 +23952,19 @@ var _hoisted_5 = {
   "class": "text-2xl text-customLightGray"
 };
 var _hoisted_6 = {
-  "class": "flex flex-row items-center justify-center mr-6 gap-2"
+  "class": "text-2xl text-customLightGray"
 };
 var _hoisted_7 = {
-  "class": "bg-customOrange h-8 w-8 rounded-full flex items-center justify-center leading-none"
+  "class": "flex flex-row items-center justify-center mr-6 gap-2"
 };
 var _hoisted_8 = {
+  "class": "bg-customOrange h-8 w-8 rounded-full flex items-center justify-center leading-none"
+};
+var _hoisted_9 = {
   "class": "font-bold text-customDark text-xl rounded-full"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-customOrange font-semibold text-sm"
 }, "Days", -1
 /* HOISTED */
@@ -23976,11 +23979,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           className: "flex flex-row text-white justify-between items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative",
           key: thread.id
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.worn), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
         /* TEXT */
-        )]), _hoisted_9])]);
+        )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.worn), 1
+        /* TEXT */
+        )]), _hoisted_10])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])];
