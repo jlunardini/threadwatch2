@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index(User $user)
     {
         $user = auth()->user()->id;
-        $most_worn = Thread::orderBy('worn', 'desc')->take(5)->get();
+        $most_worn = Thread::where('user_id', '=', $user)->orderBy('worn', 'desc')->take(5)->get();
         return Inertia::render('Dashboard', [
             'threads' => $most_worn,
         ]);

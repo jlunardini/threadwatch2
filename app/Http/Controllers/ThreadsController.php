@@ -27,7 +27,6 @@ class ThreadsController extends Controller
     {
         $user = auth()->user()->id;
         $threads = Thread::where('user_id', '=', $user)->get();
-
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
         ]);
@@ -36,7 +35,7 @@ class ThreadsController extends Controller
     public function category(User $user, Request $request, $category)
     {
         $user = auth()->user()->id;
-        $threads = Thread::where('category', '=', $category)->get();
+        $threads = Thread::where('user_id', '=', $user)->where('category', '=', $category)->get();
 
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
