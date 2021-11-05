@@ -96,7 +96,7 @@
                        label="Photo"
                    /> -->
                 </div>
-                <div class="flex flex-row mt-8 justify-start gap-4 items-end">
+                <div class="flex flex-row mt-8 justify-start gap-4 items-end mb-16">
                     <button
                         class="
                             text-sm text-gray-200
