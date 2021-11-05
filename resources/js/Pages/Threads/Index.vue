@@ -47,11 +47,18 @@
                 </div>
                 <div class="flex flex-row gap-2 mb-4 mt-8">
                     <inertia-link
+                        v-if="getHumanDate(thread.updated_at) != today"
                         :href="`/threads/${thread.id}/woreToday`"
                         method="PATCH"
                         class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
                         >Wore Today</inertia-link
                     >
+                    <div
+                        v-if="getHumanDate(thread.updated_at) == today"
+                        class="font-victor border border-customOrange cursor-default rounded-full text-sm py-2 px-4 text-white tranform transition-colors bg-customOrange"
+                    >
+                        Worn Today
+                    </div>
                     <inertia-link
                         :href="`/threads/${thread.id}/washedToday`"
                         method="PATCH"
@@ -87,6 +94,7 @@
 import AppLayout from "./../../Layouts/AppLayout";
 import Welcome from "./../../Jetstream/Welcome";
 import ThreadNav from "../Components/ThreadNav";
+import moment from "moment";
 
 export default {
     components: {
@@ -96,6 +104,7 @@ export default {
     props: ["threads", "successMessage"],
     data() {
         return {
+            today: moment().format("DD"),
             showingNavigationDropdown: false,
         };
     },
@@ -104,6 +113,9 @@ export default {
             this.$inertia.patch(`/threads/${this.threads.id}`).then(() => {
                 this.loading = false;
             });
+        },
+        getHumanDate: function (date) {
+            return moment(date).format("DD");
         },
     },
 };
