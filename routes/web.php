@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
 
-Route::get('/logout', 'App\Http\Controllers\ThreadsController@logout')->name('logout');
+Route::get('/logout', 'App\Http\Controllers\SocialController@logout')->name('logout');
 
 // CRUD For Threads
 Route::get('/threads', 'App\Http\Controllers\ThreadsController@index')->name('threads.index');
@@ -38,5 +38,8 @@ Route::patch('/threads/{thread}/woreToday', 'App\Http\Controllers\ThreadsControl
 Route::patch('/threads/{thread}/washedToday', 'App\Http\Controllers\ThreadsController@washedToday')->name('threads.washed');
 Route::delete('/threads/{thread}/delete', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
 
-//
+// categories
 Route::get('/threads/categories/{category}', 'App\Http\Controllers\ThreadsController@category')->name('threads.category');
+
+//profiles
+Route::get('/users/{profile}', 'App\Http\Controllers\SocialController@profile')->name('threads.profile');

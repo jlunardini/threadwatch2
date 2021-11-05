@@ -42,6 +42,7 @@ class ThreadsController extends Controller
         ]);
     }
 
+
     // create new thread
     public function create()
     {
@@ -123,16 +124,5 @@ class ThreadsController extends Controller
         $thread->delete();
 
         return redirect()->route('threads.index')->with('successMessage', 'Thread was successfully deleted!');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/')->with('successMessage', "You're outta here!");
     }
 }

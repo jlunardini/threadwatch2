@@ -15,8 +15,16 @@ class DashboardController extends Controller
     {
         $user = auth()->user()->id;
         $most_worn = Thread::where('user_id', '=', $user)->orderBy('worn', 'desc')->take(5)->get();
+        $thread_count_total = Thread::where('user_id', '=', $user)->count();
+        $jeans = Thread::where('user_id', '=', $user)->where('category', '=', 'jeans')->count();
+        $tops = Thread::where('user_id', '=', $user)->where('category', '=', 'tops')->count();
+        $kicks = Thread::where('user_id', '=', $user)->where('category', '=', 'kicks')->count();
         return Inertia::render('Dashboard', [
             'threads' => $most_worn,
+            'thread_count_total' => $thread_count_total,
+            'jeans' => $jeans,
+            'tops' => $tops,
+            'kicks' => $kicks,
         ]);
     }
 }
