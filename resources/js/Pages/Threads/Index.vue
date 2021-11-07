@@ -1,8 +1,6 @@
 <template>
     <app-layout>
-        <div v-if="successMessage" class="bg-red-100">
-            {{ successMessage }}
-        </div>
+
         <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-2">
             <div class="flex flex-row items-center gap-8 mt-8 lg:mt-16 justify-center lg:justify-start">
                 <div className="flex flex-row gap-8">
@@ -18,6 +16,12 @@
                     <inertia-link class="text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2" href="/threads/categories/kicks">
                         Kicks
                     </inertia-link>
+                    <div v-if="successMessage" class="border border-green-500 bg-green-500 rounded-md transform text-customDark p-2 text-md flex flex-row gap-2 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p>{{successMessage}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -117,6 +121,11 @@ export default {
         getHumanDate: function (date) {
             return moment(date).format("DD");
         },
+        setShow() {
+              setTimeout(() => {
+                this.show = true;
+              }, 2000);
+            },
     },
 };
 </script>
