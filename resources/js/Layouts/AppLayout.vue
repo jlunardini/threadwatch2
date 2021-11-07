@@ -8,6 +8,8 @@
 
                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">Dashboard</jet-nav-link>
                 <jet-nav-link :href="route('threads.index')" :active="route().current('threads.index')">Threads</jet-nav-link>
+
+                <jet-nav-link :href="route('social.feed')" :active="route().current('social.feed')">Feed</jet-nav-link>
                 <!-- Settings Dropdown -->
                 <div class="absolute right-4">
                     <jet-dropdown align="right" width="48">

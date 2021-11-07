@@ -38,8 +38,9 @@ Route::patch('/threads/{thread}/woreToday', 'App\Http\Controllers\ThreadsControl
 Route::patch('/threads/{thread}/washedToday', 'App\Http\Controllers\ThreadsController@washedToday')->name('threads.washed');
 Route::delete('/threads/{thread}/delete', 'App\Http\Controllers\ThreadsController@destroy')->name('threads.destroy');
 
-// categories
+// Categories
 Route::get('/threads/categories/{category}', 'App\Http\Controllers\ThreadsController@category')->name('threads.category');
 
-//profiles
-Route::get('/users/{profile}', 'App\Http\Controllers\SocialController@profile')->name('threads.profile');
+//Social
+Route::get('/user/{profile}', 'App\Http\Controllers\SocialController@profile')->name('social.profile');
+Route::get('/feed', 'App\Http\Controllers\SocialController@feed')->name('social.feed');
