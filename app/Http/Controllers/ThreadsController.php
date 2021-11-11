@@ -69,7 +69,7 @@ class ThreadsController extends Controller
             'user_id' => $user_id,
         ]);
 
-        return redirect()->back()->with('successMessage', 'Thread was succesfully added');
+        return redirect()->route('threads.category', $request->category)->with('successMessage', 'Thread was succesfully added');
     }
 
 
