@@ -30,4 +30,9 @@ class Thread extends Authenticatable
     {
         return $this->hasOne('App\Models\ThreadCategory');
     }
+
+    public function fits()
+    {
+        return $this->hadMany('App\Models\Thread');
+    }
 }

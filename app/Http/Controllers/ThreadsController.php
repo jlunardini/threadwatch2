@@ -97,7 +97,7 @@ class ThreadsController extends Controller
             'category' => $request->category,
         ]);
 
-        return redirect()->route('threads.index')->with('successMessage', 'Thread was successfully updated!');
+        return redirect()->route('threads.category', $thread->category)->with('successMessage', 'Thread was successfully updated!');
     }
 
     // add to Wore column
@@ -106,7 +106,7 @@ class ThreadsController extends Controller
         $thread->update([
             'worn' => DB::raw('worn + 1'),
         ]);
-        return redirect()->route('threads.index')->with('successMessage', 'Look at you, wearing pants today');
+        return redirect()->back()->with('successMessage', 'Look at you, wearing pants today');
     }
 
     // add to Washed column
@@ -115,7 +115,7 @@ class ThreadsController extends Controller
         $thread->update([
             'washed' => DB::raw('washed + 1'),
         ]);
-        return redirect()->route('threads.index')->with('successMessage', 'Clean bb');
+        return redirect()->back()->with('successMessage', 'Clean bb');
     }
 
     // delete existing thread
