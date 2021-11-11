@@ -3,8 +3,17 @@
         <div v-if="successMessage" class="bg-red-100">
             {{ successMessage }}
         </div>
-        <div class="grid grid-cols-12 grid-rows-auto mx-2 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto">
-            <div class="cols-span-12 md:col-span-3 row-auto text-customLightGray text-3xl"><span class="text-3xl">@</span>{{ user }}</div>
+        <div class="grid grid-cols-12 mx-2 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto">
+            <div class="col-span-12 row-span-full md:col-span-4 text-customLightGray text-3xl flex flex-col"><div class="mb-2"><span class="text-customOrange mr-1 text-3xl">@</span>{{user }}</div>
+        <div class="flex flex-row gap-2 items-center">
+            <p class="text-customLightGray text-lg">Thread Count:</p>
+            <p class="font-bold font-victor text-customOrange text-lg rounded-full">{{threads.length}}</p>
+        </div>
+       <!-- <div class="flex flex-row gap-2 items-center">
+           <p class="text-customLightGray text-lg">Member Since:</p>
+           <p class="font-bold font-victor text-customOrange text-lg rounded-full">{{user.created_at }}</p>
+       </div> -->
+        </div>
             <div className="flex flex-col col-span-12 md:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative" v-for="thread in threads" :key="thread.id">
                 <!-- <span class="h-16 w-16 rounded-full bg-gray-800"></span> -->
                 <p class="text-2xl text-customLightGray">{{ thread.brand }}</p>

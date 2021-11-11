@@ -16,9 +16,16 @@ class SocialController extends Controller
     {
         $user = User::select('id')->where('username', $profile)->first();
         $threads = Thread::where('user_id', '=', $user->id)->get();
-        return Inertia::render('Threads/Profile', [
+        return Inertia::render('Feed/Profile', [
             'threads' => $threads,
             'user' => $profile,
+        ]);
+    }
+
+    public function feed(User $user) {
+        $users = User::with('threads')->get();
+        return Inertia::render('Feed/Index', [
+            'users' => $users,
         ]);
     }
 
