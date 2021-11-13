@@ -34,7 +34,7 @@
                 <p class="text-2xl text-customLightGray mt-4">{{ thread.brand }}</p>
                 <p class="text-lg text-customLightGray">{{ thread.style }}</p>
                 <p class="text-lg text-customLightGray">
-                    Purchased In: <span class="font-bold">{{ thread.purchased }}</span>
+                    Last Worn: <span v-if="thread.worn_today == null" class="font-bold">Never</span> <span v-else class="font-bold">{{ getHumanDate(thread.worn_today) }}</span>
                 </p>
                 <div class="flex flex-col mt-2">
                     <div class="text-customLightGray">

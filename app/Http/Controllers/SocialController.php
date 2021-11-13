@@ -23,7 +23,7 @@ class SocialController extends Controller
     }
 
     public function feed(User $user) {
-        $users = User::where('username', '=', '0')->with('threads')->get();
+        $users = User::where('username', '!=', '0')->with('threads')->get();
         return Inertia::render('Feed/Index', [
             'users' => $users,
         ]);
