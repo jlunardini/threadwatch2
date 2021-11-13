@@ -8,6 +8,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ThreadsController extends Controller
 {
@@ -54,10 +55,8 @@ class ThreadsController extends Controller
         $request->validate([
             'brand' => 'required',
         ]);
-
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-
         Thread::create([
             'brand' => $request->brand,
             'size' => $request->size,
@@ -103,8 +102,10 @@ class ThreadsController extends Controller
     // add to Wore column
     public function woreToday(Thread $thread)
     {
+        $timestamp = Carbon::now()->toDateTimeString();
         $thread->update([
             'worn' => DB::raw('worn + 1'),
+            'worn_today' => $timestamp,
         ]);
         return redirect()->back()->with('successMessage', 'Look at you, wearing pants today');
     }

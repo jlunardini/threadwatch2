@@ -42,6 +42,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/user/{profile}', 'App\Http\Controllers\SocialController@profile')->name('social.profile');
     Route::get('/feed', 'App\Http\Controllers\SocialController@feed')->name('social.feed');
 
+    //Fits
+    Route::get('/fits', 'App\Http\Controllers\FitsController@index')->name('fits.index');
+    Route::get('/fits/save', 'App\Http\Controllers\FitsController@store')->name('fits.store');
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');

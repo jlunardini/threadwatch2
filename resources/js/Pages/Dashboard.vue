@@ -1,9 +1,9 @@
 <template>
     <app-layout>
-        <div class="flex flex-col sm:flex-row max-w-5xl lg:mx-auto justify-center sm:justify-between mx-2 gap-4">
-            <div class="bg-customDark p-2 w-full sm:w-1/2 mt-8 sm:mt-16">
+        <div class="grid grid-cols-12 sm:grid-rows-2 max-w-5xl lg:mx-auto justify-start sm:justify-between mx-2 gap-4">
+            <div class="col-span-12 sm:col-span-6 sm:row-span-1 bg-customDark p-2 w-full self-start mt-8 sm:mt-16">
                 <h1 class="text-customLightGray text-4xl mb-4">Thread Count</h1>
-                <div class="flex flex-col flex-grow h-full">
+                <div class="flex flex-col flex-grow h-auto sm:h-full">
                     <div class="flex flex-row text-white justify-start items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative gap-6">
                         <div class="flex flex-col w-5/12 sm:w-auto gap-2 p-4 justify-center">
                             <div class="bg-customOrange h-16 w-16 rounded-full flex items-center justify-center leading-none self-center">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-customDark p-2 w-full sm:w-1/2 mt-8 sm:mt-16 mb-8">
+            <div class="col-span-12 sm:col-span-6 sm:row-span-2 bg-customDark p-2 w-full mt-8 sm:mt-16 mb-8">
                 <h1 class="text-customLightGray text-4xl mb-4">Most Worn</h1>
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-row text-white justify-between items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative" v-for="thread in threads" :key="thread.id">
@@ -51,6 +51,38 @@
                     </div>
                 </div>
             </div>
+            <div class="col-span-12 sm:col-span-6 sm:row-span-1 bg-customDark p-2 w-full pb-8 sm:pb-0">
+                <h1 class="text-customLightGray text-4xl mb-4">Recent Fits</h1>
+                <div className="flex flex-col gap-4">
+                    <div
+                        v-for="single in all_fits"
+                        :key="single.id"
+                        class="
+                            border border-transparent
+                            transition-colors
+                            hover:border-customOrange
+                            flex flex-row flex-wrap
+                            text-white
+                            justify-between
+                            items-center
+                            bg-customBlack
+                            rounded-md
+                            p-8
+                            w-auto
+                            relative
+                            cursor-pointer
+                            gap-4
+                            sm:gap-0
+                        "
+                    >
+                        <div class="w-full text-customOrange text-xl mb-2">{{ getHumanDate(single.created_at) }}</div>
+                        <div class="w-full sm:w-auto" v-for="fit in single.fit" :key="fit.id">
+                            <p class="text-xl text-customLightGray">{{ fit.brand }}</p>
+                            <p class="text-xl text-customLightGray">{{ fit.style }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </app-layout>
 </template>
@@ -58,12 +90,18 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
+import moment from "moment";
 
 export default {
     components: {
         AppLayout,
         Welcome,
     },
-    props: ["threads", "thread_count_total", "jeans", "tops", "kicks", "successMessage"],
+    props: ["threads", "thread_count_total", "jeans", "tops", "kicks", "successMessage", "all_fits"],
+    methods: {
+        getHumanDate: function (date) {
+            return moment(date).format("MM/DD/YY");
+        },
+    },
 };
 </script>

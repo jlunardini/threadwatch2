@@ -1,6 +1,5 @@
 <template>
     <app-layout>
-
         <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-2">
             <div class="flex flex-row items-center gap-8 mt-8 lg:mt-16 justify-center lg:justify-start">
                 <div className="flex flex-row gap-8">
@@ -18,9 +17,9 @@
                     </inertia-link>
                     <div v-if="successMessage" class="border border-green-500 bg-green-500 rounded-md transform text-customDark p-2 text-md flex flex-row gap-2 items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <p>{{successMessage}}</p>
+                        <p>{{ successMessage }}</p>
                     </div>
                 </div>
             </div>
@@ -51,14 +50,14 @@
                 </div>
                 <div class="flex flex-row gap-2 mb-4 mt-8">
                     <inertia-link
-                        v-if="getHumanDate(thread.updated_at) != today"
+                        v-if="getHumanDate(thread.worn_today) != today"
                         :href="`/threads/${thread.id}/woreToday`"
                         method="PATCH"
                         class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
                         >Wore Today</inertia-link
                     >
                     <div
-                        v-if="getHumanDate(thread.updated_at) == today"
+                        v-if="getHumanDate(thread.worn_today) == today"
                         class="font-victor border border-customOrange cursor-default rounded-full text-sm py-2 px-4 text-white tranform transition-colors bg-customOrange"
                     >
                         Worn Today
@@ -108,8 +107,9 @@ export default {
     props: ["threads", "successMessage"],
     data() {
         return {
-            today: moment().format("DD"),
+            today: moment().utc().format("MM/DD"),
             showingNavigationDropdown: false,
+            testing: moment("2021-11-13 03:02:37").local().format("MM/DD"),
         };
     },
     methods: {
@@ -119,13 +119,13 @@ export default {
             });
         },
         getHumanDate: function (date) {
-            return moment(date).format("DD");
+            return moment(date).format("MM/DD");
         },
         setShow() {
-              setTimeout(() => {
+            setTimeout(() => {
                 this.show = true;
-              }, 2000);
-            },
+            }, 2000);
+        },
     },
 };
 </script>

@@ -10,7 +10,7 @@ export default {
 
     computed: {
         classes() {
-            return this.active ? "font-thread text-customOrange text-2xl" : "font-thread text-gray-400 text-2xl hover:text-gray-300";
+            return this.active ? "text-customOrange text-2xl" : "text-gray-400 text-2xl hover:text-gray-300";
         },
     },
 };
