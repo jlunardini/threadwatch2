@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFitsTable extends Migration
+class MakeFitsInFitsTableNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateFitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fits', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->integer('user_id');
-            $table->json('fit')->nullable();
-        });
+       Schema::table('fits', function($table)
+       {
+           $table->json('fit')->nullable()->change();
+       });
     }
 
     /**
@@ -28,6 +26,8 @@ class CreateFitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fits');
+        Schema::table('fits_table_nullable', function (Blueprint $table) {
+            //
+        });
     }
 }
