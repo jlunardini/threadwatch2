@@ -16,24 +16,31 @@ class FitsController extends Controller
     // show today's fit
     public function index(User $user)
     {
-        $user= auth()->user()->id;
-        $threads = Thread::whereDate('updated_at', Carbon::today())->where('user_id', '=', $user)->get();
-        $fits = Fit::where('user_id', '=', $user)->get()->sortBy('created_at');
+        $user = auth()->user()->id;
+        $threads = Thread::whereDate('updated_at', Carbon::today())
+            ->where('user_id', '=', $user)
+            ->get();
+        $fits = Fit::where('user_id', '=', $user)
+            ->get()
+            ->sortBy('created_at');
         return Inertia::render('Fits/Index', [
             'threads' => $threads,
             'all_fits' => $fits,
         ]);
     }
 
-   public function store(User $user, Request $request)
-   {
-       $user = auth()->user()->id;
-       $threads = Thread::whereDate('updated_at', Carbon::today())->where('user_id', '=', $user)->get();
-       Fit::create([
-           'user_id' => $user,
-           'all_fits' => $threads,
-       ]);
-       return redirect()->back()->with('successMessage', 'Fit was succesfully added');
-   }
-
+    public function store(User $user, Request $request)
+    {
+        $user = auth()->user()->id;
+        $threads = Thread::whereDate('updated_at', Carbon::today())
+            ->where('user_id', '=', $user)
+            ->get();
+        Fit::create([
+            'user_id' => $user,
+            'fit' => $threads,
+        ]);
+        return redirect()
+            ->back()
+            ->with('successMessage', 'Fit was succesfully added');
+    }
 }

@@ -20497,10 +20497,10 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default
   },
-  props: ["threads", "all_fits", "errors", "successMessage"],
+  props: ['threads', 'all_fits', 'errors', 'successMessage'],
   methods: {
     getHumanDate: function getHumanDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format("MM/DD/YY");
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format('MM/DD/YY');
     }
   }
 });
@@ -21113,12 +21113,12 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     ThreadNav: _Components_ThreadNav__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  props: ["threads", "successMessage"],
+  props: ['threads', 'successMessage'],
   data: function data() {
     return {
-      today: moment__WEBPACK_IMPORTED_MODULE_3___default()().utc().format("MM/DD"),
+      today: moment__WEBPACK_IMPORTED_MODULE_3___default()().utc().format('MM/DD'),
       showingNavigationDropdown: false,
-      testing: moment__WEBPACK_IMPORTED_MODULE_3___default()("2021-11-13 03:02:37").local().format("MM/DD")
+      testing: moment__WEBPACK_IMPORTED_MODULE_3___default()('2021-11-13 03:02:37').local().format('MM/DD')
     };
   },
   methods: {
@@ -21130,7 +21130,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getHumanDate: function getHumanDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format("MM/DD");
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format('MM/DD');
     },
     setShow: function setShow() {
       var _this2 = this;
@@ -24027,10 +24027,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-12 sm:grid-rows-2 max-w-5xl lg:mx-auto justify-start sm:justify-between mx-2 gap-4"
+  "class": "\n                grid grid-cols-12\n                sm:grid-rows-2\n                max-w-5xl lg:mx-auto justify-start sm:justify-between\n                mx-2 gap-4\n            "
 };
 var _hoisted_2 = {
-  "class": "col-span-12 sm:col-span-6 sm:row-span-1 bg-customDark p-2 w-full self-start mt-8 sm:mt-16"
+  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-1\n                    bg-customDark\n                    p-2\n                    w-full\n                    self-start\n                    mt-8\n                    sm:mt-16\n                "
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -24043,21 +24043,21 @@ var _hoisted_4 = {
   "class": "flex flex-col flex-grow h-auto sm:h-full"
 };
 var _hoisted_5 = {
-  "class": "flex flex-row text-white justify-start items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative gap-6"
+  "class": "\n                            flex flex-row\n                            text-white\n                            justify-start\n                            items-center\n                            bg-customBlack\n                            rounded-md\n                            py-2\n                            pl-4\n                            w-auto\n                            relative\n                            gap-6\n                        "
 };
 var _hoisted_6 = {
-  "class": "flex flex-col w-5/12 sm:w-auto gap-2 p-4 justify-center"
+  "class": "\n                                flex flex-col\n                                w-5/12\n                                sm:w-auto\n                                gap-2\n                                p-4\n                                justify-center\n                            "
 };
 var _hoisted_7 = {
-  "class": "bg-customOrange h-16 w-16 rounded-full flex items-center justify-center leading-none self-center"
+  "class": "\n                                    bg-customOrange\n                                    h-16\n                                    w-16\n                                    rounded-full\n                                    flex\n                                    items-center\n                                    justify-center\n                                    leading-none\n                                    self-center\n                                "
 };
 var _hoisted_8 = {
-  "class": "font-bold font-victor text-customDark text-4xl rounded-full"
+  "class": "\n                                        font-bold font-victor\n                                        text-customDark text-4xl\n                                        rounded-full\n                                    "
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-customLightGray text-2xl text-center"
-}, "Total", -1
+  "class": "\n                                    text-customLightGray text-2xl text-center\n                                "
+}, " Total ", -1
 /* HOISTED */
 );
 
@@ -24065,7 +24065,7 @@ var _hoisted_10 = {
   "class": "flex flex-col md:flex-row gap-1 sm:gap-4"
 };
 var _hoisted_11 = {
-  "class": "text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
+  "class": "\n                                        text-customLightGray text-2xl\n                                        flex flex-row\n                                        justify-between\n                                        gap-2\n                                        items-center\n                                    "
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Jeans:", -1
@@ -24073,10 +24073,10 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_13 = {
-  "class": "text-customOrange text-2xl font-semibold"
+  "class": "\n                                            text-customOrange text-2xl\n                                            font-semibold\n                                        "
 };
 var _hoisted_14 = {
-  "class": "text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
+  "class": "\n                                        text-customLightGray text-2xl\n                                        flex flex-row\n                                        justify-between\n                                        gap-2\n                                        items-center\n                                    "
 };
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Tops:", -1
@@ -24084,10 +24084,10 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_16 = {
-  "class": "text-customOrange text-2xl font-semibold"
+  "class": "\n                                            text-customOrange text-2xl\n                                            font-semibold\n                                        "
 };
 var _hoisted_17 = {
-  "class": "text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
+  "class": "\n                                        text-customLightGray text-2xl\n                                        flex flex-row\n                                        justify-between\n                                        gap-2\n                                        items-center\n                                    "
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Kicks:", -1
@@ -24095,10 +24095,10 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_19 = {
-  "class": "text-customOrange text-2xl font-semibold"
+  "class": "\n                                            text-customOrange text-2xl\n                                            font-semibold\n                                        "
 };
 var _hoisted_20 = {
-  "class": "col-span-12 sm:col-span-6 sm:row-span-2 bg-customDark p-2 w-full mt-8 sm:mt-16 mb-8"
+  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-2\n                    bg-customDark\n                    p-2\n                    w-full\n                    mt-8\n                    sm:mt-16\n                    mb-8\n                "
 };
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -24117,23 +24117,23 @@ var _hoisted_24 = {
   "class": "text-2xl text-customLightGray"
 };
 var _hoisted_25 = {
-  "class": "flex flex-row items-center justify-center mr-6 gap-2"
+  "class": "\n                                flex flex-row\n                                items-center\n                                justify-center\n                                mr-6\n                                gap-2\n                            "
 };
 var _hoisted_26 = {
-  "class": "bg-customOrange h-8 w-8 rounded-full flex items-center justify-center leading-none"
+  "class": "\n                                    bg-customOrange\n                                    h-8\n                                    w-8\n                                    rounded-full\n                                    flex\n                                    items-center\n                                    justify-center\n                                    leading-none\n                                "
 };
 var _hoisted_27 = {
-  "class": "font-bold text-customDark text-xl rounded-full"
+  "class": "\n                                        font-bold\n                                        text-customDark text-xl\n                                        rounded-full\n                                    "
 };
 
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-customOrange font-semibold text-sm"
-}, "Days", -1
+}, " Days ", -1
 /* HOISTED */
 );
 
 var _hoisted_29 = {
-  "class": "col-span-12 sm:col-span-6 sm:row-span-1 bg-customDark p-2 w-full pb-8 sm:pb-0"
+  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-1\n                    bg-customDark\n                    p-2\n                    w-full\n                    pb-8\n                    sm:pb-0\n                "
 };
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -24455,20 +24455,20 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_3 = {
-  "class": "flex flex-col sm:flex-row max-w-4xl lg:mx-auto justify-center sm:justify-between mx-2 gap-4 mt-8 lg:mt-16"
+  "class": "\n                flex flex-col\n                sm:flex-row\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-2\n                gap-4\n                mt-8\n                lg:mt-16\n            "
 };
 var _hoisted_4 = {
-  "class": "h-auto w-full bg-gradient-to-r from-heroOrangeStart to-heroOrangeEnd rounded-lg p-12 font-bold"
+  "class": "\n                    h-auto\n                    w-full\n                    bg-gradient-to-r\n                    from-heroOrangeStart\n                    to-heroOrangeEnd\n                    rounded-lg\n                    p-12\n                    font-bold\n                "
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-victor text-4xl font-bold text-customBlack mb-2"
-}, "Today's Fit", -1
+}, " Today's Fit ", -1
 /* HOISTED */
 );
 
 var _hoisted_6 = {
-  "class": "flex flex-col flex-wrap justify-start lg:flex-row gap-6 mt-6 mb-12 text-customBlack"
+  "class": "\n                        flex flex-col flex-wrap\n                        justify-start\n                        lg:flex-row\n                        gap-6\n                        mt-6\n                        mb-12\n                        text-customBlack\n                    "
 };
 var _hoisted_7 = {
   "class": "text-2xl whitespace-nowrap"
@@ -24480,13 +24480,13 @@ var _hoisted_8 = {
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
 
 var _hoisted_10 = {
-  "class": "flex flex-col sm:flex-row max-w-4xl lg:mx-auto justify-center sm:justify-between mx-2 gap-4 mt-8 lg:mt-16 pb-8"
+  "class": "\n                flex flex-col\n                sm:flex-row\n                flex-wrap\n                max-w-4xl\n                lg:grid lg:grid-cols-4\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-2\n                gap-4\n                mt-8\n                lg:mt-16\n                pb-8\n            "
 };
 var _hoisted_11 = {
-  "class": "font-victor text-4xl font-bold text-customOrange mb-2"
+  "class": "\n                        font-victor\n                        text-4xl\n                        font-bold\n                        text-customOrange\n                        mb-2\n                    "
 };
 var _hoisted_12 = {
-  "class": "flex flex-col flex-wrap justify-start lg:flex-row gap-6 mt-6 mb-12 text-customOrange"
+  "class": "\n                        flex flex-col flex-wrap\n                        justify-start\n                        lg:flex-row\n                        lg:col-span-2\n                        mt-6\n                        mb-12\n                        text-customOrange\n                    "
 };
 var _hoisted_13 = {
   "class": "text-2xl whitespace-nowrap"
@@ -24494,9 +24494,6 @@ var _hoisted_13 = {
 var _hoisted_14 = {
   "class": "text-lg whitespace-nowrap"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
@@ -24508,7 +24505,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          "class": "font-victor w-full lg:w-auto flex-grow border-customBlack border-2 rounded-md p-4",
+          "class": "\n                            font-victor\n                            w-full\n                            lg:w-auto\n                            flex-grow\n                            border-customBlack border-2\n                            rounded-md\n                            p-4\n                        ",
           key: thread.id
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
         /* TEXT */
@@ -24530,12 +24527,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.all_fits, function (one) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: one.id,
-          "class": "h-auto w-full bg-customBlack rounded-lg p-12 font-bold"
+          "class": "\n                    h-auto\n                    w-full\n                    bg-customBlack\n                    rounded-lg\n                    p-12\n                    font-bold\n                    lg:col-span-2\n                "
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getHumanDate(one.created_at)), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(one.fit, function (fit) {
           return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-            "class": "font-victor w-full lg:w-auto flex-grow border-customBlack border-2 rounded-md p-4",
+            "class": "\n                            font-victor\n                            w-full\n                            lg:col-span-2\n                            flex-grow\n                            border-customBlack border-2\n                            rounded-md\n                            p-4\n                            pl-0\n                        ",
             key: fit.id
           }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(fit.brand), 1
           /* TEXT */
@@ -24544,17 +24541,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           )]);
         }), 128
         /* KEYED_FRAGMENT */
-        ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-          href: "/fits/save",
-          "class": "\n                        text-sm text-gray-200\n                        border-2 border-customOrange\n                        hover:text-customBlack\n                        tranform\n                        transition-colors\n                        hover:bg-customOrange\n                        text-customOrange\n                        font-victor\n                        text-md\n                        font-bold\n                        rounded-md\n                        py-2\n                        px-6\n                        w-full\n                        sm:mx-0\n                        text-center\n                        sm:w-auto\n                    "
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_15];
-          }),
-          _: 1
-          /* STABLE */
-
-        })]);
+        ))])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])];
@@ -26124,7 +26111,7 @@ var _hoisted_1 = {
   "class": "flex flex-col max-w-5xl lg:mx-auto justify-center mx-2"
 };
 var _hoisted_2 = {
-  "class": "flex flex-row items-center gap-8 mt-8 lg:mt-16 justify-center lg:justify-start"
+  "class": "\n                    flex flex-row\n                    items-center\n                    gap-8\n                    mt-8\n                    lg:mt-16\n                    justify-center\n                    lg:justify-start\n                "
 };
 var _hoisted_3 = {
   className: "flex flex-row gap-8"
@@ -26140,7 +26127,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_8 = {
   key: 0,
-  "class": "border border-green-500 bg-green-500 rounded-md transform text-customDark p-2 text-md flex flex-row gap-2 items-center"
+  "class": "\n                            border border-green-500\n                            bg-green-500\n                            rounded-md\n                            transform\n                            text-customDark\n                            p-2\n                            text-md\n                            flex flex-row\n                            gap-2\n                            items-center\n                        "
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -26159,7 +26146,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_10 = {
-  "class": "grid grid-cols-12 mx-2 max-w-5xl gap-4 mt-8 justify-center lg:mx-auto overflow-x-auto"
+  "class": "\n                grid grid-cols-12\n                mx-2\n                max-w-5xl\n                gap-4\n                mt-8\n                justify-center\n                lg:mx-auto\n                overflow-x-auto\n            "
 };
 var _hoisted_11 = {
   "class": "text-2xl text-customLightGray mt-4"
@@ -26194,7 +26181,7 @@ var _hoisted_19 = {
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Worn for: ");
 
 var _hoisted_21 = {
-  "class": "font-bold text-customOrange text-xl font-thread"
+  "class": "\n                                    font-bold\n                                    text-customOrange text-xl\n                                    font-thread\n                                "
 };
 
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Days ");
@@ -26209,7 +26196,7 @@ var _hoisted_24 = {
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Washed: ");
 
 var _hoisted_26 = {
-  "class": "font-bold text-customOrange text-xl font-thread"
+  "class": "\n                                    font-bold\n                                    text-customOrange text-xl\n                                    font-thread\n                                "
 };
 
 var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Times ");
@@ -26222,14 +26209,14 @@ var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_30 = {
   key: 1,
-  "class": "font-victor border border-customOrange cursor-default rounded-full text-sm py-2 px-4 text-white tranform transition-colors bg-customOrange"
+  "class": "\n                            font-victor\n                            border border-customOrange\n                            cursor-default\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-white\n                            tranform\n                            transition-colors\n                            bg-customOrange\n                        "
 };
 
 var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Washed Today");
 
 var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-6 w-6 text-gray-700 hover:text-customOrange",
+  "class": "\n                                h-6\n                                w-6\n                                text-gray-700\n                                hover:text-customOrange\n                            ",
   fill: "none",
   viewBox: "0 0 24 24",
   stroke: "currentColor"
@@ -26258,7 +26245,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2",
+        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
         href: "/threads"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -26268,7 +26255,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2",
+        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
         href: "/threads/categories/jeans"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -26278,7 +26265,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2",
+        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
         href: "/threads/categories/tops"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -26288,7 +26275,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "text-2xl md:text-4xl text-customLightGray transform transition-transform cursor-pointer hover:-translate-y-1 hover:border-2",
+        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
         href: "/threads/categories/kicks"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -26317,7 +26304,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: 0,
           href: "/threads/".concat(thread.id, "/woreToday"),
           method: "PATCH",
-          "class": "font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
+          "class": "\n                            font-victor\n                            border border-customOrange\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                        "
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_29];
@@ -26330,7 +26317,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.getHumanDate(thread.worn_today) == $data.today ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_30, " Worn Today ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
           href: "/threads/".concat(thread.id, "/washedToday"),
           method: "PATCH",
-          "class": "font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
+          "class": "\n                            font-victor\n                            border border-customOrange\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                        "
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_31];
@@ -26356,7 +26343,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), 128
       /* KEYED_FRAGMENT */
       ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "text-sm text-gray-200 border-2 border-customOrange hover:text-white tranform transition-colors hover:bg-customOrange text-customOrange font-victor text-xl rounded-md py-2 px-6",
+        "class": "\n                    text-sm text-gray-200\n                    border-2 border-customOrange\n                    hover:text-white\n                    tranform\n                    transition-colors\n                    hover:bg-customOrange\n                    text-customOrange\n                    font-victor\n                    text-xl\n                    rounded-md\n                    py-2\n                    px-6\n                ",
         href: "/threads/create"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
