@@ -20398,10 +20398,10 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default
   },
-  props: ["threads", "thread_count_total", "jeans", "tops", "kicks", "successMessage", "all_fits"],
+  props: ['threads', 'thread_count_total', 'jeans', 'tops', 'kicks', 'successMessage', 'all_fits'],
   methods: {
     getHumanDate: function getHumanDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format("MM/DD/YY");
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format('MM/DD/YY');
     }
   }
 });
@@ -21010,24 +21010,25 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     FileInput: _Components_FileInput__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  props: ["threads", "errors"],
+  props: ['categories', 'errors'],
   data: function data() {
     return {
       form: {
-        brand: "",
-        size: "",
-        purchased: "",
-        style: "",
-        worn: "",
-        washed: "",
-        photo: "",
-        category: ""
+        brand: '',
+        size: '',
+        purchased: '',
+        style: '',
+        worn: '',
+        washed: '',
+        photo: '',
+        category: '',
+        new_category: ''
       }
     };
   },
   methods: {
     createThread: function createThread() {
-      this.$inertia.post("/threads", this.form);
+      this.$inertia.post('/threads', this.form);
     }
   }
 });
@@ -21053,7 +21054,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  props: ["threads", "errors"],
+  props: ['threads', 'categories', 'errors'],
   data: function data() {
     return {
       form: {
@@ -21076,7 +21077,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteThread: function deleteThread() {
-      if (confirm("Are you sure you want to delete this thread?")) {
+      if (confirm('Are you sure you want to delete this thread?')) {
         this.$inertia["delete"]("/threads/".concat(this.threads.id, "/delete")).then(function () {});
       }
     },
@@ -21113,7 +21114,7 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     ThreadNav: _Components_ThreadNav__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  props: ['threads', 'successMessage'],
+  props: ['threads', 'categories', 'successMessage'],
   data: function data() {
     return {
       today: moment__WEBPACK_IMPORTED_MODULE_3___default()().utc().format('MM/DD'),
@@ -24027,7 +24028,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\n                grid grid-cols-12\n                sm:grid-rows-2\n                max-w-5xl lg:mx-auto justify-start sm:justify-between\n                mx-2 gap-4\n            "
+  "class": "\n                grid grid-cols-12\n                auto-rows-auto\n                grid-flow-row grid-rows-6\n                max-w-5xl\n                lg:mx-auto\n                justify-start\n                sm:justify-start\n                mx-2\n                gap-4\n            "
 };
 var _hoisted_2 = {
   "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-1\n                    bg-customDark\n                    p-2\n                    w-full\n                    self-start\n                    mt-8\n                    sm:mt-16\n                "
@@ -24098,7 +24099,7 @@ var _hoisted_19 = {
   "class": "\n                                            text-customOrange text-2xl\n                                            font-semibold\n                                        "
 };
 var _hoisted_20 = {
-  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-2\n                    bg-customDark\n                    p-2\n                    w-full\n                    mt-8\n                    sm:mt-16\n                    mb-8\n                "
+  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    bg-customDark\n                    sm:row-span-4\n                    p-2\n                    w-full\n                    mt-8\n                    sm:mt-16\n                    mb-8\n                "
 };
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -24133,7 +24134,7 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_29 = {
-  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    sm:row-span-1\n                    bg-customDark\n                    p-2\n                    w-full\n                    pb-8\n                    sm:pb-0\n                "
+  "class": "\n                    col-span-12\n                    sm:col-span-6\n                    bg-customDark\n                    p-2\n                    sm:row-span-2\n                    w-full\n                    pb-8\n                    sm:pb-0\n                "
 };
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -25615,8 +25616,8 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-4xl text-customLightGray mt-16 text-center lg:text-left"
-}, "Add New Threads", -1
+  "class": "\n                    text-4xl text-customLightGray\n                    mt-16\n                    text-center\n                    lg:text-left\n                "
+}, " Add New Threads ", -1
 /* HOISTED */
 );
 
@@ -25631,7 +25632,7 @@ var _hoisted_5 = {
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "brand"
 }, "Brand", -1
 /* HOISTED */
@@ -25642,7 +25643,7 @@ var _hoisted_7 = {
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "style"
 }, "Style", -1
 /* HOISTED */
@@ -25653,7 +25654,7 @@ var _hoisted_9 = {
 };
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "size"
 }, "Size", -1
 /* HOISTED */
@@ -25664,7 +25665,7 @@ var _hoisted_11 = {
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "purchased"
 }, "Purchased (year)", -1
 /* HOISTED */
@@ -25675,68 +25676,66 @@ var _hoisted_13 = {
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "category"
 }, "Category", -1
 /* HOISTED */
 );
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "jeans"
-}, "Jeans", -1
+  value: "add_new"
+}, "+ Add New", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "tops"
-}, "Top", -1
+var _hoisted_16 = {
+  key: 0,
+  "class": "form-group flex flex-col w-full"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
+  "for": "worn"
+}, "New Category Name", -1
 /* HOISTED */
 );
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "kicks"
-}, "Kicks", -1
-/* HOISTED */
-);
-
-var _hoisted_18 = [_hoisted_15, _hoisted_16, _hoisted_17];
-
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row flex-wrap my-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:w-10/12 bg-customDark p-4 pl-0 rounded-md text-left"
+  "class": "\n                            w-full\n                            lg:w-10/12\n                            bg-customDark\n                            p-4\n                            pl-0\n                            rounded-md\n                            text-left\n                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-customOrange font-thread text-lg"
-}, "Don’t worry if you don’t know these next two, we can start counting from here on out")])], -1
+}, " Don’t worry if you don’t know these next two, we can start counting from here on out ")])], -1
 /* HOISTED */
 );
 
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": "flex flex-row flex-wrap mt-2 gap-4 w-full"
 };
-var _hoisted_21 = {
+var _hoisted_20 = {
   "class": "form-group flex flex-col w-full md:w-5/12"
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "worn"
 }, "Days Worn So Far", -1
 /* HOISTED */
 );
 
-var _hoisted_23 = {
+var _hoisted_22 = {
   "class": "form-group flex flex-col w-full md:w-5/12"
 };
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "washed"
 }, "Times Washed So Far", -1
 /* HOISTED */
 );
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row mt-8 justify-start mb-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\n                            text-sm text-gray-200\n                            border-2 border-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                            text-customOrange\n                            font-victor\n                            text-xl\n                            rounded-md\n                            py-2\n                            px-6\n                        ",
@@ -25753,11 +25752,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         method: "POST",
         "class": "mt-8 w-full",
-        onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onSubmit: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.createThread && $options.createThread.apply($options, arguments);
         }, ["prevent"]))
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "brand",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -25767,7 +25766,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.brand]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "style",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -25777,7 +25776,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.style]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "size",
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
@@ -25787,7 +25786,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.size]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "purchased",
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
@@ -25797,36 +25796,54 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purchased]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "category",
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.category = $event;
         }),
         name: "category"
-      }, _hoisted_18, 512
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories, function (category) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          key: category.id
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category), 1
+        /* TEXT */
+        );
+      }), 128
+      /* KEYED_FRAGMENT */
+      )), _hoisted_15], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.category]])])]), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.category]])]), $data.form.category == 'add_new' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
+        type: "text",
+        id: "new_category",
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.form.new_category = $event;
+        }),
+        name: "new_category"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.new_category]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "worn",
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.worn = $event;
         }),
         name: "worn"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.worn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.worn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "washed",
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.form.washed = $event;
         }),
         name: "washed"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.washed]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <file-input\n                        v-model=\"form.photo\"\n                        class=\"pr-6 pb-8 w-full lg:w-1/2\"\n                        type=\"file\"\n                        accept=\"image/*\"\n                        label=\"Photo\"\n                    /> ")]), _hoisted_25], 32
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.washed]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <file-input\n                        v-model=\"form.photo\"\n                        class=\"pr-6 pb-8 w-full lg:w-1/2\"\n                        type=\"file\"\n                        accept=\"image/*\"\n                        label=\"Photo\"\n                    /> ")]), _hoisted_24], 32
       /* HYDRATE_EVENTS */
       )])];
     }),
@@ -25855,7 +25872,7 @@ var _hoisted_1 = {
   "class": "flex flex-col max-w-5xl mx-auto justify-center px-2"
 };
 var _hoisted_2 = {
-  "class": "text-3xl md:text-4xl text-center md:text-left text-customLightGray mt-16"
+  "class": "\n                    text-3xl\n                    md:text-4xl\n                    text-center\n                    md:text-left\n                    text-customLightGray\n                    mt-16\n                "
 };
 var _hoisted_3 = {
   "class": "flex flex-row flex-wrap gap-4"
@@ -25868,7 +25885,7 @@ var _hoisted_5 = {
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "brand"
 }, "Brand", -1
 /* HOISTED */
@@ -25879,7 +25896,7 @@ var _hoisted_7 = {
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "style"
 }, "Style", -1
 /* HOISTED */
@@ -25890,7 +25907,7 @@ var _hoisted_9 = {
 };
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                    font-victor\n                                    text-customLightGray text-xl\n                                    font-medium\n                                    w-full\n                                ",
   "for": "size"
 }, "Size", -1
 /* HOISTED */
@@ -25901,7 +25918,7 @@ var _hoisted_11 = {
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "purchased"
 }, "Purchased (year)", -1
 /* HOISTED */
@@ -25912,72 +25929,70 @@ var _hoisted_13 = {
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "category"
 }, "Category", -1
 /* HOISTED */
 );
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "jeans"
-}, "Jeans", -1
+  value: "add_new"
+}, "+ Add New", -1
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "tops"
-}, "Top", -1
+var _hoisted_16 = {
+  key: 0,
+  "class": "form-group flex flex-col w-full"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
+  "for": "worn"
+}, "New Category Name", -1
 /* HOISTED */
 );
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "kicks"
-}, "Kicks", -1
-/* HOISTED */
-);
-
-var _hoisted_18 = [_hoisted_15, _hoisted_16, _hoisted_17];
-
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row flex-wrap my-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:w-10/12 bg-customDark p-4 pl-0 rounded-md text-left"
+  "class": "\n                            w-full\n                            lg:w-10/12\n                            bg-customDark\n                            p-4\n                            pl-0\n                            rounded-md\n                            text-left\n                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-customOrange font-thread text-lg"
-}, "Don’t worry if you don’t know these next two, we can start counting from here on out")])], -1
+}, " Don’t worry if you don’t know these next two, we can start counting from here on out ")])], -1
 /* HOISTED */
 );
 
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": "flex flex-row flex-wrap mt-2 gap-4 w-full"
 };
-var _hoisted_21 = {
+var _hoisted_20 = {
   "class": "form-group flex flex-col w-full md:w-5/12"
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "worn"
 }, "Days Worn So Far", -1
 /* HOISTED */
 );
 
-var _hoisted_23 = {
+var _hoisted_22 = {
   "class": "form-group flex flex-col w-full md:w-5/12"
 };
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "font-victor text-customLightGray text-xl font-medium w-full",
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "\n                                font-victor\n                                text-customLightGray text-xl\n                                font-medium\n                                w-full\n                            ",
   "for": "washed"
 }, "Times Washed So Far", -1
 /* HOISTED */
 );
 
-var _hoisted_25 = {
-  "class": "flex flex-row mt-8 justify-start gap-4 items-end mb-16"
+var _hoisted_24 = {
+  "class": "\n                        flex flex-row\n                        mt-8\n                        justify-start\n                        gap-4\n                        items-end\n                        mb-16\n                    "
 };
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -25986,17 +26001,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_2, "Update Your " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.form.brand) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.form.category), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_2, " Update Your " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.form.brand) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.form.category), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         action: "#",
         method: "POST",
         "class": "mt-4",
-        onSubmit: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onSubmit: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.updateThread && $options.updateThread.apply($options, arguments);
         }, ["prevent"]))
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "brand",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -26006,7 +26021,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.brand]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "style",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -26016,7 +26031,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.style]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                    mt-1\n                                    block\n                                    w-full\n                                    border-none\n                                    bg-customBlack\n                                    text-customLightGray\n                                    font-victor\n                                    outline-none\n                                    focus:outline-customOrange\n                                    focus:ring-customOrange\n                                ",
         type: "text",
         id: "size",
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
@@ -26026,7 +26041,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.size]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "purchased",
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
@@ -26036,38 +26051,56 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.purchased]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "category",
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.category = $event;
         }),
         name: "category"
-      }, _hoisted_18, 512
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories, function (category) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          key: category.id
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category), 1
+        /* TEXT */
+        );
+      }), 128
+      /* KEYED_FRAGMENT */
+      )), _hoisted_15], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.category]])])]), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.category]])]), $data.form.category == 'add_new' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
+        type: "text",
+        id: "new_category",
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.form.new_category = $event;
+        }),
+        name: "new_category"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.new_category]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "worn",
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.worn = $event;
         }),
         name: "worn"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.worn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        "class": "mt-1 block w-full border-none bg-customBlack text-customLightGray font-victor outline-none focus:outline-customOrange focus:ring-customOrange",
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.worn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        "class": "\n                                mt-1\n                                block\n                                w-full\n                                border-none\n                                bg-customBlack\n                                text-customLightGray\n                                font-victor\n                                outline-none\n                                focus:outline-customOrange\n                                focus:ring-customOrange\n                            ",
         type: "text",
         id: "washed",
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.form.washed = $event;
         }),
         name: "washed"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.washed]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <file-input\n                       v-model=\"form.photo\"\n                       class=\"pr-6 pb-8 w-full lg:w-1/2\"\n                       type=\"file\"\n                       accept=\"image/*\"\n                       label=\"Photo\"\n                   /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.washed]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <file-input\n                       v-model=\"form.photo\"\n                       class=\"pr-6 pb-8 w-full lg:w-1/2\"\n                       type=\"file\"\n                       accept=\"image/*\"\n                       label=\"Photo\"\n                   /> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "\n                            text-sm text-gray-200\n                            border-2 border-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                            text-customOrange\n                            font-victor\n                            text-xl\n                            rounded-md\n                            py-2\n                            px-6\n                        ",
-        onClick: _cache[7] || (_cache[7] = function () {
+        onClick: _cache[8] || (_cache[8] = function () {
           return $options.updateThread && $options.updateThread.apply($options, arguments);
         })
       }, " Update Thread "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
@@ -26075,7 +26108,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "block text-red-400"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_26];
+          return [_hoisted_25];
         }),
         _: 1
         /* STABLE */
@@ -26119,18 +26152,12 @@ var _hoisted_3 = {
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" All ");
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Jeans ");
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Tops ");
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Kicks ");
-
-var _hoisted_8 = {
+var _hoisted_5 = {
   key: 0,
   "class": "\n                            border border-green-500\n                            bg-green-500\n                            rounded-md\n                            transform\n                            text-customDark\n                            p-2\n                            text-md\n                            flex flex-row\n                            gap-2\n                            items-center\n                        "
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-5 w-5",
   fill: "none",
@@ -26145,76 +26172,76 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_7 = {
   "class": "\n                grid grid-cols-12\n                mx-2\n                max-w-5xl\n                gap-4\n                mt-8\n                justify-center\n                lg:mx-auto\n                overflow-x-auto\n            "
 };
-var _hoisted_11 = {
+var _hoisted_8 = {
   "class": "text-2xl text-customLightGray mt-4"
 };
+var _hoisted_9 = {
+  "class": "text-lg text-customLightGray"
+};
+var _hoisted_10 = {
+  "class": "text-lg text-customLightGray"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Last Worn: ");
+
 var _hoisted_12 = {
-  "class": "text-lg text-customLightGray"
-};
-var _hoisted_13 = {
-  "class": "text-lg text-customLightGray"
-};
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Last Worn: ");
-
-var _hoisted_15 = {
   key: 0,
   "class": "font-bold"
 };
-var _hoisted_16 = {
+var _hoisted_13 = {
   key: 1,
   "class": "font-bold"
 };
-var _hoisted_17 = {
+var _hoisted_14 = {
   "class": "flex flex-col mt-2"
 };
-var _hoisted_18 = {
+var _hoisted_15 = {
   "class": "text-customLightGray"
 };
-var _hoisted_19 = {
+var _hoisted_16 = {
   "class": "font-victor text-sm"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Worn for: ");
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Worn for: ");
 
-var _hoisted_21 = {
+var _hoisted_18 = {
   "class": "\n                                    font-bold\n                                    text-customOrange text-xl\n                                    font-thread\n                                "
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Days ");
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Days ");
+
+var _hoisted_20 = {
+  "class": "text-customLightGray"
+};
+var _hoisted_21 = {
+  "class": "font-victor text-sm"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Washed: ");
 
 var _hoisted_23 = {
-  "class": "text-customLightGray"
-};
-var _hoisted_24 = {
-  "class": "font-victor text-sm"
-};
-
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Washed: ");
-
-var _hoisted_26 = {
   "class": "\n                                    font-bold\n                                    text-customOrange text-xl\n                                    font-thread\n                                "
 };
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Times ");
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Times ");
 
-var _hoisted_28 = {
+var _hoisted_25 = {
   "class": "flex flex-row gap-2 mb-4 mt-8"
 };
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Wore Today");
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Wore Today");
 
-var _hoisted_30 = {
+var _hoisted_27 = {
   key: 1,
   "class": "\n                            font-victor\n                            border border-customOrange\n                            cursor-default\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-white\n                            tranform\n                            transition-colors\n                            bg-customOrange\n                        "
 };
 
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Washed Today");
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Washed Today");
 
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "\n                                h-6\n                                w-6\n                                text-gray-700\n                                hover:text-customOrange\n                            ",
   fill: "none",
@@ -26229,11 +26256,11 @@ var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_33 = {
+var _hoisted_30 = {
   "class": "flex flex-row mt-12 justify-center max-w-5xl mx-auto pb-16"
 };
 
-var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Add new thread ");
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Add new thread ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -26254,73 +26281,62 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
-        href: "/threads/categories/jeans"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_5];
-        }),
-        _: 1
-        /* STABLE */
-
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
-        href: "/threads/categories/tops"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_6];
-        }),
-        _: 1
-        /* STABLE */
-
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
-        href: "/threads/categories/kicks"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_7];
-        }),
-        _: 1
-        /* STABLE */
-
-      }), $props.successMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.successMessage), 1
-      /* TEXT */
-      )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-          className: "flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative",
-          key: thread.id
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span class=\"h-16 w-16 rounded-full bg-gray-800\"></span> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
-        /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
-        /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, [_hoisted_14, thread.worn_today == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_15, "Never")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getHumanDate(thread.worn_today)), 1
-        /* TEXT */
-        ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.worn), 1
-        /* TEXT */
-        ), _hoisted_22])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.washed), 1
-        /* TEXT */
-        ), _hoisted_27])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [$options.getHumanDate(thread.worn_today) != $data.today ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-          key: 0,
-          href: "/threads/".concat(thread.id, "/woreToday"),
-          method: "PATCH",
-          "class": "\n                            font-victor\n                            border border-customOrange\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                        "
+      }), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories, function (category) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+          key: category.id,
+          "class": "\n                            text-2xl\n                            md:text-4xl\n                            text-customLightGray\n                            transform\n                            transition-transform\n                            cursor-pointer\n                            hover:-translate-y-1\n                            hover:border-2\n                        ",
+          href: "/threads/categories/".concat(category.category)
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_29];
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.category), 1
+            /* TEXT */
+            )];
           }),
           _: 2
           /* DYNAMIC */
 
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
-        , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.getHumanDate(thread.worn_today) == $data.today ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_30, " Worn Today ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+        , ["href"]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      )), $props.successMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.successMessage), 1
+      /* TEXT */
+      )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+          className: "flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative",
+          key: thread.id
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span class=\"h-16 w-16 rounded-full bg-gray-800\"></span> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
+        /* TEXT */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
+        /* TEXT */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, [_hoisted_11, thread.worn_today == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_12, "Never")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getHumanDate(thread.worn_today)), 1
+        /* TEXT */
+        ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.worn), 1
+        /* TEXT */
+        ), _hoisted_19])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.washed), 1
+        /* TEXT */
+        ), _hoisted_24])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [$options.getHumanDate(thread.worn_today) != $data.today ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
+          key: 0,
+          href: "/threads/".concat(thread.id, "/woreToday"),
+          method: "PATCH",
+          "class": "\n                            font-victor\n                            border border-customOrange\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                        "
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [_hoisted_26];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.getHumanDate(thread.worn_today) == $data.today ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_27, " Worn Today ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
           href: "/threads/".concat(thread.id, "/washedToday"),
           method: "PATCH",
           "class": "\n                            font-victor\n                            border border-customOrange\n                            rounded-full\n                            text-sm\n                            py-2\n                            px-4\n                            text-customOrange\n                            hover:text-white\n                            tranform\n                            transition-colors\n                            hover:bg-customOrange\n                        "
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_31];
+            return [_hoisted_28];
           }),
           _: 2
           /* DYNAMIC */
@@ -26332,7 +26348,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           href: "/threads/".concat(thread.id, "/edit")
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_32];
+            return [_hoisted_29];
           }),
           _: 2
           /* DYNAMIC */
@@ -26342,12 +26358,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["href"])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+      ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
         "class": "\n                    text-sm text-gray-200\n                    border-2 border-customOrange\n                    hover:text-white\n                    tranform\n                    transition-colors\n                    hover:bg-customOrange\n                    text-customOrange\n                    font-victor\n                    text-xl\n                    rounded-md\n                    py-2\n                    px-6\n                ",
         href: "/threads/create"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_34];
+          return [_hoisted_31];
         }),
         _: 1
         /* STABLE */

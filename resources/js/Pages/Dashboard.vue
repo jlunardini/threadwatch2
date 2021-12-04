@@ -3,9 +3,14 @@
         <div
             class="
                 grid grid-cols-12
-                sm:grid-rows-2
-                max-w-5xl lg:mx-auto justify-start sm:justify-between
-                mx-2 gap-4
+                auto-rows-auto
+                grid-flow-row grid-rows-6
+                max-w-5xl
+                lg:mx-auto
+                justify-start
+                sm:justify-start
+                mx-2
+                gap-4
             "
         >
             <div
@@ -148,8 +153,8 @@
                 class="
                     col-span-12
                     sm:col-span-6
-                    sm:row-span-2
                     bg-customDark
+                    sm:row-span-4
                     p-2
                     w-full
                     mt-8
@@ -214,9 +219,9 @@
                 class="
                     col-span-12
                     sm:col-span-6
-                    sm:row-span-1
                     bg-customDark
                     p-2
+                    sm:row-span-2
                     w-full
                     pb-8
                     sm:pb-0
@@ -268,9 +273,9 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout";
-import Welcome from "@/Jetstream/Welcome";
-import moment from "moment";
+import AppLayout from '@/Layouts/AppLayout'
+import Welcome from '@/Jetstream/Welcome'
+import moment from 'moment'
 
 export default {
     components: {
@@ -278,18 +283,18 @@ export default {
         Welcome,
     },
     props: [
-        "threads",
-        "thread_count_total",
-        "jeans",
-        "tops",
-        "kicks",
-        "successMessage",
-        "all_fits",
+        'threads',
+        'thread_count_total',
+        'jeans',
+        'tops',
+        'kicks',
+        'successMessage',
+        'all_fits',
     ],
     methods: {
         getHumanDate: function (date) {
-            return moment(date).format("MM/DD/YY");
+            return moment(date).format('MM/DD/YY')
         },
     },
-};
+}
 </script>

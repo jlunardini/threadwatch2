@@ -29,6 +29,8 @@
                         All
                     </inertia-link>
                     <inertia-link
+                        v-for="category in categories"
+                        :key="category.id"
                         class="
                             text-2xl
                             md:text-4xl
@@ -39,40 +41,11 @@
                             hover:-translate-y-1
                             hover:border-2
                         "
-                        href="/threads/categories/jeans"
+                        :href="`/threads/categories/${category.category}`"
                     >
-                        Jeans
+                        {{ category.category }}
                     </inertia-link>
-                    <inertia-link
-                        class="
-                            text-2xl
-                            md:text-4xl
-                            text-customLightGray
-                            transform
-                            transition-transform
-                            cursor-pointer
-                            hover:-translate-y-1
-                            hover:border-2
-                        "
-                        href="/threads/categories/tops"
-                    >
-                        Tops
-                    </inertia-link>
-                    <inertia-link
-                        class="
-                            text-2xl
-                            md:text-4xl
-                            text-customLightGray
-                            transform
-                            transition-transform
-                            cursor-pointer
-                            hover:-translate-y-1
-                            hover:border-2
-                        "
-                        href="/threads/categories/kicks"
-                    >
-                        Kicks
-                    </inertia-link>
+
                     <div
                         v-if="successMessage"
                         class="
@@ -286,7 +259,7 @@ export default {
         AppLayout,
         ThreadNav,
     },
-    props: ['threads', 'successMessage'],
+    props: ['threads', 'categories', 'successMessage'],
     data() {
         return {
             today: moment().utc().format('MM/DD'),
