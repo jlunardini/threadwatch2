@@ -16,10 +16,18 @@ class Thread extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'brand', 'size', 'purchased', 'style', 'washed', 'worn', 'user_id', 'category', 'worn_today'
+        'brand',
+        'size',
+        'purchased',
+        'style',
+        'washed',
+        'worn',
+        'user_id',
+        'category',
+        'worn_today',
+        'denim_weight',
+        'web_link',
     ];
-
-
 
     public function user()
     {
@@ -30,6 +38,4 @@ class Thread extends Authenticatable
     {
         return $this->hasOne('App\Models\ThreadCategory');
     }
-
-
 }

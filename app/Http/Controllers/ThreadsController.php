@@ -29,7 +29,8 @@ class ThreadsController extends Controller
         $user = auth()->user()->id;
         $threads = Thread::where('user_id', '=', $user)->get();
         $categories = Thread::select('category')
-            ->where('user_id', $user)->groupBy('category')
+            ->where('user_id', $user)
+            ->groupBy('category')
             ->get();
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -58,7 +59,8 @@ class ThreadsController extends Controller
     {
         $user = auth()->user()->id;
         $categories = Thread::select('category')
-            ->where('user_id', '=', $user)->groupBy('category')
+            ->where('user_id', '=', $user)
+            ->groupBy('category')
             ->get();
         return Inertia::render('Threads/Create', [
             'categories' => $categories,
@@ -87,6 +89,8 @@ class ThreadsController extends Controller
             'washed' => $request->washed,
             'category' => $category,
             'user_id' => $user_id,
+            'denim_weight' => $request->denim_weight + 'OZ',
+            'web_link' => $request->web_link,
         ]);
 
         return redirect()
@@ -113,7 +117,7 @@ class ThreadsController extends Controller
         $request->validate([
             'brand' => 'required',
         ]);
-        
+
         $category = $request->category;
         if ($category == 'add_new') {
             $category = $request->new_category;
@@ -129,6 +133,8 @@ class ThreadsController extends Controller
             'worn' => $request->worn,
             'washed' => $request->washed,
             'category' => $category,
+            'denim_weight' => $request->denim_weight . 'OZ',
+            'web_link' => $request->web_link,
         ]);
 
         return redirect()

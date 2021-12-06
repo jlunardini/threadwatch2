@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <div class="flex flex-col max-w-5xl mx-auto justify-center px-2">
+        <div class="flex flex-col max-w-5xl mx-auto justify-center px-2 mt-16">
             <h1
                 class="
                     text-3xl
@@ -185,6 +185,41 @@
                     </div>
                     <div
                         class="form-group flex flex-col w-full"
+                        v-if="
+                            form.category == 'Jeans' || form.category == 'jeans'
+                        "
+                    >
+                        <label
+                            class="
+                                font-victor
+                                text-customLightGray text-xl
+                                font-medium
+                                w-auto
+                            "
+                            for="denim_weight"
+                            >Denim Weight (number in Oz)</label
+                        >
+                        <input
+                            class="
+                                mt-1
+                                block
+                                w-full
+                                border-none
+                                bg-customBlack
+                                text-customLightGray
+                                font-victor
+                                outline-none
+                                focus:outline-customOrange
+                                focus:ring-customOrange
+                            "
+                            type="text"
+                            id="denim_weight"
+                            v-model="form.denim_weight"
+                            name="denim_weight"
+                        />
+                    </div>
+                    <div
+                        class="form-group flex flex-col w-full"
                         v-if="form.category == 'add_new'"
                     >
                         <label
@@ -214,6 +249,36 @@
                             id="new_category"
                             v-model="form.new_category"
                             name="new_category"
+                        />
+                    </div>
+                    <div class="form-group flex flex-col w-full">
+                        <label
+                            class="
+                                font-victor
+                                text-customLightGray text-xl
+                                font-medium
+                                w-full
+                            "
+                            for="web_link"
+                            >Web Link</label
+                        >
+                        <input
+                            class="
+                                mt-1
+                                block
+                                w-full
+                                border-none
+                                bg-customBlack
+                                text-customLightGray
+                                font-victor
+                                outline-none
+                                focus:outline-customOrange
+                                focus:ring-customOrange
+                            "
+                            type="text"
+                            id="web_link"
+                            v-model="form.web_link"
+                            name="web_link"
                         />
                     </div>
                 </div>
@@ -363,6 +428,8 @@ export default {
                 washed: this.threads.washed,
                 category: this.threads.category,
                 new_category: '',
+                denim_weight: this.threads.denim_weight,
+                web_link: this.threads_web_link,
             },
         }
     },
