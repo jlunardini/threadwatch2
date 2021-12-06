@@ -17,7 +17,7 @@ class FitsController extends Controller
     public function index(User $user)
     {
         $user = auth()->user()->id;
-        $threads = Thread::whereDate('updated_at', Carbon::today())
+        $threads = Thread::whereDate('worn_today', Carbon::today())
             ->where('user_id', '=', $user)
             ->get();
         $fits = Fit::where('user_id', '=', $user)
