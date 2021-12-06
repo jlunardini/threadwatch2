@@ -89,7 +89,7 @@ class ThreadsController extends Controller
             'washed' => $request->washed,
             'category' => $category,
             'user_id' => $user_id,
-            'denim_weight' => $request->denim_weight + 'OZ',
+            'denim_weight' => $request->denim_weight,
             'web_link' => $request->web_link,
         ]);
 
@@ -133,7 +133,7 @@ class ThreadsController extends Controller
             'worn' => $request->worn,
             'washed' => $request->washed,
             'category' => $category,
-            'denim_weight' => $request->denim_weight . 'OZ',
+            'denim_weight' => $request->denim_weight,
             'web_link' => $request->web_link,
         ]);
 
