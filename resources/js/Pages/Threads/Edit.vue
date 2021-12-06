@@ -362,6 +362,7 @@ export default {
                 worn: this.threads.worn,
                 washed: this.threads.washed,
                 category: this.threads.category,
+                new_category: '',
             },
         }
     },

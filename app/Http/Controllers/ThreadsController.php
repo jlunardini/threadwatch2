@@ -29,7 +29,7 @@ class ThreadsController extends Controller
         $user = auth()->user()->id;
         $threads = Thread::where('user_id', '=', $user)->get();
         $categories = Thread::select('category')
-            ->where('user_id', $user)
+            ->where('user_id', $user)->groupBy('category')
             ->get();
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -58,7 +58,7 @@ class ThreadsController extends Controller
     {
         $user = auth()->user()->id;
         $categories = Thread::select('category')
-            ->where('user_id', '=', $user)
+            ->where('user_id', '=', $user)->groupBy('category')
             ->get();
         return Inertia::render('Threads/Create', [
             'categories' => $categories,
@@ -113,6 +113,13 @@ class ThreadsController extends Controller
         $request->validate([
             'brand' => 'required',
         ]);
+        
+        $category = $request->category;
+        if ($category == 'add_new') {
+            $category = $request->new_category;
+        } else {
+            $category = $request->category;
+        }
 
         $thread->update([
             'brand' => $request->brand,
@@ -121,7 +128,7 @@ class ThreadsController extends Controller
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
-            'category' => $request->category,
+            'category' => $category,
         ]);
 
         return redirect()

@@ -45,38 +45,6 @@
                     >
                         {{ category.category }}
                     </inertia-link>
-
-                    <div
-                        v-if="successMessage"
-                        class="
-                            border border-green-500
-                            bg-green-500
-                            rounded-md
-                            transform
-                            text-customDark
-                            p-2
-                            text-md
-                            flex flex-row
-                            gap-2
-                            items-center
-                        "
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                        </svg>
-                        <p>{{ successMessage }}</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -259,7 +227,7 @@ export default {
         AppLayout,
         ThreadNav,
     },
-    props: ['threads', 'categories', 'successMessage'],
+    props: ['threads', 'categories'],
     data() {
         return {
             today: moment().utc().format('MM/DD'),
@@ -275,11 +243,6 @@ export default {
         },
         getHumanDate: function (date) {
             return moment(date).format('MM/DD')
-        },
-        setShow() {
-            setTimeout(() => {
-                this.show = true
-            }, 2000)
         },
     },
 }

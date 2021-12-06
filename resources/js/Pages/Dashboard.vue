@@ -288,7 +288,6 @@ export default {
         'jeans',
         'tops',
         'kicks',
-        'successMessage',
         'all_fits',
     ],
     methods: {

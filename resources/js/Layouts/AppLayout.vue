@@ -3,20 +3,63 @@
         <jet-banner />
 
         <div class="min-h-screen bg-customDark">
-            <nav class="bg-customBlack w-full sticky flex items-center flex-row justify-center h-16 gap-8 z-30">
+            <nav
+                class="
+                    bg-customBlack
+                    w-full
+                    sticky
+                    flex
+                    items-center
+                    flex-row
+                    justify-center
+                    h-16
+                    gap-8
+                    z-30
+                "
+            >
                 <!-- Navigation Links -->
 
-                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">Dashboard</jet-nav-link>
-                <jet-nav-link :href="route('threads.index')" :active="route().current('threads.index')">Threads</jet-nav-link>
-                <jet-nav-link :href="route('social.feed')" :active="route().current('social.feed')">Feed</jet-nav-link>
-                <jet-nav-link :href="route('fits.index')" :active="route().current('fits.index')">Fits</jet-nav-link>
+                <jet-nav-link
+                    :href="route('dashboard')"
+                    :active="route().current('dashboard')"
+                    >Dashboard</jet-nav-link
+                >
+                <jet-nav-link
+                    :href="route('threads.index')"
+                    :active="route().current('threads.index')"
+                    >Threads</jet-nav-link
+                >
+                <jet-nav-link
+                    :href="route('social.feed')"
+                    :active="route().current('social.feed')"
+                    >Feed</jet-nav-link
+                >
+                <jet-nav-link
+                    :href="route('fits.index')"
+                    :active="route().current('fits.index')"
+                    >Fits</jet-nav-link
+                >
                 <!-- Settings Dropdown -->
                 <div class="absolute right-4">
                     <jet-dropdown align="right" width="48">
                         <template #trigger>
                             <span class="inline-flex rounded-md pt-2">
-                                <button type="button" class="inline-flex items-center text-gray-500 transition">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <button
+                                    type="button"
+                                    class="
+                                        inline-flex
+                                        items-center
+                                        text-gray-500
+                                        transition
+                                    "
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
                                         <path
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
@@ -30,11 +73,15 @@
 
                         <template #content>
                             <!-- Account Management -->
-                            <jet-dropdown-link :href="route('profile.show')"> Profile </jet-dropdown-link>
+                            <jet-dropdown-link :href="route('profile.show')">
+                                Profile
+                            </jet-dropdown-link>
                             <div class="border-t border-gray-100 mx-4"></div>
                             <!-- Authentication -->
                             <form @submit.prevent="logout">
-                                <jet-dropdown-link href="/logout"> Log Out </jet-dropdown-link>
+                                <jet-dropdown-link href="/logout">
+                                    Log Out
+                                </jet-dropdown-link>
                             </form>
                         </template>
                     </jet-dropdown>
@@ -43,6 +90,43 @@
 
             <!-- Page Content -->
             <main>
+                <div
+                    v-if="flashData != null"
+                    class="
+                        border border-customGreen
+                        bg-customDark
+                        rounded-md
+                        transform
+                        text-customGreen
+                        p-2
+                        text-lg
+                        flex flex-row
+                        gap-2
+                        items-center
+                        absolute
+                        max-w-sm
+                        top-24
+                        left-1/2
+                        transform
+                        -translate-x-1/2
+                    "
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                    </svg>
+                    <p>{{ flashData }}</p>
+                </div>
                 <slot></slot>
             </main>
         </div>
@@ -50,12 +134,12 @@
 </template>
 
 <script>
-import JetApplicationMark from "@/Jetstream/ApplicationMark";
-import JetBanner from "@/Jetstream/Banner";
-import JetDropdown from "@/Jetstream/Dropdown";
-import JetDropdownLink from "@/Jetstream/DropdownLink";
-import JetNavLink from "@/Jetstream/NavLink";
-import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink";
+import JetApplicationMark from '@/Jetstream/ApplicationMark'
+import JetBanner from '@/Jetstream/Banner'
+import JetDropdown from '@/Jetstream/Dropdown'
+import JetDropdownLink from '@/Jetstream/DropdownLink'
+import JetNavLink from '@/Jetstream/NavLink'
+import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
 
 export default {
     components: {
@@ -67,14 +151,23 @@ export default {
         JetResponsiveNavLink,
     },
 
-    inject: ["page"],
-
+    inject: ['page'],
+    props: ['successMessage'],
     data() {
         return {
             showingNavigationDropdown: false,
-        };
+            flashData: this.successMessage,
+        }
     },
 
     methods: {},
-};
+    watch: {
+        successMessage: function (newVal, oldVal) {
+            this.flashData = newVal
+            setTimeout(() => {
+                this.flashData = null
+            }, 3000)
+        },
+    },
+}
 </script>
