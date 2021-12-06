@@ -10,11 +10,17 @@
                 sm:justify-between
                 mx-2
                 gap-4
-                mt-8
-                lg:mt-16
+                mt-16
             "
         >
+            <h2
+                className="text-xl text-customLightGray mx-auto text-center border border-customLightGray rounded-md p-2 mt-16 mb-4"
+                v-if="threads.length == 0"
+            >
+                Nothing Worn Today
+            </h2>
             <div
+                v-if="threads.length != 0"
                 class="
                     h-auto
                     w-full
@@ -24,6 +30,7 @@
                     rounded-lg
                     p-12
                     font-bold
+                    mt-16
                 "
             >
                 <h1

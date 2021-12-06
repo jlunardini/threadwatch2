@@ -1,6 +1,8 @@
 <template>
     <app-layout>
-        <div class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-2">
+        <div
+            class="flex flex-col max-w-5xl lg:mx-auto justify-center mx-2 mt-16"
+        >
             <div
                 class="
                     flex flex-row
@@ -10,6 +12,7 @@
                     lg:mt-16
                     justify-center
                     lg:justify-start
+                    overflow-x-auto
                 "
             >
                 <div className="flex flex-row gap-8">

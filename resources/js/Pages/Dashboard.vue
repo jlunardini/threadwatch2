@@ -3,14 +3,16 @@
         <div
             class="
                 grid grid-cols-12
-                auto-rows-auto
-                grid-flow-row grid-rows-6
+                lg:auto-rows-auto
+                grid-flow-row
+                lg:grid-rows-6
                 max-w-5xl
                 lg:mx-auto
                 justify-start
                 sm:justify-start
                 mx-2
                 gap-4
+                mt-16
             "
         >
             <div
@@ -22,7 +24,7 @@
                     p-2
                     w-full
                     self-start
-                    mt-8
+                    mt-4
                     sm:mt-16
                 "
             >
@@ -157,9 +159,9 @@
                     sm:row-span-4
                     p-2
                     w-full
-                    mt-8
+                    mt-4
                     sm:mt-16
-                    mb-8
+                    mb-4
                 "
             >
                 <h1 class="text-customLightGray text-4xl mb-4">Most Worn</h1>

@@ -2,12 +2,13 @@
     <div>
         <jet-banner />
 
-        <div class="min-h-screen bg-customDark">
+        <div class="min-h-screen bg-customDark overflow-hidden">
             <nav
                 class="
                     bg-customBlack
                     w-full
-                    sticky
+                    fixed
+                    top-0
                     flex
                     items-center
                     flex-row
@@ -90,6 +91,46 @@
                         </template>
                     </jet-dropdown>
                 </div>
+                <transition>
+                    <div
+                        v-if="flashData"
+                        class="
+                            block
+                            lg:hidden
+                            border border-customGreen
+                            bg-customDark
+                            rounded-md
+                            text-customGreen
+                            p-2
+                            text-lg
+                            flex flex-row
+                            gap-2
+                            items-center
+                            max-w-sm
+                            absolute
+                            top-1/2
+                            left-2
+                            transform
+                            -translate-y-1/2
+                        "
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                        </svg>
+                        <p>{{ successMessage }}</p>
+                    </div>
+                </transition>
                 <button
                     type="button"
                     @click="showingNavigation = !showingNavigation"
@@ -101,79 +142,101 @@
 
             <!-- Page Content -->
             <main class="relative">
-                <div
-                    v-if="showingNavigation == true"
-                    className="z-20 flex flex-col justify-start gap-16 items-center bg-customBlack overflow-y-hidden absolute h-screen w-full max-h-screen text-customLightGray p-4 pt-8"
+                <transition
+                    enter-active-class="transition ease-out duration-200"
+                    enter-from-class="transform opacity-0 scale-95"
+                    enter-to-class="transform opacity-100 scale-100"
+                    leave-active-class="transition ease-in duration-75"
+                    leave-from-class="transform opacity-100 scale-100"
+                    leave-to-class="transform opacity-0 scale-95"
                 >
-                    <jet-nav-link
-                        :href="route('dashboard')"
-                        :active="route().current('dashboard')"
-                        >Dashboard</jet-nav-link
+                    <div
+                        v-if="showingNavigation"
+                        className="overscroll-none overflow-hidden z-20 flex flex-col justify-start gap-16 items-center bg-customBlack overflow-y-hidden fixed h-full inset-0 top-16 w-full max-h-screen text-customLightGray p-4 pt-8"
                     >
-                    <jet-nav-link
-                        :href="route('threads.index')"
-                        :active="route().current('threads.index')"
-                        >Threads</jet-nav-link
-                    >
-                    <jet-nav-link
-                        :href="route('social.feed')"
-                        :active="route().current('social.feed')"
-                        >Feed</jet-nav-link
-                    >
-                    <jet-nav-link
-                        :href="route('fits.index')"
-                        :active="route().current('fits.index')"
-                        >Fits</jet-nav-link
-                    >
-                    <jet-nav-link
-                        :href="route('profile.show')"
-                        :active="route().current('profile.show')"
-                        >Profile</jet-nav-link
-                    >
-                    <jet-nav-link
-                        :href="route('logout')"
-                        :active="route().current('logout')"
-                        >Logout</jet-nav-link
-                    >
-                </div>
-                <div
-                    v-if="flashData != null"
-                    class="
-                        border border-customGreen
-                        bg-customDark
-                        rounded-md
-                        transform
-                        text-customGreen
-                        p-2
-                        text-lg
-                        flex flex-row
-                        gap-2
-                        items-center
-                        absolute
-                        max-w-sm
-                        top-24
-                        left-1/2
-                        transform
-                        -translate-x-1/2
-                    "
+                        <jet-nav-link
+                            :href="route('dashboard')"
+                            :active="route().current('dashboard')"
+                            >Dashboard</jet-nav-link
+                        >
+                        <jet-nav-link
+                            :href="route('threads.index')"
+                            :active="route().current('threads.index')"
+                            >Threads</jet-nav-link
+                        >
+                        <jet-nav-link
+                            :href="route('social.feed')"
+                            :active="route().current('social.feed')"
+                            >Feed</jet-nav-link
+                        >
+                        <jet-nav-link
+                            :href="route('fits.index')"
+                            :active="route().current('fits.index')"
+                            >Fits</jet-nav-link
+                        >
+                        <jet-nav-link
+                            :href="route('profile.show')"
+                            :active="route().current('profile.show')"
+                            >Profile</jet-nav-link
+                        >
+                        <jet-nav-link
+                            :href="route('logout')"
+                            :active="route().current('logout')"
+                            >Logout</jet-nav-link
+                        >
+                    </div>
+                </transition>
+                <transition
+                    enter-active-class=" transition ease-out duration-500"
+                    enter-from-class=" transform opacity-0 scale-80 "
+                    enter-to-class="  transform opacity-100 scale-100"
+                    leave-active-class="transition ease-out duration-500"
+                    leave-from-class="transform opacity-100 scale-100"
+                    leave-to-class="transform opacity-80 scale-80"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                    <div
+                        v-if="flashData"
+                        class="
+                            hidden
+                            lg:block
+                            border border-customGreen
+                            bg-customDark
+                            rounded-md
+                            text-customGreen
+                            p-2
+                            text-lg
+                            flex flex-row
+                            gap-2
+                            items-center
+                            max-w-sm
+                            absolute
+                            top-0
+                            left-2
+                            lg:top-6
+                            lg:right-8
+                        "
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                    </svg>
-                    <p>{{ flashData }}</p>
-                </div>
-                <slot></slot>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                        </svg>
+                        <p>{{ successMessage }}</p>
+                    </div>
+                </transition>
+                <slot
+                    v-bind:class="{ 'overflow-y-hidden': showingNavigation }"
+                    class="overscroll-none"
+                ></slot>
             </main>
         </div>
     </div>
@@ -202,7 +265,7 @@ export default {
     data() {
         return {
             showingNavigationDropdown: false,
-            flashData: this.successMessage,
+            flashData: false,
             showingNavigation: false,
         }
     },
@@ -210,9 +273,9 @@ export default {
     methods: {},
     watch: {
         successMessage: function (newVal, oldVal) {
-            this.flashData = newVal
+            this.flashData = true
             setTimeout(() => {
-                this.flashData = null
+                this.flashData = false
             }, 3000)
         },
     },
