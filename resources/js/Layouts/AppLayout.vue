@@ -11,36 +11,40 @@
                     flex
                     items-center
                     flex-row
-                    justify-center
+                    justify-end
+                    md:justify-center
                     h-16
                     gap-8
                     z-30
+                    px-4
+                    md:px-0
                 "
             >
                 <!-- Navigation Links -->
-
-                <jet-nav-link
-                    :href="route('dashboard')"
-                    :active="route().current('dashboard')"
-                    >Dashboard</jet-nav-link
-                >
-                <jet-nav-link
-                    :href="route('threads.index')"
-                    :active="route().current('threads.index')"
-                    >Threads</jet-nav-link
-                >
-                <jet-nav-link
-                    :href="route('social.feed')"
-                    :active="route().current('social.feed')"
-                    >Feed</jet-nav-link
-                >
-                <jet-nav-link
-                    :href="route('fits.index')"
-                    :active="route().current('fits.index')"
-                    >Fits</jet-nav-link
-                >
+                <div className="md:flex flex-row gap-8 hidden">
+                    <jet-nav-link
+                        :href="route('dashboard')"
+                        :active="route().current('dashboard')"
+                        >Dashboard</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('threads.index')"
+                        :active="route().current('threads.index')"
+                        >Threads</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('social.feed')"
+                        :active="route().current('social.feed')"
+                        >Feed</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('fits.index')"
+                        :active="route().current('fits.index')"
+                        >Fits</jet-nav-link
+                    >
+                </div>
                 <!-- Settings Dropdown -->
-                <div class="absolute right-4">
+                <div class="absolute right-4 hidden md:block">
                     <jet-dropdown align="right" width="48">
                         <template #trigger>
                             <span class="inline-flex rounded-md pt-2">
@@ -86,10 +90,52 @@
                         </template>
                     </jet-dropdown>
                 </div>
+                <button
+                    type="button"
+                    @click="showingNavigation = !showingNavigation"
+                    class="uppercase text-xl text-customLightGray md:hidden"
+                >
+                    {{ showingNavigation ? 'Close' : 'Menu' }}
+                </button>
             </nav>
 
             <!-- Page Content -->
-            <main>
+            <main class="relative">
+                <div
+                    v-if="showingNavigation == true"
+                    className="z-20 flex flex-col justify-start gap-16 items-center bg-customBlack overflow-y-hidden absolute h-screen w-full max-h-screen text-customLightGray p-4 pt-8"
+                >
+                    <jet-nav-link
+                        :href="route('dashboard')"
+                        :active="route().current('dashboard')"
+                        >Dashboard</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('threads.index')"
+                        :active="route().current('threads.index')"
+                        >Threads</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('social.feed')"
+                        :active="route().current('social.feed')"
+                        >Feed</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('fits.index')"
+                        :active="route().current('fits.index')"
+                        >Fits</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('profile.show')"
+                        :active="route().current('profile.show')"
+                        >Profile</jet-nav-link
+                    >
+                    <jet-nav-link
+                        :href="route('logout')"
+                        :active="route().current('logout')"
+                        >Logout</jet-nav-link
+                    >
+                </div>
                 <div
                     v-if="flashData != null"
                     class="
@@ -157,6 +203,7 @@ export default {
         return {
             showingNavigationDropdown: false,
             flashData: this.successMessage,
+            showingNavigation: false,
         }
     },
 
