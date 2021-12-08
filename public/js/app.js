@@ -24656,7 +24656,7 @@ var _hoisted_6 = {
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
 
 var _hoisted_8 = {
-  "class": "\n                flex flex-col\n                sm:flex-row-reverse\n                flex-wrap\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-8\n                gap-4\n                mt-8\n                lg:mt-16\n                pb-8\n            "
+  "class": "\n                flex flex-col-reverse flex-wrap\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-8\n                gap-4\n                mt-8\n                lg:mt-16\n                pb-8\n            "
 };
 var _hoisted_9 = {
   "class": "\n                        font-victor\n                        text-4xl\n                        font-bold\n                        text-customOrange\n                        mb-2\n                    "

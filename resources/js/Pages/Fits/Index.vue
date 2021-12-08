@@ -90,9 +90,7 @@
         </div>
         <div
             class="
-                flex flex-col
-                sm:flex-row-reverse
-                flex-wrap
+                flex flex-col-reverse flex-wrap
                 max-w-4xl
                 lg:mx-auto
                 justify-center
