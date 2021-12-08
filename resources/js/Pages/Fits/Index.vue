@@ -2,25 +2,18 @@
     <app-layout>
         <div
             class="
-                flex flex-col
-                sm:flex-row
+                flex flex-col-reverse
                 max-w-4xl
                 lg:mx-auto
                 justify-center
                 sm:justify-between
-                mx-2
+                mx-8
                 gap-4
-                mt-16
+                mt-8
+                lg:mt-16
             "
         >
-            <h2
-                className="text-xl text-customLightGray mx-auto text-center border border-customLightGray rounded-md p-2 mt-16 mb-4"
-                v-if="threads.length == 0"
-            >
-                Nothing Worn Today
-            </h2>
             <div
-                v-if="threads.length != 0"
                 class="
                     h-auto
                     w-full
@@ -98,14 +91,13 @@
         <div
             class="
                 flex flex-col
-                sm:flex-row
+                sm:flex-row-reverse
                 flex-wrap
                 max-w-4xl
-                lg:grid lg:grid-cols-4
                 lg:mx-auto
                 justify-center
                 sm:justify-between
-                mx-2
+                mx-8
                 gap-4
                 mt-8
                 lg:mt-16
@@ -115,15 +107,7 @@
             <div
                 v-for="one in all_fits"
                 :key="one.id"
-                class="
-                    h-auto
-                    w-full
-                    bg-customBlack
-                    rounded-lg
-                    p-12
-                    font-bold
-                    lg:col-span-2
-                "
+                class="h-auto w-full bg-customBlack rounded-lg p-12 font-bold"
             >
                 <h1
                     class="
@@ -140,8 +124,7 @@
                     class="
                         flex flex-col flex-wrap
                         justify-start
-                        lg:flex-row
-                        lg:col-span-2
+                        sm:flex-row
                         mt-6
                         mb-12
                         text-customOrange
@@ -150,8 +133,7 @@
                     <div
                         class="
                             font-victor
-                            w-full
-                            lg:col-span-2
+                            w-1/3
                             flex-grow
                             border-customBlack border-2
                             rounded-md

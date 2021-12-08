@@ -22,7 +22,7 @@ class FitsController extends Controller
             ->get();
         $fits = Fit::where('user_id', '=', $user)
             ->get()
-            ->sortBy('created_at');
+            ->sortByDesc('created_at');
         return Inertia::render('Fits/Index', [
             'threads' => $threads,
             'all_fits' => $fits,

@@ -8,9 +8,10 @@
                 lg:mx-auto
                 justify-center
                 sm:justify-between
-                mx-2
-                gap-4
-                mt-16
+                mx-8
+                gap-0
+                md:gap-4
+                pt-24
             "
         >
             <inertia-link
@@ -18,7 +19,7 @@
                 :key="user.id"
                 v-for="user in users"
                 class="
-                    flex
+                    flex flex-grow flex-shrink
                     justify-between
                     max-w-md
                     mx-auto
@@ -27,10 +28,12 @@
                     bg-customBlack
                     p-4
                     w-full
-                    mt-8
+                    md:mt-8
+                    mt-0
                     sm:mt-16
                     mb-8
                     items-center
+                    gap-8
                 "
             >
                 <div>
@@ -38,7 +41,9 @@
                     >{{ user.username }}
                 </div>
                 <div class="flex flex-row gap-2 items-center">
-                    <p class="text-customLightGray text-lg">Thread Count:</p>
+                    <p class="text-customLightGray text-lg whitespace-nowrap">
+                        Thread Count:
+                    </p>
                     <div
                         class="
                             bg-customOrange

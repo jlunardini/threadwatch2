@@ -24420,7 +24420,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\n                flex flex-col\n                sm:flex-row\n                max-w-5xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-2\n                gap-4\n                mt-16\n            "
+  "class": "\n                flex flex-col\n                sm:flex-row\n                max-w-5xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-8\n                gap-0\n                md:gap-4\n                pt-24\n            "
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
@@ -24434,8 +24434,8 @@ var _hoisted_3 = {
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-customLightGray text-lg"
-}, "Thread Count:", -1
+  "class": "text-customLightGray text-lg whitespace-nowrap"
+}, " Thread Count: ", -1
 /* HOISTED */
 );
 
@@ -24456,7 +24456,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
           href: '/user/' + user.username,
           key: user.id,
-          "class": "\n                    flex\n                    justify-between\n                    max-w-md\n                    mx-auto\n                    text-2xl text-customLightGray\n                    rounded-md\n                    bg-customBlack\n                    p-4\n                    w-full\n                    mt-8\n                    sm:mt-16\n                    mb-8\n                    items-center\n                "
+          "class": "\n                    flex flex-grow flex-shrink\n                    justify-between\n                    max-w-md\n                    mx-auto\n                    text-2xl text-customLightGray\n                    rounded-md\n                    bg-customBlack\n                    p-4\n                    w-full\n                    md:mt-8\n                    mt-0\n                    sm:mt-16\n                    mb-8\n                    items-center\n                    gap-8\n                "
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.username), 1
@@ -24631,48 +24631,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\n                flex flex-col\n                sm:flex-row\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-2\n                gap-4\n                mt-16\n            "
+  "class": "\n                flex flex-col-reverse\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-8\n                gap-4\n                mt-8\n                lg:mt-16\n            "
 };
 var _hoisted_2 = {
-  key: 0,
-  className: "text-xl text-customLightGray mx-auto text-center border border-customLightGray rounded-md p-2 mt-16 mb-4"
-};
-var _hoisted_3 = {
-  key: 1,
   "class": "\n                    h-auto\n                    w-full\n                    bg-gradient-to-r\n                    from-heroOrangeStart\n                    to-heroOrangeEnd\n                    rounded-lg\n                    p-12\n                    font-bold\n                    mt-16\n                "
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-victor text-4xl font-bold text-customBlack mb-2"
 }, " Today's Fit ", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "\n                        flex flex-col flex-wrap\n                        justify-start\n                        lg:flex-row\n                        gap-6\n                        mt-6\n                        mb-12\n                        text-customBlack\n                    "
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "text-2xl whitespace-nowrap"
 };
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "text-lg whitespace-nowrap"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
 
-var _hoisted_9 = {
-  "class": "\n                flex flex-col\n                sm:flex-row\n                flex-wrap\n                max-w-4xl\n                lg:grid lg:grid-cols-4\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-2\n                gap-4\n                mt-8\n                lg:mt-16\n                pb-8\n            "
+var _hoisted_8 = {
+  "class": "\n                flex flex-col\n                sm:flex-row-reverse\n                flex-wrap\n                max-w-4xl\n                lg:mx-auto\n                justify-center\n                sm:justify-between\n                mx-8\n                gap-4\n                mt-8\n                lg:mt-16\n                pb-8\n            "
 };
-var _hoisted_10 = {
+var _hoisted_9 = {
   "class": "\n                        font-victor\n                        text-4xl\n                        font-bold\n                        text-customOrange\n                        mb-2\n                    "
 };
-var _hoisted_11 = {
-  "class": "\n                        flex flex-col flex-wrap\n                        justify-start\n                        lg:flex-row\n                        lg:col-span-2\n                        mt-6\n                        mb-12\n                        text-customOrange\n                    "
+var _hoisted_10 = {
+  "class": "\n                        flex flex-col flex-wrap\n                        justify-start\n                        sm:flex-row\n                        mt-6\n                        mb-12\n                        text-customOrange\n                    "
 };
-var _hoisted_12 = {
+var _hoisted_11 = {
   "class": "text-2xl whitespace-nowrap"
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   "class": "text-lg whitespace-nowrap"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -24682,13 +24677,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [$props.threads.length == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h2", _hoisted_2, " Nothing Worn Today ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.threads.length != 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           "class": "\n                            font-victor\n                            w-full\n                            lg:w-auto\n                            flex-grow\n                            border-customBlack border-2\n                            rounded-md\n                            p-4\n                        ",
           key: thread.id
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.brand), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.style), 1
         /* TEXT */
         )]);
       }), 128
@@ -24698,24 +24693,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "\n                        text-sm text-gray-200\n                        border-2 border-customDark\n                        hover:text-customOrange\n                        tranform\n                        transition-colors\n                        hover:bg-customDark\n                        text-customDark\n                        font-victor\n                        text-md\n                        font-bold\n                        rounded-md\n                        py-2\n                        px-6\n                        w-full\n                        sm:mx-0\n                        text-center\n                        sm:w-auto\n                    "
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_8];
+          return [_hoisted_7];
         }),
         _: 1
         /* STABLE */
 
-      })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.all_fits, function (one) {
+      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.all_fits, function (one) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: one.id,
-          "class": "\n                    h-auto\n                    w-full\n                    bg-customBlack\n                    rounded-lg\n                    p-12\n                    font-bold\n                    lg:col-span-2\n                "
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getHumanDate(one.created_at)), 1
+          "class": "h-auto w-full bg-customBlack rounded-lg p-12 font-bold"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.getHumanDate(one.created_at)), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(one.fit, function (fit) {
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(one.fit, function (fit) {
           return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-            "class": "\n                            font-victor\n                            w-full\n                            lg:col-span-2\n                            flex-grow\n                            border-customBlack border-2\n                            rounded-md\n                            p-4\n                            pl-0\n                        ",
+            "class": "\n                            font-victor\n                            w-1/3\n                            flex-grow\n                            border-customBlack border-2\n                            rounded-md\n                            p-4\n                            pl-0\n                        ",
             key: fit.id
-          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(fit.brand), 1
+          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(fit.brand), 1
           /* TEXT */
-          ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(fit.style), 1
+          ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(fit.style), 1
           /* TEXT */
           )]);
         }), 128
@@ -26411,7 +26406,7 @@ var _hoisted_2 = {
   "class": "\n                    flex flex-row\n                    items-center\n                    gap-8\n                    mt-8\n                    lg:mt-16\n                    justify-center\n                    lg:justify-start\n                    overflow-x-auto\n                "
 };
 var _hoisted_3 = {
-  className: "flex flex-row gap-8"
+  className: "flex flex-row gap-8 w-full"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" All ");

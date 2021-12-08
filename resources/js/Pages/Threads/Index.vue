@@ -15,7 +15,7 @@
                     overflow-x-auto
                 "
             >
-                <div className="flex flex-row gap-8">
+                <div className="flex flex-row gap-8 w-full">
                     <inertia-link
                         class="
                             text-2xl
