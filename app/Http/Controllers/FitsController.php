@@ -39,6 +39,7 @@ class FitsController extends Controller
             'user_id' => $user,
             'fit' => $request->mappedFits,
         ]);
+        dd($request->mappedFits);
         foreach ($request->mappedFits as $fit) {
             $update_thread = Thread::where('id', $fit['id'])->update([
                 'in_fit' => false,
