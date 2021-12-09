@@ -62,45 +62,59 @@
             "
         >
             <div
-                className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative"
+                className="flex flex-col col-span-12 md:col-span-6 lg:col-span-6 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative"
                 v-for="thread in threads"
                 :key="thread.id"
             >
                 <!-- <span class="h-16 w-16 rounded-full bg-gray-800"></span> -->
-                <p class="text-2xl text-customLightGray mt-4">
-                    {{ thread.brand }}
-                </p>
-                <p class="text-lg text-customLightGray">{{ thread.style }}</p>
-                <p class="text-lg text-customLightGray">
-                    Last Worn:
-                    <span v-if="thread.worn_today == null" class="font-bold">Never</span>
-                    <span v-else class="font-bold">{{
-                        getHumanDate(thread.worn_today)
-                    }}</span>
-                </p>
-                <div class="flex flex-col mt-2">
-                    <div class="text-customLightGray">
-                        <p class="font-victor text-sm">
-                            Worn for:
-                            <span
-                                class="font-bold text-customOrange text-xl font-thread"
-                                >{{ thread.worn }}</span
+                <div class="flex flex-row justify-between items-center">
+                    <div class="w-1/2">
+                        <p class="text-2xl text-customLightGray mt-4">
+                            {{ thread.brand }}
+                        </p>
+                        <p class="text-xl text-customLightGray">{{ thread.style }}</p>
+                        <p class="text-md text-customLightGray">
+                            Last Worn:
+                            <span v-if="thread.worn_today == null" class="font-bold"
+                                >Never</span
                             >
-                            Days
+                            <span v-else class="font-bold">{{
+                                getHumanDate(thread.worn_today)
+                            }}</span>
                         </p>
                     </div>
-                    <div class="text-customLightGray">
-                        <p class="font-victor text-sm">
-                            Washed:
-                            <span
-                                class="font-bold text-customOrange text-xl font-thread"
-                                >{{ thread.washed }}</span
-                            >
-                            Times
-                        </p>
+                    <div class="w-1/2 flex flex-col">
+                        <div class="text-customLightGray">
+                            <p class="font-victor text-md">
+                                Worn for:
+                                <span
+                                    class="
+                                        font-bold
+                                        text-customOrange text-xl
+                                        font-thread
+                                    "
+                                    >{{ thread.worn }}</span
+                                >
+                                Days
+                            </p>
+                        </div>
+                        <div class="text-customLightGray">
+                            <p class="font-victor text-md">
+                                Washed:
+                                <span
+                                    class="
+                                        font-bold
+                                        text-customOrange text-xl
+                                        font-thread
+                                    "
+                                    >{{ thread.washed }}</span
+                                >
+                                Times
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-row gap-2 mb-4 mt-8">
+                <div class="flex flex-row gap-2 mb-4 mt-4">
                     <div
                         v-if="
                             getHumanDate(thread.worn_today) == today &&
@@ -110,14 +124,18 @@
                             font-victor
                             border border-customOrange
                             cursor-default
-                            rounded-full
+                            rounded-t-md
                             text-sm
                             py-2
                             px-4
-                            text-white
+                            text-gray-400
                             tranform
                             transition-colors
-                            bg-customOrange
+                            bg-customBlack
+                            border-t border-r-0 border-l border-b-0 border-customOrange
+                            absolute
+                            bottom-0
+                            right-0
                         "
                     >
                         Worn Today
