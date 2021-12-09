@@ -97,8 +97,7 @@
                     </div>
                 </div>
                 <inertia-link
-                    :data="{ mappedFits }"
-                    :href="`/fits/save`"
+                    @click="addToFit()"
                     class="
                         text-sm text-gray-200
                         border-2 border-customDark
@@ -195,7 +194,7 @@ export default {
             timeOfDay: moment().format('dddd,h,A').split(','),
             timeOfDayText: '',
             currentFit: this.in_fit,
-            mappedFits: null,
+            mappedFits: 'test',
         }
     },
     props: ['in_fit', 'all_fits', 'errors'],
@@ -206,6 +205,9 @@ export default {
         deleteFromCurrentFit: function (index) {
             this.currentFit.splice(index, 1)
             this.mappedFits = Object.assign({ ...this.currentFit })
+        },
+        addToFit() {
+            this.$inertia.post('/fits/save', this.mappedFits)
         },
     },
     mounted() {

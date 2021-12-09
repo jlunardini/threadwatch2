@@ -23539,7 +23539,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       timeOfDay: moment__WEBPACK_IMPORTED_MODULE_2___default()().format('dddd,h,A').split(','),
       timeOfDayText: '',
       currentFit: this.in_fit,
-      mappedFits: null
+      mappedFits: 'test'
     };
   },
   props: ['in_fit', 'all_fits', 'errors'],
@@ -23550,6 +23550,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteFromCurrentFit: function deleteFromCurrentFit(index) {
       this.currentFit.splice(index, 1);
       this.mappedFits = Object.assign(_objectSpread({}, this.currentFit));
+    },
+    addToFit: function addToFit() {
+      this.$inertia.post('/fits/save', this.mappedFits);
     }
   },
   mounted: function mounted() {
@@ -27831,10 +27834,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), 128
       /* KEYED_FRAGMENT */
       ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        data: {
-          mappedFits: $data.mappedFits
-        },
-        href: "/fits/save",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $options.addToFit();
+        }),
         "class": "\n                        text-sm text-gray-200\n                        border-2 border-customDark\n                        hover:text-customOrange\n                        tranform\n                        transition-colors\n                        hover:bg-customDark\n                        text-customDark\n                        font-victor\n                        text-md\n                        font-bold\n                        rounded-md\n                        py-2\n                        px-6\n                        w-full\n                        sm:mx-0\n                        text-center\n                        sm:w-auto\n                    "
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -27843,9 +27845,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      }, 8
-      /* PROPS */
-      , ["data"])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, " Nothing here yet, add some threads and come back "))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.all_fits, function (one) {
+      })])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, " Nothing here yet, add some threads and come back "))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.all_fits, function (one) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: one.id,
           "class": "h-auto w-full bg-customBlack rounded-lg p-12 font-bold"
