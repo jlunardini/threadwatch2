@@ -35,7 +35,6 @@ class FitsController extends Controller
         $in_fit = Thread::where('in_fit', true)
             ->where('user_id', '=', $user)
             ->get();
-        dd($request->mappedFits);
         Fit::create([
             'user_id' => $user,
             'fit' => $request->mappedFits,
