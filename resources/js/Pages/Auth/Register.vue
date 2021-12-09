@@ -23,6 +23,11 @@
             </div>
 
             <div class="mt-4">
+                <jet-label class="font-victor text-customLightGray text-xl font-medium" for="username" value="Username" />
+                <jet-input id="username" type="username" class="p-2 mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor" v-model="form.username" />
+            </div>
+
+            <div class="mt-4">
                 <jet-label class="font-victor text-customLightGray text-xl font-medium" for="email" value="Email" />
                 <jet-input id="email" type="email" class="mt-1 block w-full bg-customBlack border border-customOrange text-customLightGray font-victor" v-model="form.email" required />
             </div>
@@ -51,9 +56,8 @@
                 />
             </div>
 
-            <div class="flex items-center justify-end mt-4 space-x-4">
+            <div class="flex items-center justify-end my-8 space-x-4">
                 <inertia-link :href="route('login')" class="underline text-sm text-customLightGray font-victor"> Already registered? </inertia-link>
-
                 <jet-button
                     class="bg-customBlack border-2 border-customOrange hover:text-white tranform transition-colors hover:bg-customOrange text-customOrange font-victor text-md rounded-md py-2 px-6"
                     :class="{ 'opacity-25': form.processing }"
@@ -90,6 +94,7 @@ export default {
                 name: "",
                 email: "",
                 password: "",
+                username: "",
                 password_confirmation: "",
                 terms: false,
             }),

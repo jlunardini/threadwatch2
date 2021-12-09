@@ -1,16 +1,36 @@
 <template>
-    <button :type="type" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+    <button
+        :type="type"
+        class="
+            text-sm text-gray-200
+            border border-customOrange
+            hover:text-white
+            tranform
+            transition-colors
+            hover:bg-customOrange
+            text-customOrange
+            font-victor
+            text-md
+            rounded-md
+            py-2
+            px-6
+            w-full
+            sm:mx-0
+            text-center
+            sm:w-auto
+        "
+    >
         <slot></slot>
     </button>
 </template>
 
 <script>
-    export default {
-        props: {
-            type: {
-                type: String,
-                default: 'submit',
-            },
-        }
-    }
+export default {
+    props: {
+        type: {
+            type: String,
+            default: "submit",
+        },
+    },
+};
 </script>
