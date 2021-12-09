@@ -32,7 +32,6 @@ class FitsController extends Controller
     public function store(User $user, Request $request)
     {
         $user = auth()->user()->id;
-        dd($request->mappedFits2);
         Fit::create([
             'user_id' => $user,
             'fit' => $request->mappedFits2,
