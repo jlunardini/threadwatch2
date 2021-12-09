@@ -78,13 +78,7 @@
                                     {{ thread_count_total }}
                                 </p>
                             </div>
-                            <p
-                                class="
-                                    text-customLightGray text-2xl text-center
-                                "
-                            >
-                                Total
-                            </p>
+                            <p class="text-customLightGray text-2xl text-center">Total</p>
                         </div>
                         <div class="flex flex-col md:flex-row gap-1 sm:gap-4">
                             <div>
@@ -99,10 +93,7 @@
                                 >
                                     <p>Jeans:</p>
                                     <span
-                                        class="
-                                            text-customOrange text-2xl
-                                            font-semibold
-                                        "
+                                        class="text-customOrange text-2xl font-semibold"
                                         >{{ jeans }}</span
                                     >
                                 </div>
@@ -119,10 +110,7 @@
                                 >
                                     <p>Tops:</p>
                                     <span
-                                        class="
-                                            text-customOrange text-2xl
-                                            font-semibold
-                                        "
+                                        class="text-customOrange text-2xl font-semibold"
                                         >{{ tops }}</span
                                     >
                                 </div>
@@ -139,10 +127,7 @@
                                 >
                                     <p>Kicks:</p>
                                     <span
-                                        class="
-                                            text-customOrange text-2xl
-                                            font-semibold
-                                        "
+                                        class="text-customOrange text-2xl font-semibold"
                                         >{{ kicks }}</span
                                     >
                                 </div>
@@ -179,15 +164,7 @@
                                 {{ thread.style }}
                             </p>
                         </div>
-                        <div
-                            class="
-                                flex flex-row
-                                items-center
-                                justify-center
-                                mr-6
-                                gap-2
-                            "
-                        >
+                        <div class="flex flex-row items-center justify-center mr-6 gap-2">
                             <div
                                 class="
                                     bg-customOrange
@@ -200,19 +177,11 @@
                                     leading-none
                                 "
                             >
-                                <p
-                                    class="
-                                        font-bold
-                                        text-customDark text-xl
-                                        rounded-full
-                                    "
-                                >
+                                <p class="font-bold text-customDark text-xl rounded-full">
                                     {{ thread.worn }}
                                 </p>
                             </div>
-                            <p class="text-customOrange font-semibold text-sm">
-                                Days
-                            </p>
+                            <p class="text-customOrange font-semibold text-sm">Days</p>
                         </div>
                     </div>
                 </div>
@@ -284,17 +253,10 @@ export default {
         AppLayout,
         Welcome,
     },
-    props: [
-        'threads',
-        'thread_count_total',
-        'jeans',
-        'tops',
-        'kicks',
-        'all_fits',
-    ],
+    props: ['threads', 'thread_count_total', 'jeans', 'tops', 'kicks', 'all_fits'],
     methods: {
         getHumanDate: function (date) {
-            return moment(date).format('MM/DD/YY')
+            return moment(date).format('MMM Do YY')
         },
     },
 }

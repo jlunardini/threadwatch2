@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="301px" height="340px" viewBox="0 0 301 340" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Washed_Icon" transform="translate(-51.000000, -30.000000)" stroke="#D98E3A">
+            <g id="Group" transform="translate(51.000000, 30.000000)">
+                <rect id="Rectangle" stroke-width="5" x="2.5" y="2.5" width="295" height="335" rx="12"></rect>
+                <line x1="3" y1="68" x2="300" y2="68" id="Path" stroke-width="4"></line>
+                <circle id="Oval" stroke-width="5" cx="150.5" cy="189.5" r="93"></circle>
+                <circle id="Oval-Copy" stroke-width="4.5" cx="149.5" cy="189.5" r="76.25"></circle>
+                <line x1="69" y1="68" x2="69" y2="2.24425717" id="Path-2" stroke-width="5"></line>
+                <circle id="Oval" stroke-width="4" cx="37" cy="36" r="16"></circle>
+                <rect id="Rectangle" stroke-width="2" x="110" y="19" width="58" height="10" rx="2"></rect>
+                <rect id="Rectangle-Copy-3" stroke-width="2" x="190" y="19" width="58" height="10" rx="2"></rect>
+                <rect id="Rectangle-Copy" stroke-width="2" x="110" y="39" width="58" height="10" rx="2"></rect>
+                <rect id="Rectangle-Copy-2" stroke-width="2" x="190" y="39" width="58" height="10" rx="2"></rect>
+                <rect id="Rectangle" fill="#D98E3A" x="244.5" y="172.5" width="6" height="34"></rect>
+                <line x1="93.4971656" y1="166.714051" x2="119.724114" y2="141" id="Path-3" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="93.4971656" y1="185.320672" x2="142.342627" y2="141" id="Path-4" stroke-width="4" stroke-linecap="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

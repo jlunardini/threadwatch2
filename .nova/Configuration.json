@@ -1,5 +1,4 @@
 {
-  "prettier.default-config.printWidth" : 200,
   "tailwindcss.workspace.tailwindConfig" : "\/Users\/jlunardini\/Sites\/threadwatch2\/tailwind.config.js",
   "tommasonegri.vue.serverRunning" : true,
   "workspace.name" : "threadwatch - dev"

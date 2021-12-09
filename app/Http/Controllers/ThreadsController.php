@@ -166,6 +166,17 @@ class ThreadsController extends Controller
             ->with('successMessage', 'Clean bb');
     }
 
+    // Toggle In Fit to True
+    public function addToFit(Thread $thread)
+    {
+        $thread->update([
+            'in_fit' => true,
+        ]);
+        return redirect()
+            ->back()
+            ->with('successMessage', 'Added to Fit');
+    }
+
     // delete existing thread
     public function destroy(Thread $thread)
     {
