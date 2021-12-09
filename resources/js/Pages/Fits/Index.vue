@@ -97,7 +97,9 @@
                     </div>
                 </div>
                 <inertia-link
-                    @click="addToFit()"
+                    :data="{ mappedFits2 }"
+                    :href="`/fits/save`"
+                    method="POST"
                     class="
                         text-sm text-gray-200
                         border-2 border-customDark
@@ -194,7 +196,7 @@ export default {
             timeOfDay: moment().format('dddd,h,A').split(','),
             timeOfDayText: '',
             currentFit: this.in_fit,
-            mappedFits: 'test',
+            mappedFits2: 'test',
         }
     },
     props: ['in_fit', 'all_fits', 'errors'],
@@ -218,7 +220,7 @@ export default {
         } else {
             this.timeOfDayText = "Evening's"
         }
-        this.mappedFits = Object.assign({ ...this.currentFit })
+        this.mappedFits2 = Object.assign({ ...this.currentFit })
     },
 }
 </script>

@@ -32,15 +32,13 @@ class FitsController extends Controller
     public function store(User $user, Request $request)
     {
         $user = auth()->user()->id;
-        $in_fit = Thread::where('in_fit', true)
-            ->where('user_id', '=', $user)
-            ->get();
+        dd($request->mappedFits2);
         Fit::create([
             'user_id' => $user,
-            'fit' => $request->mappedFits,
+            'fit' => $request->mappedFits2,
         ]);
 
-        foreach ($request->mappedFits as $fit) {
+        foreach ($request->mappedFits2 as $fit) {
             $update_thread = Thread::where('id', $fit['id'])->update([
                 'in_fit' => false,
                 'worn_today' => Carbon::now()->toDateTimeString(),
@@ -48,6 +46,6 @@ class FitsController extends Controller
         }
         return redirect()
             ->back()
-            ->with('successMessage', 'Fit was succesfully added');
+            ->with('successMessage', 'Added');
     }
 }
