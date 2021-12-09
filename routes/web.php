@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Fits
     Route::get('/fits', 'App\Http\Controllers\FitsController@index')->name('fits.index');
-    Route::get('/fits/save', 'App\Http\Controllers\FitsController@store')->name(
+    Route::post('/fits/save', 'App\Http\Controllers\FitsController@store')->name(
         'fits.store'
     );
 
