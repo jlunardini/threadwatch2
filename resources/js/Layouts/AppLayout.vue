@@ -81,6 +81,9 @@
                             <jet-dropdown-link :href="route('profile.show')">
                                 Profile
                             </jet-dropdown-link>
+                            <jet-dropdown-link :href="route('changelog.show')">
+                                Changelog
+                            </jet-dropdown-link>
                             <div class="border-t border-gray-100 mx-4"></div>
                             <!-- Authentication -->
                             <form @submit.prevent="logout">

@@ -27,6 +27,7 @@ class Thread extends Authenticatable
         'worn_today',
         'denim_weight',
         'web_link',
+        'in_fit',
     ];
 
     public function user()

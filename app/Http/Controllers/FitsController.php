@@ -17,14 +17,14 @@ class FitsController extends Controller
     public function index(User $user)
     {
         $user = auth()->user()->id;
-        $threads = Thread::whereDate('worn_today', Carbon::today())
+        $in_fit = Thread::where('in_fit', true)
             ->where('user_id', '=', $user)
             ->get();
         $fits = Fit::where('user_id', '=', $user)
             ->get()
             ->sortByDesc('created_at');
         return Inertia::render('Fits/Index', [
-            'threads' => $threads,
+            'in_fit' => $in_fit,
             'all_fits' => $fits,
         ]);
     }
@@ -32,13 +32,19 @@ class FitsController extends Controller
     public function store(User $user, Request $request)
     {
         $user = auth()->user()->id;
-        $threads = Thread::whereDate('updated_at', Carbon::today())
+        $in_fit = Thread::where('in_fit', true)
             ->where('user_id', '=', $user)
             ->get();
         Fit::create([
             'user_id' => $user,
-            'fit' => $threads,
+            'fit' => $request->mappedFits,
         ]);
+        foreach ($request->mappedFits as $fit) {
+            $update_thread = Thread::where('id', $fit['id'])->update([
+                'in_fit' => false,
+                'worn_today' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
         return redirect()
             ->back()
             ->with('successMessage', 'Fit was succesfully added');
