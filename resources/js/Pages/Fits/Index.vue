@@ -7,10 +7,9 @@
                 lg:mx-auto
                 justify-center
                 sm:justify-between
-                mx-8
+                mx-4
                 gap-4
-                mt-8
-                lg:mt-16
+                mt-16
             "
         >
             <div
@@ -22,7 +21,7 @@
                     from-heroOrangeStart
                     to-heroOrangeEnd
                     rounded-lg
-                    p-12
+                    p-8
                     font-bold
                     mt-16
                 "
@@ -32,12 +31,14 @@
                 </h1>
                 <div
                     class="
-                        flex flex-col flex-wrap
+                        inline-flex
+                        flex-col flex-wrap
                         justify-start
                         lg:flex-row
                         gap-6
+                        flex-grow-0
                         mt-6
-                        mb-12
+                        mb-8
                         text-customBlack
                     "
                 >
@@ -50,20 +51,14 @@
                             border-customBlack border-2
                             rounded-md
                             p-4
+                            pr-16
                             relative
                         "
                         v-for="(fit, index) in currentFit"
                         :key="fit.id"
                     >
                         <div
-                            class="
-                                absolute
-                                top-4
-                                right-4
-                                hover:bg-customBlack
-                                rounded-full
-                                hover:text-customOrange
-                            "
+                            class="absolute top-5 right-4 rounded-full"
                             @click="deleteFromCurrentFit(index)"
                         >
                             <svg
@@ -96,84 +91,155 @@
                         </p>
                     </div>
                 </div>
-                <inertia-link
-                    :data="{ mappedFits2 }"
-                    :href="`/fits/save`"
-                    method="POST"
+                <div
                     class="
-                        text-sm text-gray-200
-                        border-2 border-customDark
-                        hover:text-customOrange
-                        tranform
-                        transition-colors
-                        hover:bg-customDark
-                        text-customDark
-                        font-victor
-                        text-md
-                        font-bold
-                        rounded-md
-                        py-2
-                        px-6
                         w-full
-                        sm:mx-0
-                        text-center
-                        sm:w-auto
+                        flex flex-row
+                        gap-4
+                        rounded-md
+                        text-customOrange
+                        mb-4
+                        items-center
                     "
-                    >Save</inertia-link
                 >
+                    <div class="h-8 w-8 text-customDark flex items-center justify-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                            />
+                        </svg>
+                    </div>
+                    <div
+                        class="text-customDark text-xl font-bold p-1"
+                        v-bind:class="{
+                            'bg-customDark rounded-md text-customOrange':
+                                selectedTag == tag.name,
+                        }"
+                        v-for="tag in tags"
+                        :key="tag.id"
+                        v-bind:id="tag.name"
+                        @click="selectTag($event)"
+                    >
+                        {{ tag.name }}
+                    </div>
+                </div>
+                <div class="w-full">
+                    <inertia-link
+                        href="/fits/save"
+                        :data="{ currentFit }"
+                        method="POST"
+                        class="
+                            text-sm text-gray-200
+                            inline-block
+                            border-2 border-customDark
+                            hover:text-customOrange
+                            tranform
+                            transition-colors
+                            hover:bg-customDark
+                            text-customDark
+                            font-victor
+                            text-md
+                            font-bold
+                            rounded-md
+                            py-2
+                            px-6
+                            w-full
+                            sm:mx-0
+                            text-center
+                            sm:w-auto
+                        "
+                    >
+                        Save
+                    </inertia-link>
+                </div>
             </div>
             <div class="mt-8 lg:mt-16 mx-auto text-gray-400 text-2xl" v-else>
-                Nothing here yet, add some threads and come back
+                Nothing here yet,
+                <inertia-link
+                    class="hover:text-customOrange hover:underline"
+                    href="/threads"
+                    >add some threads</inertia-link
+                >
+                and come back
             </div>
         </div>
         <div
             class="
-                flex flex-col-reverse flex-wrap
+                flex flex-col flex-wrap
                 max-w-4xl
                 lg:mx-auto
                 justify-center
                 sm:justify-between
-                mx-8
+                mx-4
                 gap-4
                 mt-8
                 lg:mt-16
                 pb-8
             "
         >
+            <h2 class="text-gray-400 text-2xl">Past Fits</h2>
             <div
-                v-for="one in all_fits"
+                v-for="(one, key) in all_fits"
                 :key="one.id"
-                class="h-auto w-full bg-customBlack rounded-lg p-12 font-bold"
+                class="h-auto w-full bg-customBlack rounded-lg p-8 font-bold"
             >
                 <h1 class="font-victor text-4xl font-bold text-customOrange mb-2">
-                    {{ getHumanDate(one.created_at) }}
+                    {{ key }}
                 </h1>
                 <div
                     class="
-                        flex flex-col flex-wrap
+                        flex flex-row-reverse flex-wrap
                         justify-start
                         sm:flex-row
                         mt-6
                         text-customOrange
+                        gap-8
                     "
                 >
                     <div
                         class="
                             font-victor
-                            w-1/3
-                            flex-grow
-                            border-customBlack border-2
                             rounded-md
-                            p-4
-                            pl-0
+                            w-full
+                            flex-grow flex flex-row flex-wrap
                         "
-                        v-for="fit in one.fit"
-                        :key="fit.id"
+                        v-for="two in one"
+                        :key="two.id"
                     >
-                        <p class="text-2xl whitespace-nowrap">
-                            {{ fit.brand }}
-                        </p>
-                        <p class="text-lg whitespace-nowrap">{{ fit.style }}</p>
+                        <div className="text-customLightGray block text-sm mb-2 mr-4">
+                            {{ getHumanTime(two.created_at) }}
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            <p class="text-md" v-for="tag in two.tags" :key="tag.id">
+                                #{{ tag.name }}
+                            </p>
+                        </div>
+                        <div
+                            class="
+                                w-full
+                                flex flex-row flex-wrap
+                                lg:flex-nowrap
+                                gap-4
+                                lg:gap-8
+                                mt-2
+                            "
+                        >
+                            <div class="w-auto" v-for="three in two.fit" :key="three.id">
+                                <p class="text-2xl whitespace-nowrap">
+                                    {{ three.brand }}
+                                </p>
+                                <p class="text-lg whitespace-nowrap">{{ three.style }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,20 +262,29 @@ export default {
             timeOfDay: moment().format('dddd,h,A').split(','),
             timeOfDayText: '',
             currentFit: this.in_fit,
-            mappedFits2: 'test',
+            selectedTag: null,
         }
     },
-    props: ['in_fit', 'all_fits', 'errors'],
+    props: ['in_fit', 'all_fits', 'tags', 'errors'],
     methods: {
         getHumanDate: function (date) {
             return moment(date).format('MM/DD/YY')
         },
+        getHumanTime: function (date) {
+            return moment(date).format('hh:mm a')
+        },
         deleteFromCurrentFit: function (index) {
             this.currentFit.splice(index, 1)
-            this.mappedFits = Object.assign({ ...this.currentFit })
+            this.mappedFits2 = Object.assign({ ...this.currentFit })
         },
         addToFit() {
-            this.$inertia.post('/fits/save', this.mappedFits)
+            this.$inertia.post('/fits/save', {
+                current_fit: this.currentFit,
+                tag: this.selectedTag,
+            })
+        },
+        selectTag(event) {
+            this.selectedTag = event.target.id
         },
     },
     mounted() {
@@ -221,6 +296,12 @@ export default {
             this.timeOfDayText = "Evening's"
         }
         this.mappedFits2 = Object.assign({ ...this.currentFit })
+    },
+    watch: {
+        in_fit: function () {
+            // watch it
+            this.currentFit = this.in_fit
+        },
     },
 }
 </script>

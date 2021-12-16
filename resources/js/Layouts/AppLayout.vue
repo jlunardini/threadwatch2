@@ -106,7 +106,7 @@
                             text-customGreen
                             p-2
                             text-lg
-                            flex flex-row
+                            flex flex-row flex-nowrap
                             gap-2
                             items-center
                             max-w-sm

@@ -51,6 +51,10 @@ Route::group(['middleware' => ['auth']], function () {
         'App\Http\Controllers\ThreadsController@addToFit'
     )->name('threads.addToFit');
     Route::patch(
+        '/threads/{thread}/removeFromFit',
+        'App\Http\Controllers\ThreadsController@removeFromFit'
+    )->name('threads.removeFromFit');
+    Route::patch(
         '/threads/{thread}/washedToday',
         'App\Http\Controllers\ThreadsController@washedToday'
     )->name('threads.washed');

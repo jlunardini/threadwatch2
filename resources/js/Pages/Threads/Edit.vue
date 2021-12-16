@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <div class="flex flex-col max-w-5xl mx-auto justify-center px-2 mt-16">
+        <div class="flex flex-col max-w-6xl mx-auto justify-center px-2 mt-16">
             <h1
                 class="
                     text-3xl
@@ -13,16 +13,9 @@
             >
                 Update Your {{ form.brand }} {{ form.category }}
             </h1>
-            <form
-                action="#"
-                method="POST"
-                class="mt-4"
-                @submit.prevent="updateThread"
-            >
+            <form action="#" method="POST" class="mt-4" @submit.prevent="updateThread">
                 <div class="flex flex-row flex-wrap gap-4">
-                    <div
-                        className="flex flex-row flex-wrap lg:flex-nowrap gap-2 w-full"
-                    >
+                    <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2 w-full">
                         <div class="form-group flex flex-col w-full md:w-5/12">
                             <label
                                 class="
@@ -174,10 +167,7 @@
                             v-model="form.category"
                             name="category"
                         >
-                            <option
-                                v-for="category in categories"
-                                :key="category.id"
-                            >
+                            <option v-for="category in categories" :key="category.id">
                                 {{ category.category }}
                             </option>
                             <option value="add_new">+ Add New</option>
@@ -185,9 +175,7 @@
                     </div>
                     <div
                         class="form-group flex flex-col w-full"
-                        v-if="
-                            form.category == 'Jeans' || form.category == 'jeans'
-                        "
+                        v-if="form.category == 'Jeans' || form.category == 'jeans'"
                     >
                         <label
                             class="
@@ -295,8 +283,8 @@
                         "
                     >
                         <p class="text-customOrange font-thread text-lg">
-                            Don’t worry if you don’t know these next two, we can
-                            start counting from here on out
+                            Don’t worry if you don’t know these next two, we can start
+                            counting from here on out
                         </p>
                     </div>
                 </div>
@@ -369,16 +357,7 @@
                        label="Photo"
                    /> -->
                 </div>
-                <div
-                    class="
-                        flex flex-row
-                        mt-8
-                        justify-start
-                        gap-4
-                        items-end
-                        mb-16
-                    "
-                >
+                <div class="flex flex-row mt-8 justify-start gap-4 items-end mb-16">
                     <button
                         class="
                             text-sm text-gray-200
@@ -398,9 +377,7 @@
                     >
                         Update Thread
                     </button>
-                    <inertia-link
-                        @click="deleteThread"
-                        class="block text-red-400"
+                    <inertia-link @click="deleteThread" class="block text-red-400"
                         >Delete</inertia-link
                     >
                 </div>
@@ -435,17 +412,13 @@ export default {
     },
     methods: {
         updateThread() {
-            this.$inertia
-                .patch(`/threads/${this.threads.id}`, this.form)
-                .then(() => {
-                    this.loading = false
-                })
+            this.$inertia.patch(`/threads/${this.threads.id}`, this.form).then(() => {
+                this.loading = false
+            })
         },
         deleteThread() {
             if (confirm('Are you sure you want to delete this thread?')) {
-                this.$inertia
-                    .delete(`/threads/${this.threads.id}/delete`)
-                    .then(() => {})
+                this.$inertia.delete(`/threads/${this.threads.id}/delete`).then(() => {})
             }
         },
 

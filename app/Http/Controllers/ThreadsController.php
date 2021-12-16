@@ -145,7 +145,7 @@ class ThreadsController extends Controller
     // add to Wore column
     public function woreToday(Thread $thread)
     {
-        $timestamp = Carbon::now()->toDateTimeString();
+        $timestamp = Carbon::now();
         $thread->update([
             'worn' => DB::raw('worn + 1'),
             'worn_today' => $timestamp,
@@ -175,6 +175,16 @@ class ThreadsController extends Controller
         return redirect()
             ->back()
             ->with('successMessage', 'Added to Fit');
+    }
+
+    public function removeFromFit(Thread $thread)
+    {
+        $thread->update([
+            'in_fit' => false,
+        ]);
+        return redirect()
+            ->back()
+            ->with('error', 'Removed from Fit');
     }
 
     // delete existing thread

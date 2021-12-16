@@ -30,6 +30,8 @@ class Thread extends Authenticatable
         'in_fit',
     ];
 
+    protected $casts = ['worn_today' => 'datetime'];
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');

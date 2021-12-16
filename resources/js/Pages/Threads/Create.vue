@@ -1,27 +1,12 @@
 <template>
     <app-layout>
-        <div
-            class="flex flex-col max-w-5xl justify-center px-2 lg:mx-auto mt-16"
-        >
-            <h1
-                class="
-                    text-4xl text-customLightGray
-                    mt-16
-                    text-center
-                    lg:text-left
-                "
-            >
+        <div class="flex flex-col max-w-6xl justify-center px-2 lg:mx-auto mt-16">
+            <h1 class="text-4xl text-customLightGray mt-16 text-center lg:text-left">
                 Add New Threads
             </h1>
-            <form
-                method="POST"
-                class="mt-8 w-full"
-                @submit.prevent="createThread"
-            >
+            <form method="POST" class="mt-8 w-full" @submit.prevent="createThread">
                 <div class="flex flex-row flex-wrap gap-4">
-                    <div
-                        className="flex flex-row flex-wrap lg:flex-nowrap gap-2 w-full"
-                    >
+                    <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2 w-full">
                         <div class="form-group flex flex-col w-full md:w-5/12">
                             <label
                                 class="
@@ -173,10 +158,7 @@
                             v-model="form.category"
                             name="category"
                         >
-                            <option
-                                v-for="category in categories"
-                                :key="category.id"
-                            >
+                            <option v-for="category in categories" :key="category.id">
                                 {{ category.category }}
                             </option>
                             <option value="add_new">+ Add New</option>
@@ -184,9 +166,7 @@
                     </div>
                     <div
                         class="form-group flex flex-col w-full"
-                        v-if="
-                            form.category == 'Jeans' || form.category == 'jeans'
-                        "
+                        v-if="form.category == 'Jeans' || form.category == 'jeans'"
                     >
                         <label
                             class="
@@ -294,8 +274,8 @@
                         "
                     >
                         <p class="text-customOrange font-thread text-lg">
-                            Don’t worry if you don’t know these next two, we can
-                            start counting from here on out
+                            Don’t worry if you don’t know these next two, we can start
+                            counting from here on out
                         </p>
                     </div>
                 </div>

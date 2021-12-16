@@ -6,7 +6,7 @@
                 lg:auto-rows-auto
                 grid-flow-row
                 lg:grid-rows-6
-                max-w-5xl
+                max-w-6xl
                 lg:mx-auto
                 justify-start
                 sm:justify-start
