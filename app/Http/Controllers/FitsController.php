@@ -37,16 +37,13 @@ class FitsController extends Controller
     public function store(User $user, Request $request)
     {
         $user = auth()->user()->id;
+        $tag = Tag::where('name', $request->tag)->get()->first();
         Fit::create([
             'user_id' => $user,
-            'fit' => $request->currentFit,
-        ])
-            ->tags()
-            ->create([
-                'name' => $request->selectedTag,
-            ]);
-
-        foreach ($request->currentFit as $fit) {
+            'fit' => $request->current_fit,
+        ])->tags()->attach($tag);
+        
+        foreach ($request->current_fit as $fit) {
             $update_thread = Thread::find($fit['id']);
             $today = Carbon::today()->format('m/d/y');
             if ($update_thread->worn_today === null) {
