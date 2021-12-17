@@ -87,6 +87,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/changelog', function () {
         return Inertia::render('Changelog/Index');
     })->name('changelog.show');
+
+    // Categories
+    Route::get(
+        '/categories/edit',
+        'App\Http\Controllers\CategoriesController@show'
+    )->name('categories.show');
+    Route::post(
+        '/categories/add',
+        'App\Http\Controllers\CategoriesController@store'
+    )->name('categories.store');
+    Route::post(
+        '/categories/delete',
+        'App\Http\Controllers\CategoriesController@destroy'
+    )->name('categories.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])

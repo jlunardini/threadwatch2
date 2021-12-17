@@ -149,7 +149,72 @@
                     mb-4
                 "
             >
-                <h1 class="text-customLightGray text-4xl mb-4">Most Worn</h1>
+                <div class="flex flex-row gap-2 items-center mb-4">
+                    <h1 class="text-customLightGray text-4xl">Most Worn</h1>
+                    <div
+                        @click="showFilterDropdown"
+                        class="
+                            text-customLightGray text-4xl
+                            flex flex-row
+                            items-center
+                            gap-2
+                            relative
+                        "
+                        ref="button"
+                    >
+                        <p>Overall</p>
+                        <div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                />
+                            </svg>
+                        </div>
+                        <transition
+                            enter-active-class="transition ease-out duration-200"
+                            enter-from-class="transform opacity-0 scale-95"
+                            enter-to-class="transform opacity-100 scale-100"
+                            leave-active-class="transition ease-in duration-75"
+                            leave-from-class="transform opacity-100 scale-100"
+                            leave-to-class="transform opacity-0 scale-95"
+                        >
+                            <ul
+                                v-show="filterDropdownVisible"
+                                class="
+                                    absolute
+                                    text-customLightGray
+                                    bg-customBlack
+                                    p-3
+                                    top-12
+                                    rounded-md
+                                    left-0
+                                    right-0
+                                    text-2xl
+                                    z-10
+                                    w-full
+                                    flex flex-col
+                                    gap-2
+                                "
+                            >
+                                <li class="hover:text-gray-400 cursor-pointer">
+                                    This Week
+                                </li>
+                                <li class="hover:text-gray-400 cursor-pointer">
+                                    This Month
+                                </li>
+                            </ul>
+                        </transition>
+                    </div>
+                </div>
                 <div className="flex flex-col gap-4">
                     <div
                         className="flex flex-row text-white justify-between items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative"
@@ -253,10 +318,22 @@ export default {
         AppLayout,
         Welcome,
     },
-    props: ['threads', 'thread_count_total', 'jeans', 'tops', 'kicks', 'all_fits'],
+    props: ['threads', 'thread_count_total', 'thread_categories', 'all_fits'],
+    data() {
+        return {
+            filterDropdownVisible: false,
+        }
+    },
+
     methods: {
         getHumanDate: function (date) {
             return moment(date).format('MMM Do YY')
+        },
+        showFilterDropdown: function () {
+            this.filterDropdownVisible = !this.filterDropdownVisible
+        },
+        hideFilterDropdown: function () {
+            this.filterDropdownVisible = false
         },
     },
 }

@@ -159,7 +159,7 @@
                             name="category"
                         >
                             <option v-for="category in categories" :key="category.id">
-                                {{ category.category }}
+                                {{ category.name }}
                             </option>
                             <option value="add_new">+ Add New</option>
                         </select>

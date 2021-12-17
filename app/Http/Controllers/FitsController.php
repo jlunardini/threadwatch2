@@ -40,7 +40,11 @@ class FitsController extends Controller
         Fit::create([
             'user_id' => $user,
             'fit' => $request->currentFit,
-        ]);
+        ])
+            ->tags()
+            ->create([
+                'name' => $request->selectedTag,
+            ]);
 
         foreach ($request->currentFit as $fit) {
             $update_thread = Thread::find($fit['id']);

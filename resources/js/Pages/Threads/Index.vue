@@ -43,9 +43,24 @@
                             hover:-translate-y-1
                             hover:border-2
                         "
-                        :href="`/threads/categories/${category.category}`"
+                        :href="`/threads/categories/${category.name}`"
                     >
-                        {{ category.category }}
+                        {{ category.name }}
+                    </inertia-link>
+                    <inertia-link
+                        class="
+                            text-2xl
+                            md:text-2xl
+                            text-customLightGray
+                            transform
+                            transition-transform
+                            cursor-pointer
+                            hover:-translate-y-1
+                            hover:border-2
+                        "
+                        href="/categories/edit"
+                    >
+                        Edit
                     </inertia-link>
                 </div>
             </div>
@@ -154,6 +169,7 @@
                                 text-sm
                                 py-2
                                 px-4
+                                whitespace-nowrap
                                 text-white
                                 tranform
                                 transition-colors
@@ -217,6 +233,40 @@
                                 />
                             </svg>
                         </inertia-link>
+                        <div
+                            v-if="laundryMode == false || thread.category.name != null"
+                            class="
+                                w-full
+                                flex flex-row
+                                rounded-md
+                                text-customOrange
+                                items-center
+                                flex-grow-0
+                            "
+                        >
+                            <div class="h-6 w-6 flex items-center justify-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                                    />
+                                </svg>
+                            </div>
+                            <div
+                                v-if="thread.category != null"
+                                class="text-customOrange text-md font-bold"
+                            >
+                                {{ thread.category.name }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

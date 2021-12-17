@@ -39,6 +39,6 @@ class Thread extends Authenticatable
 
     public function category()
     {
-        return $this->hasOne('App\Models\ThreadCategory');
+        return $this->belongsTo('App\Models\Category');
     }
 }

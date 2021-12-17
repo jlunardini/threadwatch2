@@ -1,5 +1,14 @@
 {
   "tailwindcss.workspace.tailwindConfig" : "\/Users\/jlunardini\/Sites\/threadwatch2\/tailwind.config.js",
+  "tommasonegri.vue.config.extension.statusNotifications" : "Enable",
+  "tommasonegri.vue.config.vetur.completion.autoImport" : "Enable",
+  "tommasonegri.vue.config.vetur.completion.tagCasing" : "initial",
+  "tommasonegri.vue.config.vetur.languageFeatures.codeActions" : "Enable",
+  "tommasonegri.vue.config.vetur.languageFeatures.updateImportOnFileMove" : "Enable",
+  "tommasonegri.vue.config.vetur.validation.interpolation" : "Enable",
+  "tommasonegri.vue.config.vetur.validation.script" : "Enable",
+  "tommasonegri.vue.config.vetur.validation.style" : "Enable",
+  "tommasonegri.vue.config.vetur.validation.templateProps" : "Enable",
   "tommasonegri.vue.serverRunning" : true,
   "workspace.name" : "threadwatch - dev"
 }

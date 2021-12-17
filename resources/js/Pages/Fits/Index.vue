@@ -275,7 +275,9 @@ export default {
         },
         deleteFromCurrentFit: function (index) {
             this.currentFit.splice(index, 1)
-            this.mappedFits2 = Object.assign({ ...this.currentFit })
+            this.mappedFits2 = Object.assign({
+                ...this.currentFit,
+            })
         },
         addToFit() {
             this.$inertia.post('/fits/save', {
@@ -295,7 +297,9 @@ export default {
         } else {
             this.timeOfDayText = "Evening's"
         }
-        this.mappedFits2 = Object.assign({ ...this.currentFit })
+        this.mappedFits2 = Object.assign({
+            ...this.currentFit,
+        })
     },
     watch: {
         in_fit: function () {
