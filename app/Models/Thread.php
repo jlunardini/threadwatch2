@@ -23,7 +23,7 @@ class Thread extends Authenticatable
         'washed',
         'worn',
         'user_id',
-        'category',
+        'category_id',
         'worn_today',
         'denim_weight',
         'web_link',
