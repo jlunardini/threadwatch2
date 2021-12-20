@@ -46,8 +46,30 @@
           </div>
         </div>
         <div
-          class="w-full flex flex-row gap-4 rounded-md text-customOrange mb-4 items-center"
+          class="w-full flex flex-row rounded-md text-customOrange mb-4 items-center"
         >
+          <button
+            class="h-8 w-8 text-customDark flex items-center justify-center cursor-pointer hover:border hover:border-customDark"
+            id="add_new"
+            @click="selectTag($event)"
+          >
+            <svg
+              id="add_new"
+              @click="selectTag($event)"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+          </button>
           <div class="h-8 w-8 text-customDark flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +86,7 @@
               />
             </svg>
           </div>
+
           <div
             class="text-customDark text-xl font-bold p-1"
             v-bind:class="{
@@ -77,6 +100,24 @@
           >
             {{ tag.name }}
           </div>
+        </div>
+        <div v-if="errors.length > 0">{{ errors.tag.newTag }}</div>
+        <div
+          v-if="tag.selectedTag == 'add_new'"
+          class="form-group flex flex-col mb-4"
+        >
+          <label
+            class="font-victor text-customDark text-sm w-full"
+            for="new_tag_name"
+            >New Tag Name</label
+          >
+          <input
+            class="appearance-none bg-transparent border-2 border-customDark rounded-md"
+            type="text"
+            id="new_tag_name"
+            name="new_tag_name"
+            v-model="this.tag.newTag"
+          />
         </div>
         <div class="w-full">
           <button
@@ -156,7 +197,11 @@ export default {
       timeOfDay: moment().format("dddd,h,A").split(","),
       timeOfDayText: "",
       currentFit: this.in_fit,
-      selectedTag: null,
+      tag: {
+        selectedTag: null,
+        addNewTag: false,
+        newTag: "",
+      },
     };
   },
   props: ["in_fit", "all_fits", "tags", "errors"],
@@ -176,11 +221,11 @@ export default {
     addToFit() {
       this.$inertia.post("/fits/save", {
         current_fit: this.currentFit,
-        tag: this.selectedTag,
+        tag: this.tag,
       });
     },
     selectTag(event) {
-      this.selectedTag = event.target.id;
+      this.tag.selectedTag = event.target.id;
     },
   },
   mounted() {
