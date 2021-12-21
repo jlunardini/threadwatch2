@@ -37,13 +37,14 @@ class DashboardController extends Controller
             ->groupBy(function ($date) {
                 return \Carbon\Carbon::parse($date->created_at)->format('m/d/y');
             });
+        
 
         $categories = Category::with('threads')->get();
         return Inertia::render('Dashboard', [
             'threads' => $most_worn_total,
             'thread_count_total' => $thread_count_total,
             'thread_categories' => $categories,
-            'all_fits' => $fits,
+            'recent_fits' => $fits,
         ]);
     }
 }

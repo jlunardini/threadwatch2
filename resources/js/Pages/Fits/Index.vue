@@ -86,19 +86,20 @@
               />
             </svg>
           </div>
-
-          <div
-            class="text-customDark text-xl font-bold p-1"
-            v-bind:class="{
-              'bg-customDark rounded-md text-customOrange':
-                selectedTag == tag.name,
-            }"
-            v-for="tag in tags"
-            :key="tag.id"
-            v-bind:id="tag.name"
-            @click="selectTag($event)"
-          >
-            {{ tag.name }}
+          <div class="flex flex-row gap-1">
+            <div
+              v-bind:class="
+                tag.selectedTag == singleTag.name
+                  ? 'text-customOrange bg-customDark text-xl font-bold p-1 cursor-pointer rounded-md transition-colors'
+                  : 'text-customDark text-xl font-bold p-1 cursor-pointer hover:shadow rounded-md transition-colors'
+              "
+              v-for="singleTag in tags"
+              :key="singleTag.id"
+              v-bind:id="singleTag.name"
+              @click="selectTag($event)"
+            >
+              {{ singleTag.name }}
+            </div>
           </div>
         </div>
         <div v-if="errors.length > 0">{{ errors.tag.newTag }}</div>
@@ -140,39 +141,41 @@
       </div>
     </div>
     <div
-      class="flex flex-col-reverse flex-wrap max-w-4xl lg:mx-auto justify-center sm:justify-between mx-4 gap-4 mt-8 lg:mt-16 pb-8"
+      class="flex flex-col flex-wrap max-w-4xl lg:mx-auto justify-center sm:justify-between mx-4 gap-4 mt-8 lg:mt-16 pb-8"
     >
       <h2 class="text-gray-400 text-2xl">Past Fits</h2>
-      <div
-        v-for="(one, key) in all_fits"
-        :key="one.id"
-        class="h-auto w-full bg-customBlack rounded-lg p-8 font-bold"
-      >
-        <h1 class="font-victor text-4xl font-bold text-customOrange mb-2">
-          {{ key }}
-        </h1>
+      <div class="flex flex-col-reverse gap-4">
         <div
-          class="flex flex-row-reverse flex-wrap justify-start sm:flex-row mt-6 text-customOrange gap-8"
+          v-for="(one, key) in all_fits"
+          :key="one.id"
+          class="h-auto w-full bg-customBlack rounded-lg p-8 font-bold"
         >
+          <h1 class="font-victor text-4xl font-bold text-customOrange mb-2">
+            {{ key }}
+          </h1>
           <div
-            class="font-victor rounded-md w-full flex-grow flex flex-row flex-wrap"
-            v-for="two in one"
-            :key="two.id"
+            class="flex flex-row-reverse flex-wrap justify-start sm:flex-row mt-6 text-customOrange gap-8"
           >
-            <div className="text-customLightGray block text-sm mb-2 mr-4">
-              {{ getHumanTime(two.created_at) }}
-            </div>
-            <div class="flex flex-row gap-2">
-              <p class="text-md" v-for="tag in two.tags" :key="tag.id">
-                #{{ tag.name }}
-              </p>
-            </div>
-            <div class="w-full flex flex-row flex-wrap gap-6 mt-2">
-              <div class="w-auto" v-for="three in two.fit" :key="three.id">
-                <p class="text-2xl whitespace-nowrap">
-                  {{ three.brand }}
+            <div
+              class="font-victor rounded-md w-full flex-grow flex flex-row flex-wrap"
+              v-for="two in one"
+              :key="two.id"
+            >
+              <div className="text-customLightGray block text-sm mb-2 mr-4">
+                {{ getHumanTime(two.created_at) }}
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="text-md" v-for="tag in two.tags" :key="tag.id">
+                  #{{ tag.name }}
                 </p>
-                <p class="text-lg whitespace-nowrap">{{ three.style }}</p>
+              </div>
+              <div class="w-full flex flex-row flex-wrap gap-6 mt-2">
+                <div class="w-auto" v-for="three in two.fit" :key="three.id">
+                  <p class="text-2xl whitespace-nowrap">
+                    {{ three.brand }}
+                  </p>
+                  <p class="text-lg whitespace-nowrap">{{ three.style }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -225,6 +228,7 @@ export default {
       });
     },
     selectTag(event) {
+      console.log(event.target.id);
       this.tag.selectedTag = event.target.id;
     },
   },

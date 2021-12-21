@@ -51,13 +51,14 @@ class FitsController extends Controller
             ])->tags()->attach($tag);
         }
         
-        $tag = Tag::where('name', $request->tag)->get()->first();     
-        Fit::create([
-            'user_id' => $user,
-            'fit' => $request->current_fit,
-        ])->tags()->attach($tag);
-            
-       
+        else {
+            $tag = Tag::where('name', $request->tag)->get()->first();     
+            Fit::create([
+                'user_id' => $user,
+                'fit' => $request->current_fit,
+            ])->tags()->attach($tag);
+        }
+        
         foreach ($request->current_fit as $fit) {
             $update_thread = Thread::find($fit['id']);
             $today = Carbon::today()->format('m/d/y');

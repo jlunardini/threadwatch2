@@ -1,18 +1,16 @@
 <template>
   <app-layout>
     <div
-      class="grid grid-cols-12 lg:auto-rows-auto grid-flow-row lg:grid-rows-6 max-w-6xl lg:mx-auto justify-start sm:justify-start mx-2 gap-4 mt-16"
+      class="flex flex-col max-w-3xl lg:mx-auto justify-start sm:justify-start mx-2 gap-4 mt-16"
     >
-      <div
-        class="col-span-12 sm:col-span-6 sm:row-span-1 bg-customDark p-2 w-full self-start mt-4 sm:mt-16"
-      >
+      <div class="w-full w-full self-start mt-4 sm:mt-16">
         <h1 class="text-customLightGray text-4xl mb-4">Thread Count</h1>
-        <div class="flex flex-col flex-grow h-auto sm:h-full">
+        <div class="flex flex-wrap flex-col flex-grow gap-4">
           <div
-            class="flex flex-row text-white justify-start items-center bg-customBlack rounded-md py-2 pl-4 w-auto relative gap-6"
+            class="flex flex-row text-white justify-start bg-transparent rounded-md py-2 pl-2 w-auto relative gap-6"
           >
             <div
-              class="flex flex-col w-5/12 sm:w-auto gap-2 p-4 justify-center"
+              class="flex flex-col sm:w-auto gap-2 p-4 rounded-md justify-center bg-customBlack"
             >
               <div
                 class="bg-customOrange h-16 w-16 rounded-full flex items-center justify-center leading-none self-center"
@@ -25,44 +23,24 @@
               </div>
               <p class="text-customLightGray text-2xl text-center">Total</p>
             </div>
-            <div class="flex flex-col md:flex-row gap-1 sm:gap-4">
-              <div>
-                <div
-                  class="text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
-                >
-                  <p>Jeans:</p>
-                  <span class="text-customOrange text-2xl font-semibold">{{
-                    jeans
-                  }}</span>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
-                >
-                  <p>Tops:</p>
-                  <span class="text-customOrange text-2xl font-semibold">{{
-                    tops
-                  }}</span>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
-                >
-                  <p>Kicks:</p>
-                  <span class="text-customOrange text-2xl font-semibold">{{
-                    kicks
-                  }}</span>
-                </div>
+            <div
+              class="flex flex-wrap flex-grow flex-col md:flex-row gap-2 sm:gap-x-8 gap-y-2 bg-customBlack p-4 rounded-md"
+            >
+              <div
+                v-for="category in thread_categories"
+                class="w-full lg:w-auto text-customLightGray text-2xl flex flex-row justify-between gap-2 items-center"
+                :key="category.id"
+              >
+                <p>{{ category.name }}:</p>
+                <span class="text-customOrange text-2xl font-semibold">{{
+                  category.threads.length
+                }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="col-span-12 sm:col-span-6 bg-customDark sm:row-span-4 p-2 w-full mt-4 sm:mt-16 mb-4"
-      >
+      <div class="w-full bg-customDark sm:row-span-4 p-2 w-full">
         <div class="flex flex-row gap-2 items-center mb-4">
           <h1 class="text-customLightGray text-4xl">Most Worn</h1>
           <div
@@ -132,34 +110,6 @@
           </div>
         </div>
       </div>
-      <div
-        class="col-span-12 sm:col-span-6 bg-customDark p-2 sm:row-span-2 w-full pb-8 sm:pb-0"
-      >
-        <h1 class="text-customLightGray text-4xl mb-4">Recent Fits</h1>
-        <div className="flex flex-col gap-4">
-          <div
-            v-for="single in all_fits"
-            :key="single.id"
-            class="border border-transparent transition-colors hover:border-customOrange flex flex-row flex-wrap text-white justify-between items-center bg-customBlack rounded-md p-8 w-auto relative cursor-pointer gap-4 sm:gap-0"
-          >
-            <div class="w-full text-customOrange text-xl mb-2">
-              {{ getHumanDate(single.created_at) }}
-            </div>
-            <div
-              class="w-full sm:w-auto"
-              v-for="fit in single.fit"
-              :key="fit.id"
-            >
-              <p class="text-xl text-customLightGray">
-                {{ fit.brand }}
-              </p>
-              <p class="text-xl text-customLightGray">
-                {{ fit.style }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </app-layout>
 </template>
@@ -174,7 +124,7 @@ export default {
     AppLayout,
     Welcome,
   },
-  props: ["threads", "thread_count_total", "thread_categories", "all_fits"],
+  props: ["threads", "thread_count_total", "thread_categories", "recent_fits"],
   data() {
     return {
       filterDropdownVisible: false,
@@ -184,6 +134,9 @@ export default {
   methods: {
     getHumanDate: function (date) {
       return moment(date).format("MMM Do YY");
+    },
+    getHumanTime: function (date) {
+      return moment(date).format("hh:mm a");
     },
     showFilterDropdown: function () {
       this.filterDropdownVisible = !this.filterDropdownVisible;
