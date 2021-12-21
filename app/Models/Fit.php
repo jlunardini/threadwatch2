@@ -8,32 +8,26 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Fit extends Authenticatable
 {
-        use HasFactory;
+    use HasFactory;
 
-        /**
-         * The attributes that are mass assignable.
-         *
-         * @var array
-         */
-        protected $fillable = [
-            'user_id', 'fit'
-        ];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['user_id', 'fit'];
 
-protected $casts = [
-        'fit' => 'array'
+    protected $casts = [
+        'fit' => 'array',
     ];
 
-
-
-
-
-
-        public function user()
-        {
-            return $this->belongsTo('App\Models\User');
-        }
-
-
-
-
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+}

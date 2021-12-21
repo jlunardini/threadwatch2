@@ -51,6 +51,10 @@ Route::group(['middleware' => ['auth']], function () {
         'App\Http\Controllers\ThreadsController@addToFit'
     )->name('threads.addToFit');
     Route::patch(
+        '/threads/{thread}/removeFromFit',
+        'App\Http\Controllers\ThreadsController@removeFromFit'
+    )->name('threads.removeFromFit');
+    Route::patch(
         '/threads/{thread}/washedToday',
         'App\Http\Controllers\ThreadsController@washedToday'
     )->name('threads.washed');
@@ -75,7 +79,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Fits
     Route::get('/fits', 'App\Http\Controllers\FitsController@index')->name('fits.index');
-    Route::get('/fits/save', 'App\Http\Controllers\FitsController@store')->name(
+    Route::post('/fits/save', 'App\Http\Controllers\FitsController@store')->name(
         'fits.store'
     );
 
@@ -83,6 +87,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/changelog', function () {
         return Inertia::render('Changelog/Index');
     })->name('changelog.show');
+
+    // Categories
+    Route::get(
+        '/categories/edit',
+        'App\Http\Controllers\CategoriesController@show'
+    )->name('categories.show');
+    Route::post(
+        '/categories/add',
+        'App\Http\Controllers\CategoriesController@store'
+    )->name('categories.store');
+    Route::post(
+        '/categories/delete',
+        'App\Http\Controllers\CategoriesController@destroy'
+    )->name('categories.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])

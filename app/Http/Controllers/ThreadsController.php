@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Thread;
 use App\Models\User;
+use App\Models\Category;
 use Inertia\Inertia;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -27,11 +28,10 @@ class ThreadsController extends Controller
     public function index(User $user)
     {
         $user = auth()->user()->id;
-        $threads = Thread::where('user_id', '=', $user)->get();
-        $categories = Thread::select('category')
-            ->where('user_id', $user)
-            ->groupBy('category')
+        $threads = Thread::with('category')
+            ->where('user_id', '=', $user)
             ->get();
+        $categories = Category::all();
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
             'categories' => $categories,
@@ -41,13 +41,14 @@ class ThreadsController extends Controller
     public function category(User $user, Request $request, $category)
     {
         $user = auth()->user()->id;
+        $category = Category::where('name', $category)
+            ->get()
+            ->pluck('id');
         $threads = Thread::where('user_id', '=', $user)
-            ->where('category', '=', $category)
+            ->where('category_id', '=', $category)
             ->get();
-        $categories = Thread::select('category')
-            ->where('user_id', $user)
-            ->groupBy('category')
-            ->get();
+
+        $categories = Category::all();
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
             'categories' => $categories,
@@ -58,10 +59,7 @@ class ThreadsController extends Controller
     public function create()
     {
         $user = auth()->user()->id;
-        $categories = Thread::select('category')
-            ->where('user_id', '=', $user)
-            ->groupBy('category')
-            ->get();
+        $categories = Category::all();
         return Inertia::render('Threads/Create', [
             'categories' => $categories,
         ]);
@@ -78,7 +76,7 @@ class ThreadsController extends Controller
         if ($category == 'add_new') {
             $category = $request->new_category;
         } else {
-            $category = $request->category;
+            $category = Category::where('name', $request->category)->first();
         }
         Thread::create([
             'brand' => $request->brand,
@@ -87,7 +85,7 @@ class ThreadsController extends Controller
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
-            'category' => $category,
+            'category_id' => $category->id,
             'user_id' => $user_id,
             'denim_weight' => $request->denim_weight,
             'web_link' => $request->web_link,
@@ -102,50 +100,44 @@ class ThreadsController extends Controller
     public function edit(Thread $thread)
     {
         $user = auth()->user()->id;
-        $categories = Thread::select('category')
-            ->where('user_id', $user)
-            ->groupBy('category')
-            ->get();
+        $categories = Category::all();
         return Inertia::render('Threads/Edit', [
-            'threads' => $thread,
+            'threads' => Thread::with('category')->find($thread->id),
             'categories' => $categories,
         ]);
     }
 
-    public function update(Request $request, Thread $thread)
+    public function update(Request $request, $thread)
     {
         $request->validate([
             'brand' => 'required',
         ]);
-
-        $category = $request->category;
-        if ($category == 'add_new') {
-            $category = $request->new_category;
+        if ($request->category == 'add_new') {
+            $category2 = $request->new_category;
         } else {
-            $category = $request->category;
+            $category2 = Category::where('name', $request->category)->first()->id;
         }
-
-        $thread->update([
+        Thread::where('id', $thread)->update([
             'brand' => $request->brand,
             'size' => $request->size,
             'purchased' => $request->purchased,
             'style' => $request->style,
             'worn' => $request->worn,
             'washed' => $request->washed,
-            'category' => $category,
+            'category_id' => $category2,
             'denim_weight' => $request->denim_weight,
             'web_link' => $request->web_link,
         ]);
 
         return redirect()
-            ->route('threads.category', $thread->category)
+            ->route('threads.category', $request->category)
             ->with('successMessage', 'Thread was successfully updated!');
     }
 
     // add to Wore column
     public function woreToday(Thread $thread)
     {
-        $timestamp = Carbon::now()->toDateTimeString();
+        $timestamp = Carbon::now();
         $thread->update([
             'worn' => DB::raw('worn + 1'),
             'worn_today' => $timestamp,
@@ -175,6 +167,16 @@ class ThreadsController extends Controller
         return redirect()
             ->back()
             ->with('successMessage', 'Added to Fit');
+    }
+
+    public function removeFromFit(Thread $thread)
+    {
+        $thread->update([
+            'in_fit' => false,
+        ]);
+        return redirect()
+            ->back()
+            ->with('error', 'Removed from Fit');
     }
 
     // delete existing thread

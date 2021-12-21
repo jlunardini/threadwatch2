@@ -23,12 +23,14 @@ class Thread extends Authenticatable
         'washed',
         'worn',
         'user_id',
-        'category',
+        'category_id',
         'worn_today',
         'denim_weight',
         'web_link',
         'in_fit',
     ];
+
+    protected $casts = ['worn_today' => 'datetime'];
 
     public function user()
     {
@@ -37,6 +39,6 @@ class Thread extends Authenticatable
 
     public function category()
     {
-        return $this->hasOne('App\Models\ThreadCategory');
+        return $this->belongsTo('App\Models\Category');
     }
 }

@@ -4,7 +4,7 @@
             class="
                 flex flex-col
                 sm:flex-row
-                max-w-5xl
+                max-w-6xl
                 lg:mx-auto
                 justify-center
                 sm:justify-between
@@ -37,8 +37,7 @@
                 "
             >
                 <div>
-                    <span class="text-customOrange mr-1">@</span
-                    >{{ user.username }}
+                    <span class="text-customOrange mr-1">@</span>{{ user.username }}
                 </div>
                 <div class="flex flex-row gap-2 items-center">
                     <p class="text-customLightGray text-lg whitespace-nowrap">
