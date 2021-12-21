@@ -27749,7 +27749,7 @@ var _hoisted_1 = {
   "class": "flex flex-col max-w-3xl lg:mx-auto justify-start sm:justify-start mx-2 gap-4 mt-16"
 };
 var _hoisted_2 = {
-  "class": "w-full w-full self-start mt-4 sm:mt-16"
+  "class": "w-full w-full self-start mt-16"
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
@@ -27762,10 +27762,10 @@ var _hoisted_4 = {
   "class": "flex flex-wrap flex-col flex-grow gap-4"
 };
 var _hoisted_5 = {
-  "class": "flex flex-row text-white justify-start bg-transparent rounded-md py-2 pl-2 w-auto relative gap-6"
+  "class": "flex flex-col md:flex-row text-white justify-start bg-transparent rounded-md py-2 pl-2 w-auto relative gap-6"
 };
 var _hoisted_6 = {
-  "class": "flex flex-col sm:w-auto gap-2 p-4 rounded-md justify-center bg-customBlack"
+  "class": "flex flex-row-reverse items-center justify-between md:justify-center md:flex-col sm:w-auto gap-2 p-4 rounded-md bg-customBlack"
 };
 var _hoisted_7 = {
   "class": "bg-customOrange h-16 w-16 rounded-full flex items-center justify-center leading-none self-center"

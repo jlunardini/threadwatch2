@@ -3,14 +3,14 @@
     <div
       class="flex flex-col max-w-3xl lg:mx-auto justify-start sm:justify-start mx-2 gap-4 mt-16"
     >
-      <div class="w-full w-full self-start mt-4 sm:mt-16">
+      <div class="w-full w-full self-start mt-16">
         <h1 class="text-customLightGray text-4xl mb-4">Thread Count</h1>
         <div class="flex flex-wrap flex-col flex-grow gap-4">
           <div
-            class="flex flex-row text-white justify-start bg-transparent rounded-md py-2 pl-2 w-auto relative gap-6"
+            class="flex flex-col md:flex-row text-white justify-start bg-transparent rounded-md py-2 pl-2 w-auto relative gap-6"
           >
             <div
-              class="flex flex-col sm:w-auto gap-2 p-4 rounded-md justify-center bg-customBlack"
+              class="flex flex-row-reverse items-center justify-between md:justify-center md:flex-col sm:w-auto gap-2 p-4 rounded-md bg-customBlack"
             >
               <div
                 class="bg-customOrange h-16 w-16 rounded-full flex items-center justify-center leading-none self-center"
