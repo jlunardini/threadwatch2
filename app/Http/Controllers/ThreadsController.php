@@ -25,12 +25,14 @@ class ThreadsController extends Controller
     // //         ]);
     //     }
 
-    public function index(User $user)
+    public function index(User $user, Request $request)
     {
         $user = auth()->user()->id;
         $threads = Thread::with('category')
-            ->where('user_id', '=', $user)
-            ->get();
+            ->where('user_id', '=', $user)->when($request->term, function($query, $term) {
+                $query->where('brand', 'LIKE', '%' . $term . '%')->orWhere('style', 'LIKE', '%' . $term . '%');
+            })
+            ->paginate(12);
         $categories = Category::all();
         return Inertia::render('Threads/Index', [
             'threads' => $threads,
@@ -46,7 +48,10 @@ class ThreadsController extends Controller
             ->pluck('id');
         $threads = Thread::where('user_id', '=', $user)
             ->where('category_id', '=', $category)
-            ->get();
+           ->when($request->term, function($query, $term) {
+               $query->where('brand', 'LIKE', '%' . $term . '%')->orWhere('style', 'LIKE', '%' . $term . '%');
+           })
+           ->paginate(12);
 
         $categories = Category::all();
         return Inertia::render('Threads/Index', [

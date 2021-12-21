@@ -41,137 +41,61 @@
         </div>
       </div>
       <div
-        class="grid grid-cols-12 lg:w-10/12 w-full lg:mx-0 gap-4 justify-center lg:mx-auto overflow-x-auto"
+        class="lg:w-10/12 w-full lg:mx-0 gap-4 justify-center lg:mx-auto overflow-x-auto"
       >
         <div
-          className="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 text-white justify-between bg-customBlack rounded-md py-4 pl-4 w-auto relative"
-          v-for="thread in threads"
-          :key="thread.id"
+          class="flex flex-row gap-2 text-customLightGray items-center w-full max-w-5xl mx-auto mb-4"
         >
-          <!-- <span class="h-16 w-16 rounded-full bg-gray-800"></span> -->
-          <div class="flex flex-col justify-start gap-4">
-            <div class="w-full">
-              <p class="text-2xl text-customLightGray mt-4">
-                {{ thread.brand }}
-              </p>
-              <p class="text-xl text-customLightGray">{{ thread.style }}</p>
-              <p class="text-md text-customLightGray">
-                Last Worn:
-                <span v-if="thread.worn_today == null" class="font-bold"
-                  >Never</span
-                >
-                <span
-                  class="text-customOrange"
-                  v-else-if="getHumanDate(thread.worn_today) == today"
-                  >Today</span
-                >
-                <span v-else class="font-bold">{{
-                  getHumanDate(thread.worn_today)
-                }}</span>
-              </p>
-            </div>
-            <div class="w-full flex flex-col">
-              <div class="text-customLightGray">
-                <p class="font-victor text-md">
-                  Worn for:
-                  <span
-                    class="font-bold text-customOrange text-xl font-thread"
-                    >{{ thread.worn }}</span
-                  >
-                  Days
-                </p>
-              </div>
-              <div class="text-customLightGray">
-                <p class="font-victor text-md">
-                  Washed:
-                  <span
-                    class="font-bold text-customOrange text-xl font-thread"
-                    >{{ thread.washed }}</span
-                  >
-                  Times
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row gap-2 mb-4 mt-4">
-            <inertia-link
-              v-if="thread.in_fit == false && laundryMode == false"
-              :href="`/threads/${thread.id}/addToFit`"
-              method="PATCH"
-              class="p-2"
-              preserve-scroll
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-700 hover:text-customOrange"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 4v16m8-8H4"
-                /></svg
-            ></inertia-link>
-
-            <inertia-link
-              v-if="thread.in_fit == true && laundryMode == false"
-              :href="`/threads/${thread.id}/removeFromFit`"
-              method="PATCH"
-              preserve-scroll
-              class="font-victor border border-customOrange cursor-pointer rounded-full text-sm py-2 px-4 whitespace-nowrap text-white tranform transition-colors bg-customOrange flex flex-row flex-nowrap gap-2 items-center"
-              >{{ this.buttonText
-              }}<svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-white cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                /></svg
-            ></inertia-link>
-            <inertia-link
-              v-if="laundryMode == true"
-              :href="`/threads/${thread.id}/washedToday`"
-              method="PATCH"
-              preserve-scroll
-              class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
+          <inertia-link
+            v-if="threads.prev_page_url != null"
+            :href="threads.prev_page_url"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Wash</inertia-link
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
+              /></svg
+          ></inertia-link>
+          <inertia-link
+            v-if="threads.next_page_url != null"
+            :href="threads.next_page_url"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-            <inertia-link
-              v-if="laundryMode == false"
-              class="p-2"
-              :href="`/threads/${thread.id}/edit`"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-700 hover:text-customOrange"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+              /></svg
+          ></inertia-link>
+          <div class="flex flex-col">
+            <label for="search"></label>
+            <div class="relative">
+              <input
+                id="search"
+                type="text"
+                v-model="term"
+                @keyup="search"
+                class="mt-1 px-4 py-2 text-sm rounded border bg-transparent border-customLightGray"
+              />
+              <div
+                class="absolute top-1/2 transform -translate-y-1/2 right-2 flex items-center"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                />
-              </svg>
-            </inertia-link>
-            <div
-              v-if="laundryMode == false || thread.category.name != null"
-              class="w-full flex flex-row rounded-md text-customOrange items-center flex-grow-0"
-            >
-              <div class="h-6 w-6 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -180,20 +104,171 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-              </div>
-              <div
-                v-if="thread.category != null"
-                class="text-customOrange text-md font-bold"
-              >
-                {{ thread.category.name }}
               </div>
             </div>
           </div>
         </div>
+        <transition>
+          <div
+            class="grid grid-cols-12 gap-2 w-full text-white justify-between relative"
+          >
+            <div
+              class="flex flex-col col-span-12 md:col-span-4 bg-customBlack p-4 rounded-md"
+              v-for="thread in threads.data"
+              :key="thread.id"
+            >
+              <!-- <span class="h-16 w-16 rounded-full bg-gray-800"></span> -->
+              <div class="flex flex-col justify-start gap-4">
+                <div class="w-full">
+                  <p class="text-2xl text-customLightGray mt-4">
+                    {{ thread.brand }}
+                  </p>
+                  <p class="text-xl text-customLightGray">{{ thread.style }}</p>
+                  <p class="text-md text-customLightGray">
+                    Last Worn:
+                    <span v-if="thread.worn_today == null" class="font-bold"
+                      >Never</span
+                    >
+                    <span
+                      class="text-customOrange"
+                      v-else-if="getHumanDate(thread.worn_today) == today"
+                      >Today</span
+                    >
+                    <span v-else class="font-bold">{{
+                      getHumanDate(thread.worn_today)
+                    }}</span>
+                  </p>
+                </div>
+                <div class="w-full flex flex-col">
+                  <div class="text-customLightGray">
+                    <p class="font-victor text-md">
+                      Worn for:
+                      <span
+                        class="font-bold text-customOrange text-xl font-thread"
+                        >{{ thread.worn }}</span
+                      >
+                      Days
+                    </p>
+                  </div>
+                  <div class="text-customLightGray">
+                    <p class="font-victor text-md">
+                      Washed:
+                      <span
+                        class="font-bold text-customOrange text-xl font-thread"
+                        >{{ thread.washed }}</span
+                      >
+                      Times
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-row gap-2 mb-4 mt-4">
+                <inertia-link
+                  v-if="thread.in_fit == false && laundryMode == false"
+                  :href="`/threads/${thread.id}/addToFit`"
+                  method="PATCH"
+                  class="p-2"
+                  preserve-scroll
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-gray-700 hover:text-customOrange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    /></svg
+                ></inertia-link>
+
+                <inertia-link
+                  v-if="thread.in_fit == true && laundryMode == false"
+                  :href="`/threads/${thread.id}/removeFromFit`"
+                  method="PATCH"
+                  preserve-scroll
+                  class="font-victor border border-customOrange cursor-pointer rounded-full text-sm py-2 px-4 whitespace-nowrap text-white tranform transition-colors bg-customOrange flex flex-row flex-nowrap gap-2 items-center"
+                  >{{ this.buttonText
+                  }}<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-white cursor-pointer"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    /></svg
+                ></inertia-link>
+                <inertia-link
+                  v-if="laundryMode == true"
+                  :href="`/threads/${thread.id}/washedToday`"
+                  method="PATCH"
+                  preserve-scroll
+                  class="font-victor border border-customOrange rounded-full text-sm py-2 px-4 text-customOrange hover:text-white tranform transition-colors hover:bg-customOrange"
+                >
+                  Wash</inertia-link
+                >
+                <inertia-link
+                  v-if="laundryMode == false"
+                  class="p-2"
+                  :href="`/threads/${thread.id}/edit`"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-gray-700 hover:text-customOrange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    />
+                  </svg>
+                </inertia-link>
+                <div
+                  v-if="laundryMode == false || thread.category.name != null"
+                  class="w-full flex flex-row rounded-md text-customOrange items-center flex-grow-0"
+                >
+                  <div class="h-6 w-6 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    v-if="thread.category != null"
+                    class="text-customOrange text-md font-bold"
+                  >
+                    {{ thread.category.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
+
       <div
         class="flex flex-row flex-wrap mt-12 justify-center w-full mx-auto pb-16 gap-4 px-8 lg:px-0"
       >
@@ -326,6 +401,7 @@ export default {
       hover: false,
       buttonText: "In Fit",
       getRoute: route().current(),
+      term: "",
     };
   },
   methods: {
@@ -339,6 +415,13 @@ export default {
     },
     getRoute: function () {
       return console.log(route().current());
+    },
+    search: function () {
+      this.$inertia.get(
+        route("threads.index"),
+        { term: this.term },
+        { preserveState: true }
+      );
     },
   },
 };
